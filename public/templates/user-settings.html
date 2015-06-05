@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+  	<div class="col-md-8 col-md-offset-2">
+			<h2>Settings</h2>
+			<form name="current_user_form" novalidate>
+				<div>
+					First Name:
+					<span ng-hide="editSettings" >{{userData.currentUser.first_name}}</span>
+					<input ng-show="editSettings" ng-model="userFormData.first_name" name="first_name" class="form-control" required/>
+					<small class="error" ng-show="editSettings && current_user_form.first_name.$error.required">First Name can't be blank</small>
+				</div>
+
+				<div>
+					Last Name:
+					<span ng-hide="editSettings">{{userData.currentUser.last_name}}</span>
+					<input ng-show="editSettings" ng-model="userFormData.last_name" name="last_name" class="form-control" required />
+					<small class="error" ng-show="editSettings && current_user_form.last_name.$error.required">Last Name can't be blank</small>
+				</div>
+
+				<div>
+					Email:
+					<span ng-hide="editSettings">{{userData.currentUser.email}}</span>
+					<input ng-show="editSettings" ng-model="userFormData.email" name="email" class="form-control" required />
+					<small class="error" ng-show="editSettings && current_user_form.email.$error.required">Email can't be blank</small>
+				</div>
+			</form>
+			<br>
+
+			<button ng-click="editUser()" ng-hide="editSettings" class="btn btn-info">Edit User</button>
+			<button ng-click="cancelEdit()" ng-show="editSettings" class="btn btn-default">Cancel Edit</button>
+			<button ng-click="updateCurrentUser()" ng-show="editSettings" ng-class="{disabled: current_user_form.$invalid}" class="btn btn-info">Save User</button>
+		</div>
+	</div>
+</div>

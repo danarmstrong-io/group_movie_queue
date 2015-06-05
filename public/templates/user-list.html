@@ -1,0 +1,190 @@
+<!-- <div class="container bootcards-container push-right"> -->
+
+    <!-- This is where you come in... -->
+    <!-- I've added some sample data below so you can get a feel for the required markup -->
+
+    <div class="row">
+
+      <!-- left list column -->
+      <div class="col-sm-5 bootcards-list" id="list" data-title="Movies">
+        <div class="panel panel-default">       
+
+
+          <div class="list-group">
+
+            <!-- list of sample data -->
+
+            <a class="list-group-item" href="#">
+              <img src="img/Joseph Barish.jpg" class="img-rounded pull-left">
+              <h4 class="list-group-item-heading">Barish, Joseph</h4>
+              <p class="list-group-item-text">Masung Corp.</p>
+            </a>
+            
+          </div><!--list-group-->
+
+          <div class="panel-footer">
+            <small class="pull-left">Built with Bootcards - List</small>
+            <a class="btn btn-link btn-xs pull-right" href="#">
+              Footer link</a>
+          </div>
+        </div><!--panel-->
+
+        </div><!--list-->
+
+        <!--list details column-->
+        <div class="col-sm-7 bootcards-cards hidden-xs">
+
+          <div class="panel panel-default bootcards-richtext">
+            <div class="panel-heading">
+              <h3 class="panel-title">About this page</h3>
+            </div>
+            <div class="panel-body">
+              <p>This page shows you how to create a master/detail view using Bootcards. Main features:</p>
+              <ul>
+                <li>Markup based on <a href="http://getbootstrap.com" target="_blank">Bootstrap 3+</a>.</li>
+                <li>Near-native iOS and Android look (there's one for Desktop too).</li>
+                <li>Fixed header and footer.</li>
+                <li>Independent scrolling columns.</li>
+                <li>Automatic single pane portrait mode (similar to the iOS Mail app): make sure you also view this page using a tablet and rotate to portrait.</li>
+                <li>Off-canvas menu. On this page it is configured to push the main content away, it can also be configured as an overlay.</li>
+              </ul>
+              <p>
+              This is only a sample page: it is not meant to be fully functional. We've used <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> for the icons and have include FTLabs' <a href="https://github.com/ftlabs/fastclick" target="_blank">FastClick</a> library to make tapping links on iOS faster.
+              </p>
+             
+            </div>
+          </div><!--end rich text card--> 
+
+          <div class="panel panel-default bootcards-richtext">
+            <div class="panel-heading">
+              <h3 class="panel-title">Theme Switcher</h3>
+            </div>
+            <div class="panel-body">
+
+              <!--theme switcher-->
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-primary active">
+                    <input type="radio" name="themeSwitcher" value="ios" autocomplete="off" checked> iOS
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="themeSwitcher" value="android" autocomplete="off"> Android
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="themeSwitcher" value="desktop" autocomplete="off"> Desktop
+                  </label>
+                </div>
+            </div>
+
+          </div>
+
+          <!--contact details -->
+          <div id="contactCard">
+
+            <div class="panel panel-default">
+              <div class="panel-heading clearfix">
+                <h3 class="panel-title pull-left">Contact Details</h3>
+                <div class="btn-group pull-right visible-xs">
+                  <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#editModal">
+                    <i class="fa fa-pencil"></i><span>Edit</span>
+                  </a>
+                </div>  
+                <a class="btn btn-primary pull-right hidden-xs" href="#" data-toggle="modal" data-target="#editModal">
+                  <i class="fa fa-pencil"></i><span>Edit</span>
+                </a>
+              </div>
+              <div class="list-group">
+                <div class="list-group-item">
+                  <img src="img/Sofia Acey.jpg" class="img-rounded pull-left">
+                  <label>Name</label>
+                  <h4 class="list-group-item-heading">Acey, Sofia</h4>
+                </div>
+
+                <div class="list-group-item">
+                  <label>Company</label>
+                  <h4 class="list-group-item-heading">Masung Corp.</h4>
+                </div>
+
+                <div class="list-group-item">
+                  <label>Job Title</label>
+                  <h4 class="list-group-item-heading">Finance Director (ZCT)</h4>
+                </div>
+
+                <div class="list-group-item">
+                  <label>Department</label>
+                  <h4 class="list-group-item-heading">Finance</h4>
+                </div>
+
+                <a class="list-group-item" href="tel://+1 650-555-0055">
+                  <label>Phone</label>
+                  <h4 class="list-group-item-heading">+1 650-555-0055</h4>
+                </a>
+
+                <a class="list-group-item" href="mailto:Sofia.Acey@masung.com">
+                  <label>Email</label>
+                  <h4 class="list-group-item-heading">Sofia.Acey@masung.com</h4>
+                </a>
+
+              </div>
+
+              <div class="panel-footer">
+                <small class="pull-left">Built with Bootcards - Base Card</small>
+                <a class="btn btn-link btn-xs pull-right" href="#">
+                  Card footer link</a>
+                </div>    
+              </div>
+
+            </div><!--contact card-->
+
+            <!--rich text card sample-->
+            <div class="panel panel-default bootcards-richtext">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Rich Text Card Heading</h3>
+                </div>
+                <div class="panel-body">
+                  <p class="lead">Lead body copy vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+                  <h1>Heading 1</h1>
+                  <h2>Heading 2</h2>
+                  <h3>Heading 3</h3>
+                  <h4>Heading 4</h4>
+                  <h5>Heading 5</h5>
+                  <h6>Heading 6</h6>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lobortis pretium nisl. Etiam at vestibulum purus, sit amet blandit mi. Duis enim lectus, tempus nec varius sed, sollicitudin quis velit. Fusce quis sem porttitor, euismod ante vitae, ultricies erat.</p>
+                  <ul>
+                    <li>Duis cursus dui et turpis gravida sollicitudin.</li>
+                    <li>Donec eget mauris feugiat, euismod purus nec, feugiat neque.</li>
+                    <li>Nunc erat est, molestie eget magna in, consectetur euismod lorem.</li>
+                  </ul>
+                  <ol>
+                    <li>Sed luctus congue orci quis tempus.</li>
+                    <li>Praesent in viverra lorem.</li>
+                    <li>Suspendisse augue lacus, porta quis imperdiet at, posuere vel nulla.</li>
+                  </ol>
+                  <div>
+                    <!-- Standard button -->
+                    <button type="button" class="btn btn-default">Default</button>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <button type="button" class="btn btn-primary">Primary</button>
+                    <!-- Indicates a successful or positive action -->
+                    <button type="button" class="btn btn-success">Success</button>
+                    <!-- Contextual button for informational alert messages -->
+                    <button type="button" class="btn btn-info">Info</button>
+                    <!-- Indicates caution should be taken with this action -->
+                    <button type="button" class="btn btn-warning">Warning</button>
+                    <!-- Indicates a dangerous or potentially negative action -->
+                    <button type="button" class="btn btn-danger">Danger</button>
+                    <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+                    <button type="button" class="btn btn-link">Link</button>
+                    <button type="button" class="btn btn-primary" disabled="disabled">Disabled</button>
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <small>Built with Bootcards - Rich Text Card</small>
+                </div>
+              </div><!--end rich text card-->
+
+        </div><!--list-details-->
+
+    </div><!--row-->
+
+
+  </div><!--container-->

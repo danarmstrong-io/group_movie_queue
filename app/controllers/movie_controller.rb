@@ -1,3 +1,0 @@
-class MovieController < ApplicationController
-
-end

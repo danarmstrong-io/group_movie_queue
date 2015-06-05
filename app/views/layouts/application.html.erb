@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html class="full">
 <head>
-  <title>GroupMovieQueue</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Oogway's List</title>
+<link href='http://fonts.googleapis.com/css?family=Old+Standard+TT' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag %>
 </head>
 <body>
+	<% unless current_user %>
+		<%= render partial: "/layouts/navbar" %>
+	<% end %>
+	<%= yield %>
 
-<%= yield %>
 
 </body>
 </html>

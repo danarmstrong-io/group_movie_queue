@@ -1,0 +1,79 @@
+<movie-list-navbar></movie-list-navbar>
+
+<div class="row no-gutters">
+
+  <div class="col-sm-7 bootcards-cards">
+
+    <div class="panel panel-default bootcards-richtext ">
+    	<div class="row no-gutters">
+    		<div class="col-md-4 movie-info-panel">
+      		<img ng-src="{{readyListData.movies[currentMovie.movieIndex].poster}}" class="poster"/>
+      	</div>
+      	<div class="col-md-8 movie-info">
+      		
+    			<h2>{{readyListData.movies[currentMovie.movieIndex].title}} ({{readyListData.movies[currentMovie.movieIndex].year}})</h2>
+    			<p>{{readyListData.movies[currentMovie.movieIndex].rated}} | {{readyListData.movies[currentMovie.movieIndex].runtime}} | {{readyListData.movies[currentMovie.movieIndex].genre}} | {{readyListData.movies[currentMovie.movieIndex].released | date}}</p>
+
+    			<hr>
+
+  				<div>
+
+  					<div class="row" ng-repeat="review in readyListData.movies[currentMovie.movieIndex].user_movie_ratings">
+  						<div class="col-md-3">
+	  						<p class="list-group-item-heading">{{review.first_name}}'s rating: {{review.rating}}</p>
+	  					</div>
+
+							<div class="col-md-9">
+								<button ng-show="review.seen" type="button" class="btn btn-success btn-xs" disabled>
+		  						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Seen
+								</button>
+
+								<button ng-show="review.favorite" type="button" class="btn btn-danger btn-xs" disabled>
+		  						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
+								</button>
+
+								<button ng-show="review.rewatch" type="button" class="btn btn-warning btn-xs" disabled>
+		  						<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Rewatch
+								</button>
+							</div>
+						</div>
+  				</div>
+
+    			<hr>
+
+    			<p>{{readyListData.movies[currentMovie.movieIndex].plot}}</p>
+    			<hr>
+    		
+    			<p>Director: {{readyListData.movies[currentMovie.movieIndex].director}}</p>
+    			<p>Writers: {{readyListData.movies[currentMovie.movieIndex].writer}}</p>
+    			<p>Stars: {{readyListData.movies[currentMovie.movieIndex].actors}}</p>
+
+      	</div>
+    	</div>
+  	</div>
+
+  	<streaming-icons></streaming-icons>
+
+	</div>
+
+  <div class="col-sm-5 bootcards-list" id="list" data-title="readyListData.movies">
+    <div class="panel panel-default">       
+      <div class="list-group">
+
+        <a ng-repeat="movie in readyListData.movies" ng-click="changeMovieIndex($index)" class="list-group-item" href="#">
+          <div class="pull-left oogway-rating-text">
+            {{movie.oogway_rating | number:1}}
+          </div>
+          <img ng-src="{{movie.poster}}" class="img-rounded pull-left card-image">
+
+          <h4 class="list-group-item-heading">{{movie.title}} ({{movie.year}})</h4>
+          <p class="list-group-item-text">{{movie.actors}}</p>
+          <p class="list-group-item-text"></p>
+
+        </a>
+    	</div>
+
+    </div>
+  </div>
+
+</div>

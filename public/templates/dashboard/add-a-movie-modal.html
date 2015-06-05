@@ -1,0 +1,66 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add a Movie</h3>
+</div>
+<div class="modal-body">
+  <label>Movie Title</label>
+
+  <typeahead title="l" subtitle="s" displaykey="l" retkey="id" modelret="imdbId" modeldisplay="id" movie="movie"/>
+  <br>
+
+	<div class="row no-gutters" ng-show="movie">
+		<div class="col-sm-5">
+  		<img ng-src="{{movie.poster}}" class="img-responsive"/>
+  	</div>
+  	<div class="col-sm-7">
+  		<div class="add-movie-info">
+  	
+			<h4>{{movie.title}} ({{movie.year}})</h4>
+			<p>{{movie.rated}} | {{movie.runtime}} | {{movie.genre}} | {{movie.released | date}}</p>
+
+			<hr>
+
+			<p>{{movie.plot}}</p>
+			<hr>
+		
+			<p>Director: {{movie.director}}</p>
+			<p>Writers: {{movie.writer}}</p>
+			<p>Stars: {{movie.actors}}</p>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row" ng-repeat="user in movie.ratings">
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-12">
+					<label>{{user.first_name}}'s Rating:</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-7">
+		   		<star-rating ng-model="user.oogway_rating" max="10" icon="star"></star-rating>
+		 		</div>
+				<div class="col-sm-5">
+					<button type="button" class="btn btn-xs" ng-class="{'btn-success': user.seen, 'btn-standard': !user.seen}" ng-click="user.seen = !user.seen">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Seen
+					</button>
+
+					<button type="button" class="btn btn-xs" ng-class="{'btn-danger': user.favorite, 'btn-standard': !user.favorite}" ng-click="user.favorite = !user.favorite">
+						<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
+					</button>
+
+					<button type="button" class="btn btn-xs" ng-class="{'btn-warning': user.rewatch, 'btn-standard': !user.rewatch}" ng-click="user.rewatch = !user.rewatch">
+						<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Rewatch
+					</button>
+				</div>
+			</div>
+
+
+	</div>
+</div>
+</div>
+
+<div class="modal-footer" ng-show="movie">
+    <button class="btn btn-standard" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-oogway-light" ng-click="ok(movie)">Add To List</button>
+</div>
