@@ -1,10 +1,22 @@
-app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', function($scope, ReadyList, PendingList) {
+app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'QueuedLists', function($scope, ReadyList, PendingList, QueuedLists) {
 
 	$scope.init = function() {
     $scope.pendingListData = PendingList.listData;
     $scope.readyListData = {};
     $scope.readyListData.users = [];
     $scope.readyListData = ReadyList.listData;
+    // $scope.queuedLists = {}
+    $scope.queuedLists = QueuedLists.listsData;
+	}
+	$scope.printListsData = function() {
+		console.log("wee")
+		console.log($scope.queuedLists.lists)
+
+	}
+
+	$scope.changeUserList = function(listId) {
+		console.log(listId)
+		ReadyList.changeListId(listId);
 	}
 
 	$scope.userListName = function() {

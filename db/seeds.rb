@@ -1,5 +1,7 @@
 user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "dan@gmail.com", password: "password")
 user2 = User.create!(first_name: "Megan", last_name: "Vu", email: "megan@gmail.com", password: "password")
+user3 = User.create!(first_name: "Kevin", last_name: "O", email: "kevin@gmail.com", password: "password")
+user4 = User.create!(first_name: "Caitlin", last_name: "C", email: "caitlin@gmail.com", password: "password")
 
 movie1 = Movie.create!({"title":"Into the Wild","year":"2007","rated":"R","released":"19 Oct 2007","runtime":"148 min","genre":"Adventure, Biography, Drama","director":"Sean Penn","writer":"Sean Penn (screenplay), Jon Krakauer (book)","actors":"Emile Hirsch, Marcia Gay Harden, William Hurt, Jena Malone","plot":"After graduating from Emory University, top student and athlete Christopher McCandless abandons his possessions, gives his entire $24,000 savings account to charity and hitchhikes to Alaska to live in the wilderness. Along the way, Christopher encounters a series of characters that shape his life.","language":"English, Danish","country":"USA","awards":"Nominated for 2 Oscars. Another 26 wins & 84 nominations.","poster":"http://ia.media-imdb.com/images/M/MV5BMTAwNDEyODU1MjheQTJeQWpwZ15BbWU2MDc3NDQwNw@@._V1_SX300.jpg","metascore":"73","imdbrating":"8.2","imdbid":"tt0758758"})
 
@@ -19,8 +21,13 @@ movie7 = Movie.create!({"title":"Braveheart","year":"1995","rated":"R","released
 movie8 = Movie.create!({"title":"28 Days Later...","year":"2002","rated":"R","released":"27 Jun 2003","runtime":"113 min","genre":"Horror","director":"Danny Boyle","writer":"Alex Garland","actors":"Alex Palmer, Bindu De Stoppani, Jukka Hiltunen, David Schneider","plot":"Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary.","language":"English, Spanish","country":"UK","awards":"10 wins & 25 nominations.","poster":"http://ia.media-imdb.com/images/M/MV5BNzM2NDYwNjM3OF5BMl5BanBnXkFtZTYwNDYxNzk5._V1_SX300.jpg","metascore":"73","imdbrating":"7.6","imdbid":"tt0289043"})
 
 queued_list = QueuedList.create()
+queued_list2 = QueuedList.create()
 queued_list.users << user1
 queued_list.users << user2
+
+queued_list2.users << user1
+queued_list2.users << user3
+queued_list2.users << user4
 
 qm1 = QueuedMovie.create(queued_list: queued_list, movie: movie1)
 qm2 = QueuedMovie.create(queued_list: queued_list, movie: movie2)
@@ -34,12 +41,12 @@ qm8 = QueuedMovie.create(queued_list: queued_list, movie: movie8)
 
 
 QueuedMovie.all.each do |qm|
-	User.all.each do |user|
+	queued_list.users.each do |user|
 		umr = UserMovieRating.create!(movie: qm.movie, user: user, rating: rand(1..10), seen: rand(0..1).zero?, rewatch: rand(0..1).zero?, favorite: rand(0..1).zero?, comment: "These are comments on this movie", completed: false)
 		qm.user_movie_ratings << umr
 	end
 end
 
-QueuedMovie.all.each do |qm|
-		qm.complete
-end
+# QueuedMovie.all.each do |qm|
+# 		qm.complete!
+# end

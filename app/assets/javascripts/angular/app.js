@@ -7,11 +7,11 @@ app.config(['$httpProvider', function($httpProvider) {
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/list/1");
+  $urlRouterProvider.otherwise("/dashboard");
 
   $stateProvider
     .state('dashboard', {
-      url: "/list/:listId",
+      url: "/dashboard",
       templateUrl: "/templates/dashboard/dashboard.html",
       controller: "DashboardController"
     })
@@ -24,5 +24,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/user-settings",
       templateUrl: "/templates/user-settings.html",
       controller: "UserSettingsController"
+    })
+    .state('createList', {
+      url: "/create-list",
+      templateUrl: "/templates/create-list/create-list.html",
+      controller: "CreateListController"
     })
 });

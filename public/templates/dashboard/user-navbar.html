@@ -13,13 +13,20 @@
           <a ui-sref="userPending" ng-show="pendingListData.movies">Pending Movies ({{pendingListData.movies.length}})</a>
         </li>
 
-				<li><a ui-sref="#">Create a New List</a></li>
+				<!-- <li><a ui-sref="createList">Create a New List</a></li> -->
+				<li><a ng-click="printListsData()">Create a New List</a></li>
 
 	      <li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lists<span class="caret"></span></a>
 	        <ul class="dropdown-menu navbar-inverse" role="menu">
-	          <li ><a href="#">-  Megan</a></li>
-	          <li><a href="#">-  Kevin, Caitlin</a></li>
+	          <li ng-repeat="list in queuedLists.lists">
+	          	<!-- <a>{{list.id}}</a> -->
+	          	<a ng-click="changeUserList(list.id)">-  
+	          		<p ng-repeat="user in list.users">
+	          			{{user.first_name}}
+	          		</p>
+	          	</a>
+	          </li>
 	          
 	        </ul>
 	      </li>
