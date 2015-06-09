@@ -24,6 +24,7 @@ class QueuedMoviesController < ApplicationController
 			umr.seen = rating["seen"]
 			umr.rewatch = rating["rewatch"]
 			umr.favorite = rating["favorite"]
+			umr.completed = true
 			umr.save
 			queued_movie.save
 		end

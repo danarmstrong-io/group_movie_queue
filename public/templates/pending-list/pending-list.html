@@ -1,0 +1,88 @@
+<title-navbar title="title"></title-navbar>
+
+<div class="row" ng-hide="pendingListData.movies">
+  <div class="col-sm-6 col-sm-offset-3">
+    You have no pending movies. 
+    <a ui-sref="dashboard">Return to your list.</a>
+  </div>
+</div>
+	
+<div class="row no-gutters" ng-show="pendingListData.movies">
+
+  <div class="col-sm-7 bootcards-cards">
+
+    <div class="panel panel-default bootcards-richtext ">
+    	<div class="row no-gutters">
+    		<div class="col-md-4 movie-info-panel">
+      		<img ng-src="{{pendingListData.movies[currentPendingMovie.movieIndex].poster}}" class="poster"/>
+      	</div>
+      	<div class="col-md-8 movie-info">
+      		
+    			<h2>{{pendingListData.movies[currentPendingMovie.movieIndex].title}} ({{pendingListData.movies[currentPendingMovie.movieIndex].year}})</h2>
+    			<p>{{pendingListData.movies[currentPendingMovie.movieIndex].rated}} | {{pendingListData.movies[currentPendingMovie.movieIndex].runtime}} | {{pendingListData.movies[currentPendingMovie.movieIndex].genre}} | {{pendingListData.movies[currentPendingMovie.movieIndex].released | date}}</p>
+
+    			<hr>
+
+    			<p>{{pendingListData.movies[currentPendingMovie.movieIndex].plot}}</p>
+    			<hr>
+    		
+    			<p>Director: {{pendingListData.movies[currentPendingMovie.movieIndex].director}}</p>
+    			<p>Writers: {{pendingListData.movies[currentPendingMovie.movieIndex].writer}}</p>
+    			<p>Stars: {{pendingListData.movies[currentPendingMovie.movieIndex].actors}}</p>
+
+    			<hr>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-12">
+									<label>Your Rating:</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-7">
+						   		<star-rating ng-model="movie_rating.rating" max="10" icon="star"></star-rating>
+						 		</div>
+								<div class="col-sm-5">
+									<button type="button" class="btn btn-xs" ng-class="{'btn-success': movie_rating.seen, 'btn-standard': !movie_rating.seen}" ng-click="movie_rating.seen = !movie_rating.seen">
+										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Seen
+									</button>
+
+									<button type="button" class="btn btn-xs" ng-class="{'btn-danger': movie_rating.favorite, 'btn-standard': !movie_rating.favorite}" ng-click="movie_rating.favorite = !movie_rating.favorite">
+										<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
+									</button>
+
+									<button type="button" class="btn btn-xs" ng-class="{'btn-warning': movie_rating.rewatch, 'btn-standard': !movie_rating.rewatch}" ng-click="movie_rating.rewatch = !movie_rating.rewatch">
+										<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Rewatch
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+          <br>
+
+					<button ng-click="sendUserMovieRating()" class="btn btn-default">Submit</button>
+
+      	</div>
+    	</div>
+  	</div>
+
+	</div>
+
+  <div class="col-sm-5 bootcards-list" id="list" data-title="pendingListData.movies">
+    <div class="panel panel-default">       
+      <div class="list-group">
+
+        <a ng-repeat="movie in pendingListData.movies" ng-click="changePendingMovieIndex($index)" class="list-group-item">
+          <img ng-src="{{movie.poster}}" class="img-rounded pull-left card-image">
+
+          <h4 class="list-group-item-heading">{{movie.title}} ({{movie.year}})</h4>
+          <p class="list-group-item-text">{{movie.actors}}</p>
+          <p class="list-group-item-text"></p>
+
+        </a>
+    	</div>
+
+    </div>
+  </div>
+
+</div>

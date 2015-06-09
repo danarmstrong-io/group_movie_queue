@@ -12,3 +12,14 @@ angular.module('app').directive('userNavbar', function() {
 		templateUrl: "/templates/dashboard/user-navbar.html"
 	};
 })
+
+angular.module('app').directive('titleNavbar', function() {
+	return {
+		restrict: 'E',
+		// controller: 'TitleNavbarController',
+		scope: {
+			title: '=title'
+		},
+		templateUrl: "/templates/directives/title-navbar.html"
+	};
+})

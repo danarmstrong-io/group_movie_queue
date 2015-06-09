@@ -8,10 +8,20 @@ class QueuedMovie < ActiveRecord::Base
 	belongs_to :queued_list
 	belongs_to :movie
 
-	def complete
+	def complete!
 		self.completed = true
 		self.oogway_rating = calculate_oogway_rating
 		self.save
+	end
+
+	def check_if_complete
+		if incomplete_user_movie_ratings.length == 0
+			self.complete!
+		end
+	end
+
+	def incomplete_user_movie_ratings
+		self.user_movie_ratings.where(completed:false)
 	end
 
 	def calculate_oogway_rating

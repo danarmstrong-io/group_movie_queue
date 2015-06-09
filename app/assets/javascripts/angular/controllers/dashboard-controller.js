@@ -1,10 +1,10 @@
-app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList', 'PendingLists', 'orderByFilter', function($scope, $modal, $http, ReadyList, PendingLists, orderByFilter){
+app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList', 'PendingList', 'orderByFilter', function($scope, $modal, $http, ReadyList, PendingList, orderByFilter){
 
 	$scope.init = function() {
     $scope.currentMovie = {}
     $scope.currentMovie.movieIndex = 0;
     $scope.readyListData = ReadyList.listData;
-    $scope.pendingListsData = PendingLists.listsData;
+    $scope.pendingListData = PendingList.listData;
   }
 
   $scope.changeMovieIndex = function(movieIndex) {

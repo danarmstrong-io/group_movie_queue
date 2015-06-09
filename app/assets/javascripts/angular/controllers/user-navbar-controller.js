@@ -1,7 +1,7 @@
-app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingLists', function($scope, ReadyList, PendingLists) {
+app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', function($scope, ReadyList, PendingList) {
 
 	$scope.init = function() {
-    $scope.pendingListsData = PendingLists.listsData;
+    $scope.pendingListData = PendingList.listData;
     $scope.readyListData = {};
     $scope.readyListData.users = [];
     $scope.readyListData = ReadyList.listData;

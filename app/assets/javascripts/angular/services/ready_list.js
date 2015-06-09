@@ -17,7 +17,6 @@ app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilt
 	};
 
 	factory.updateList = function() {
-		console.log("update!")
 		factory.getList(1).then(factory.currentListRetrieved);
 	}
 

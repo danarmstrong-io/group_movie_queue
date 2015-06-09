@@ -9,7 +9,9 @@
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				
+        <li>
+          <a ui-sref="userPending" ng-show="pendingListData.movies">Your Pending ({{pendingListData.movies.length}})</a>
+        </li>
 
 				<li><a ui-sref="#">Create a New List</a></li>
 

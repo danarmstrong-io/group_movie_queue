@@ -10,8 +10,7 @@ class QueuedListsController < ApplicationController
 	end
 
 	def pending
-		@queued_list = QueuedList.find(params[:id])
-		@pending_lists = @queued_list.pending_movies
+		@pending_list = current_user.pending_ratings
 	end
 
 end
