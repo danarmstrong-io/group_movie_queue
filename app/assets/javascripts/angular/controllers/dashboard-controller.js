@@ -1,10 +1,23 @@
 app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList', 'PendingList', 'orderByFilter', function($scope, $modal, $http, ReadyList, PendingList, orderByFilter){
 
-	$scope.init = function() {
+  $scope.init = function() {
     $scope.currentMovie = {}
     $scope.currentMovie.movieIndex = 0;
     $scope.readyListData = ReadyList.listData;
     $scope.pendingListData = PendingList.listData;
+    resizeMainPanels();
+  }
+
+  $( window ).resize(function() {
+    resizeMainPanels();
+  });
+
+  function resizeMainPanels() {
+    var height = $(window).height() - 100;
+    var mainPanels = $('.main-panel');
+    $.each(mainPanels, function( index, value ) {
+      $(value).css({ "max-height": height + 'px' });
+    });
   }
 
   $scope.changeMovieIndex = function(movieIndex) {

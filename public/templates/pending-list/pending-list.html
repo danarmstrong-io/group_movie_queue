@@ -1,6 +1,6 @@
 <title-navbar title="title"></title-navbar>
 
-<div class="row" ng-hide="pendingListData.movies">
+<div class="row no-movies-dialog" ng-hide="pendingListData.movies">
   <div class="col-sm-6 col-sm-offset-3">
     You have no pending movies. 
     <a ui-sref="dashboard">Return to your list.</a>
@@ -9,7 +9,7 @@
 	
 <div class="row no-gutters" ng-show="pendingListData.movies">
 
-  <div class="col-sm-7 bootcards-cards">
+  <div class="col-sm-7 bootcards-cards main-panel">
 
     <div class="panel panel-default bootcards-richtext ">
     	<div class="row no-gutters">
@@ -68,7 +68,7 @@
 
 	</div>
 
-  <div class="col-sm-5 bootcards-list" id="list" data-title="pendingListData.movies">
+  <div class="col-sm-5 bootcards-list main-panel" id="list" data-title="pendingListData.movies">
     <div class="panel panel-default">       
       <div class="list-group">
 

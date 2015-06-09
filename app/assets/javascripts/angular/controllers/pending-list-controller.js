@@ -4,9 +4,21 @@ app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'Read
 		$scope.pendingListData = PendingList.listData;
 		$scope.currentPendingMovie = {movieIndex: 0}
     $scope.movie_rating = { rating: 1, seen: false, favorite: false, rewatch: false}
-    
 		$scope.title = "Pending List"
+    resizeMainPanels();
 	};
+
+  $( window ).resize(function() {
+    resizeMainPanels();
+  });
+
+  function resizeMainPanels() {
+    var height = $(window).height() - 100;
+    var mainPanels = $('.main-panel');
+    $.each(mainPanels, function( index, value ) {
+      $(value).css({ "max-height": height + 'px' });
+    });
+  }
 
 	$scope.changePendingMovieIndex = function(movieIndex) {
     $scope.currentPendingMovie.movieIndex = movieIndex;

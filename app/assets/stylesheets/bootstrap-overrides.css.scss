@@ -13,6 +13,11 @@ body {
 	// opacity: 1;
 }
 
+.add-movie-loading-gif {
+	display:block;
+  margin:auto;
+}
+
 .log-in {
 	margin-top: 100px;
 	height: 100%;
@@ -202,6 +207,10 @@ hr {
 	a {
 		cursor: pointer;
 	}
+}
+
+.main-panel {
+	overflow-y: scroll;
 }
 
 

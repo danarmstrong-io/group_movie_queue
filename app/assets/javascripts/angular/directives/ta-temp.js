@@ -44,10 +44,13 @@ app.directive('typeahead', function($timeout,$http,ReadyList,UserFactory) {
         scope.modeldisplay = val;
         scope.current = 0;
         scope.selected = true;
+        scope.loading_gif = true;
+        scope.movie = null;
+
 
         $http.jsonp('http://www.omdbapi.com/?i=' + key + "&callback=JSON_CALLBACK").
           success(function(data, status, headers, config) {
-
+            scope.loading_gif = false;
             var key, keys = Object.keys(data);
             var n = keys.length;
             var newobj={}
@@ -86,7 +89,8 @@ app.directive('typeahead', function($timeout,$http,ReadyList,UserFactory) {
                          '<i>{{item[subtitle]}} </i>'+
                     '</a> '+
                 '</div>'+
-                '</input>'
+                '</input><br>' +
+    '<img class="add-movie-loading-gif" ng-src="assets/loading.gif" ng-show="loading_gif"></img>'
   };
 });
 
