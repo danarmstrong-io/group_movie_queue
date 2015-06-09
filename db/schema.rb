@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150524235940) do
   create_table "user_movie_ratings", force: :cascade do |t|
     t.integer  "rating"
     t.boolean  "seen",       default: false
-    t.boolean  "rewatch",    default: true
+    t.boolean  "rewatch",    default: false
     t.boolean  "favorite",   default: false
     t.integer  "movie_id"
     t.integer  "user_id"

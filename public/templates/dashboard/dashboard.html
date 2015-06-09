@@ -1,6 +1,16 @@
 <movie-list-navbar></movie-list-navbar>
 
-<div class="row no-gutters">
+<div ng-hide="readyListData.movies" class="no-movies-dialog">
+  <h4>You have no movies in your queue.</h4>
+  <div>
+    <a ng-click="openAddAMovieModal('lg')" style="cursor:pointer">Add a movie</a> 
+    or head over to your 
+    <a ui-sref="userPending">pending list</a>
+    and rate some movies.
+  </div>
+</div>
+
+<div ng-show="readyListData.movies" class="row no-gutters">
 
   <div class="col-sm-7 bootcards-cards">
 
@@ -52,7 +62,7 @@
     	</div>
   	</div>
 
-  	<streaming-icons></streaming-icons>
+  	<!-- <streaming-icons></streaming-icons> -->
 
 	</div>
 

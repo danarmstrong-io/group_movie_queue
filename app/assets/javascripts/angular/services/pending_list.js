@@ -12,9 +12,6 @@ app.factory("PendingList", ['$http', function ($http) {
 
 	factory.currentListRetrieved = function(response) {
 		factory.listData.movies = response.data.movies;
-		// $.each(factory.listData.movies, function( index, value ) {
-		//   value.user_rating = { rating: 1, seen: false, rewatch: false, favorite: false };
-		// });
 	};
 
 	factory.updateList = function() {

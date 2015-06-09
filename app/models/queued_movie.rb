@@ -29,6 +29,6 @@ class QueuedMovie < ActiveRecord::Base
 		self.user_movie_ratings.each do |movie_user_rating|
 			sum += movie_user_rating.rating
 		end
-		sum / self.user_movie_ratings.length
+		sum / self.user_movie_ratings.length.to_f
 	end
 end
