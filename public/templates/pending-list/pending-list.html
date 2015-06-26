@@ -33,19 +33,41 @@
     			<hr>
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="row">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h4>Have you seen this movie?
+                  <button type="button" class="btn btn-s" ng-class="{'btn-success': movie_rating.seen, 'btn-standard': !movie_rating.seen}" ng-click="clickedHasSeen()">Yes
+                  </button>
+                  <button type="button" class="btn btn-s" ng-class="{'btn-danger': movie_rating.seen === false, 'btn-standard': movie_rating.seen}" ng-click="clickedHasNotSeen()">No
+                  </button>
+                  </h4>
+                </div>
+              </div>
+
+              <div class="row" ng-show="movie_rating.seen === false">
+                <div class="col-sm-12">
+                  <h4>How much would you like to view this movie?</h4>
+                </div>
+              </div>
+              <div class="row" ng-show="movie_rating.seen === false">
+                <div class="col-sm-7">
+                  <star-rating ng-model="movie_rating.rating" max="10" icon="star"></star-rating>
+                </div>
+                <div class="col-sm-5">
+
+                </div>
+              </div>
+
+							<div class="row" ng-show="movie_rating.seen">
 								<div class="col-sm-12">
-									<label>Your Rating:</label>
+									<h4>Your Rating:</h4>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" ng-show="movie_rating.seen">
 								<div class="col-sm-7">
 						   		<star-rating ng-model="movie_rating.rating" max="10" icon="star"></star-rating>
 						 		</div>
 								<div class="col-sm-5">
-									<button type="button" class="btn btn-xs" ng-class="{'btn-success': movie_rating.seen, 'btn-standard': !movie_rating.seen}" ng-click="movie_rating.seen = !movie_rating.seen">
-										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Seen
-									</button>
 
 									<button type="button" class="btn btn-xs" ng-class="{'btn-danger': movie_rating.favorite, 'btn-standard': !movie_rating.favorite}" ng-click="movie_rating.favorite = !movie_rating.favorite">
 										<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
@@ -56,11 +78,12 @@
 									</button>
 								</div>
 							</div>
+
 						</div>
 					</div>
           <br>
 
-					<button ng-click="sendUserMovieRating()" class="btn btn-default">Submit</button>
+					<button ng-click="sendUserMovieRating()" ng-show="movie_rating.seen != null" class="btn btn-oogway-light">Submit</button>
 
       	</div>
     	</div>

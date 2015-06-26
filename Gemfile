@@ -11,6 +11,7 @@ gem 'bower-rails'
 gem 'rabl'
 gem 'oj'
 gem 'awesome_print'
+gem "font-awesome-rails"
 
 group :development, :test do
 

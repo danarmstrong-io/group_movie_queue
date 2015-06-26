@@ -5,13 +5,7 @@ app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'Q
     $scope.readyListData = {};
     $scope.readyListData.users = [];
     $scope.readyListData = ReadyList.listData;
-    // $scope.queuedLists = {}
     $scope.queuedLists = QueuedLists.listsData;
-	}
-	$scope.printListsData = function() {
-		console.log("wee")
-		console.log($scope.queuedLists.lists)
-
 	}
 
 	$scope.changeUserList = function(listId) {

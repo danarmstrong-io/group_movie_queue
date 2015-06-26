@@ -10,8 +10,12 @@ class UsersController < ApplicationController
 		if current_user.update_attributes(user_params)
 			render json: current_user
 		else
-			render json: 500
+  		render status: :bad_request
 		end
+	end
+
+	def show_by_email
+		render json: User.find_by_email(params[:email]).nil?
 	end
 
 	private

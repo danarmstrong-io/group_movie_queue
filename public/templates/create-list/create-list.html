@@ -1,2 +1,20 @@
 <title-navbar title="title"></title-navbar>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			Add Users to List
+			<div ng-repeat="invitee in invitees">
+				<input class="form-control" ng-model="invitee.email" ng-blur="checkIfActiveUser(invitee)"></input>
+				<div ng-show="invitee.exists && invitee.checked">Invite</div>
+				<div ng-hide="invitee.exists || !invitee.checked">Email</div>
+				<button ng-click="removeInvitee($index)">Remove</button>
 
+				
+			</div>
+
+			<button ng-click="addInvitee()">Add</button>
+
+			<button ng-click="createList()">Create List</button>
+		</div>
+	</div>
+</div>
