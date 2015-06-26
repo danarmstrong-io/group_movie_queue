@@ -6,10 +6,12 @@ app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList',
     $scope.readyListData = ReadyList.listData;
     $scope.pendingListData = PendingList.listData;
     resizeMainPanels();
+    resizeAppContainer();
   }
 
   $( window ).resize(function() {
     resizeMainPanels();
+    resizeAppContainer();
   });
 
   function resizeMainPanels() {
@@ -17,6 +19,17 @@ app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList',
     var mainPanels = $('.main-panel');
     $.each(mainPanels, function( index, value ) {
       $(value).css({ "max-height": height + 'px' });
+      $(value).css({ "height": height + 'px' });
+    });
+    $('body').css({ "height": height + 'px' });
+  }
+
+  function resizeAppContainer() {
+    var height = $(window).height() - 50;
+    var mainPanels = $('.app-container');
+    $.each(mainPanels, function( index, value ) {
+      $(value).css({ "max-height": height + 'px' });
+      $(value).css({ "height": height + 'px' });
     });
   }
 
