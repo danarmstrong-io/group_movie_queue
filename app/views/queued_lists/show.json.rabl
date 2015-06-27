@@ -1,6 +1,6 @@
 object @queued_list
 
-attributes :oogway_rating
+attributes :oogway_rating, :title
 
 glue :movie do
 	attributes *Movie.column_names

@@ -11,7 +11,6 @@ app.factory("QueuedLists", ['$http', function ($http) {
 	};
 
 	factory.queuedListsRetrieved = function(response) {
-		console.log(response.data)
 		factory.listsData.lists = response.data;
 	};
 

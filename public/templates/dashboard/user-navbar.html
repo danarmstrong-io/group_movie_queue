@@ -3,7 +3,7 @@
 
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Oogway's List</a>
-			<a class="navbar-brand" style="margin-left:200px" href="#">{{userListName()}}'s List</a>
+			<a class="navbar-brand" style="margin-left:200px" href="#">{{readyListData.title}}</a>
 
 		</div>
 
@@ -20,10 +20,12 @@
 	        <ul class="dropdown-menu navbar-inverse" role="menu">
 	          <li ng-repeat="list in queuedLists.lists">
 	          	<!-- <a>{{list.id}}</a> -->
-	          	<a ng-click="changeUserList(list.id)">-  
-	          		<p ng-repeat="user in list.users">
+	          	<a style="cursor:pointer;" ng-click="changeUserList(list.id)">-  
+	          		{{list.title}}
+<!-- 	          		<p ng-repeat="user in list.users">
 	          			{{user.first_name}}
-	          		</p>
+	          		</p> -->
+	          		<!-- {{ usersInList(list.id) }} -->
 	          	</a>
 	          </li>
 	          

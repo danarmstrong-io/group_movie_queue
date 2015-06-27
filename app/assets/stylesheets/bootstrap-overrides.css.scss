@@ -17,6 +17,15 @@ body {
 	// opacity: 1;
 }
 
+.navbar-inverse {
+	a:hover {
+		color:white !important;
+		background-color: black !important;
+		font-weight: bold !important;
+	}
+
+}
+
 .app-container {
 
 	margin-top: 50px;

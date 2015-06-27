@@ -11,6 +11,8 @@ class QueuedListsController < ApplicationController
 
 	def ready
 		@queued_list = QueuedList.find(params[:id])
+    20.times {puts @queued_list.title}
+    @queued_list
 	end
 
 	def pending

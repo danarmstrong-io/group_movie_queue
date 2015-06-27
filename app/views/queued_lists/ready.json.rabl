@@ -1,6 +1,6 @@
 object @queued_list
 
-attribute :id
+attributes :id, :title
 
 child :users, :object_root => false do
 	attributes :id, :first_name

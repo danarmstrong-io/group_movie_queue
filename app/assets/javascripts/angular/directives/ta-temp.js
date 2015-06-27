@@ -59,9 +59,9 @@ app.directive('typeahead', function($timeout,$http,ReadyList,UserFactory) {
               newobj[key.toLowerCase()] = data[key];
             }
             scope.movie = newobj;
-            scope.movie.ratings = [];
-            scope.movie.ratings.push(UserFactory.userData.currentUser);
-            scope.movie.ratings[0].oogway_rating = 1;
+            // scope.movie.ratings = [];
+            // scope.movie.ratings.push(UserFactory.userData.currentUser);
+            // scope.movie.ratings[0].oogway_rating = 1;
           })
       }
 

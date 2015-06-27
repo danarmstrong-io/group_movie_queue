@@ -48,8 +48,8 @@ user4 = User.create!(first_name: "Caitlin", last_name: "C", email: "caitlin@gmai
 
 # movie8 = Movie.create!({"title":"28 Days Later...","year":"2002","rated":"R","released":"27 Jun 2003","runtime":"113 min","genre":"Horror","director":"Danny Boyle","writer":"Alex Garland","actors":"Alex Palmer, Bindu De Stoppani, Jukka Hiltunen, David Schneider","plot":"Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary.","language":"English, Spanish","country":"UK","awards":"10 wins & 25 nominations.","poster":"http://ia.media-imdb.com/images/M/MV5BNzM2NDYwNjM3OF5BMl5BanBnXkFtZTYwNDYxNzk5._V1_SX300.jpg","metascore":"73","imdbrating":"7.6","imdbid":"tt0289043"})
 
-queued_list = QueuedList.create()
-queued_list2 = QueuedList.create()
+queued_list = QueuedList.create(title: "Megan & Dan's List")
+queued_list2 = QueuedList.create(title: "Big ol Fat List")
 queued_list.users << user1
 queued_list.users << user2
 

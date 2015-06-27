@@ -9,7 +9,6 @@ app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'Q
 	}
 
 	$scope.changeUserList = function(listId) {
-		console.log(listId)
 		ReadyList.changeListId(listId);
 	}
 
@@ -24,6 +23,12 @@ app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'Q
 			}
 		}
 	}
+
+	// $scope.usersInList = function(list_id) {
+	// 	console.log(list_id)
+	// 	return $scope.queuedLists.lists[list_id].users
+	// 	return "hello"
+	// }
 
 	function multipleUsersString() {
 		string = "";
