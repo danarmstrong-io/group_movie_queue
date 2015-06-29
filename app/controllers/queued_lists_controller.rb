@@ -11,8 +11,6 @@ class QueuedListsController < ApplicationController
 
 	def ready
 		@queued_list = QueuedList.find(params[:id])
-    20.times {puts @queued_list.title}
-    @queued_list
 	end
 
 	def pending
@@ -20,21 +18,40 @@ class QueuedListsController < ApplicationController
 	end
 
   def create
-    p 20.times {puts params}
     queued_list = QueuedList.create(title: params["title"])
-    queued_list.users << current_user
-    params[:invitees].each do |invitee|
-      if user = User.find_by_email(invitee["email"])
-        queued_list.users << user
-      else
-        20.times {puts "usernotfound"}
-      end
-    end
+    remove_duplicates_and_current_user
+    find_or_email_and_add_users_to(queued_list)
+
     if queued_list
-      render json: {queued_list: queued_list}, status: :ok
+      render json: queued_list, status: :ok 
     else
       render status: :bad_request
     end
+  end
+
+
+  private
+
+  def find_or_email_and_add_users_to(queued_list)
+    queued_list.users << current_user
+    params[:invitees].each do |invitee|
+      if user = User.find_by_email(invitee["email"])
+        if user != current_user
+          queued_list.users << user
+        end
+      else
+        # email them invite
+      end
+    end
+  end
+
+  def remove_duplicates_and_current_user
+    params[:invitees].each do |invitee|
+      if invitee["email"] == current_user.email
+        params[:invitees].delete(invitee)
+      end
+    end
+    params[:invitees].uniq!
   end
 
 end

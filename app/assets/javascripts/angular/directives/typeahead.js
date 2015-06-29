@@ -1,4 +1,4 @@
-app.directive('typeahead', function($timeout,$http,ReadyList,UserFactory) {
+app.directive('typeaheadCustom', function($timeout,$http,ReadyList,UserFactory) {
   return {
     restrict: 'AEC',
     scope: {

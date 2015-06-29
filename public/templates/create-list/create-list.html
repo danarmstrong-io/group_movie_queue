@@ -1,16 +1,17 @@
-<title-navbar title="title"></title-navbar>
+<br>
 <div class="container">
 	<div class="row">
 
-		<input type="text" name="userName"
-             ng-model="user.name"
-             ng-model-options="{ debounce: 1000 }" />
-     <h4>{{user.name}}</h4>
-
 		<div class="col-lg-8 col-lg-offset-2">
+			<h4>Title</h4>
+			<input class="form-control" ng-model="createListData.title">
+			<br>
 
-			<h4 align="center">Add Users</h4>
-			<table class="table table-bordered">
+			<button class="btn btn-default" style="float:right;" ng-click="addInvitee()">Add User</button>
+			<br>
+			<br>
+			<br>
+			<table class="table table-bordered" ng-show="hasInvitees()">
 
 				<thead>
 					<th><h4>Email</h4></th>
@@ -24,9 +25,7 @@
           tooltip-trigger="mouseenter"
           tooltip-enable="invitee.checked">
 						<td>
-							<!-- <input class="form-control" type="email" ng-model="invitee.email" ng-blur="checkIfActiveUser(invitee)"></input> -->
-							<input class="form-control" ng-model="invitee.email" ng-model-options="{ updateOn: 'default', debounce: {'default': 1000} }" />
-							<h4>{{invitee.email}}</h4>
+							<input class="form-control" ng-model="invitee.email" ng-change="checkIfActiveUser(invitee)" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" />
 						</td>
 						<td>
 							<button class="btn btn-danger" ng-click="removeInvitee($index)">X</button>
@@ -36,15 +35,8 @@
 				</tbody>
 
 			</table>
-			<button class="btn btn-default" style="float:right;" ng-click="addInvitee()">Add Another User</button>
-			<br>
-			<br>
 
-			<h4>Title</h4>
-			<input class="form-control" ng-model="createListData.title">
-			<br>
-
-			<button class="btn btn-success" style="float:right;" ng-click="createList()">Create List</button>
+			<button class="btn btn-success" ng-disabled="invalidTitleOrInvalidEmails()" style="float:right;" ng-click="createList()">Create List</button>
 		</div>
 	</div>
 </div>

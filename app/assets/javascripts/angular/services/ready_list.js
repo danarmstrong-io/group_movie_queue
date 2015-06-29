@@ -16,13 +16,11 @@ app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilt
 		factory.listData.id = response.data.queued_list.id;
 		factory.listData.users = response.data.queued_list.users;
 		factory.listData.title = response.data.queued_list.title;
-		console.log(factory.listData);
 	};
 
 	factory.changeListId = function(listId) {
 		factory.currentListId = listId;
 		factory.getList(factory.currentListId).then(factory.currentListRetrieved);
-
 	}
 
 	factory.updateList = function() {
