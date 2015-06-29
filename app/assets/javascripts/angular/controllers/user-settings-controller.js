@@ -6,7 +6,7 @@ app.controller("UserSettingsController", ['$scope', '$http', 'UserFactory', func
 
 	$scope.updateCurrentUser = function() {
 		if ($scope.current_user_form.$valid) {
-			$http.put('api/update_current_user', { user: $scope.userFormData }).success($scope.updateCurrentUserSuccess);
+			$http.put('api/v1/update_current_user', { user: $scope.userFormData }).success($scope.updateCurrentUserSuccess);
 		}
 	};
 

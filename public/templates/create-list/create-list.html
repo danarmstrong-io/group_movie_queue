@@ -1,20 +1,50 @@
 <title-navbar title="title"></title-navbar>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-10 col-lg-offset-1">
-			Add Users to List
-			<div ng-repeat="invitee in invitees">
-				<input class="form-control" ng-model="invitee.email" ng-blur="checkIfActiveUser(invitee)"></input>
-				<div ng-show="invitee.exists && invitee.checked">Invite</div>
-				<div ng-hide="invitee.exists || !invitee.checked">Email</div>
-				<button ng-click="removeInvitee($index)">Remove</button>
 
-				
-			</div>
+		<input type="text" name="userName"
+             ng-model="user.name"
+             ng-model-options="{ debounce: 1000 }" />
+     <h4>{{user.name}}</h4>
 
-			<button ng-click="addInvitee()">Add</button>
+		<div class="col-lg-8 col-lg-offset-2">
 
-			<button ng-click="createList()">Create List</button>
+			<h4 align="center">Add Users</h4>
+			<table class="table table-bordered">
+
+				<thead>
+					<th><h4>Email</h4></th>
+					<th><h4>Remove</h4></th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="invitee in createListData.invitees" 
+					ng-class="{success: inviteeExistsAndChecked(invitee), info: inviteeDoesntExistAndChecked(invitee), danger: invalidEmail(invitee)}" 
+          tooltip="{{invitee.tooltipInfo}}"
+          tooltip-placement="bottom"
+          tooltip-trigger="mouseenter"
+          tooltip-enable="invitee.checked">
+						<td>
+							<!-- <input class="form-control" type="email" ng-model="invitee.email" ng-blur="checkIfActiveUser(invitee)"></input> -->
+							<input class="form-control" ng-model="invitee.email" ng-model-options="{ updateOn: 'default', debounce: {'default': 1000} }" />
+							<h4>{{invitee.email}}</h4>
+						</td>
+						<td>
+							<button class="btn btn-danger" ng-click="removeInvitee($index)">X</button>
+						</td>
+
+					</tr>
+				</tbody>
+
+			</table>
+			<button class="btn btn-default" style="float:right;" ng-click="addInvitee()">Add Another User</button>
+			<br>
+			<br>
+
+			<h4>Title</h4>
+			<input class="form-control" ng-model="createListData.title">
+			<br>
+
+			<button class="btn btn-success" style="float:right;" ng-click="createList()">Create List</button>
 		</div>
 	</div>
 </div>

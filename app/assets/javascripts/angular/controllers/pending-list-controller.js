@@ -27,7 +27,7 @@ app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'Read
 
   $scope.sendUserMovieRating = function() {
   	var movie = $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex];
-  	$http.put('/api/user_movie_ratings/'+ movie.user_movie_rating_id, $scope.movie_rating).
+  	$http.put('/api/v1/user_movie_ratings/'+ movie.user_movie_rating_id, $scope.movie_rating).
     success(function(data) {
       updateLists();
       $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}

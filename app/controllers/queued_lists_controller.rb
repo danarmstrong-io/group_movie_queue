@@ -20,7 +20,8 @@ class QueuedListsController < ApplicationController
 	end
 
   def create
-    queued_list = QueuedList.create()
+    p 20.times {puts params}
+    queued_list = QueuedList.create(title: params["title"])
     queued_list.users << current_user
     params[:invitees].each do |invitee|
       if user = User.find_by_email(invitee["email"])

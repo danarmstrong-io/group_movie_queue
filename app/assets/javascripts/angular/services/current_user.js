@@ -2,7 +2,7 @@ app.factory("UserFactory", ['$http', function ($http) {
 	var factory = {};
 
 	factory.getCurrentUser = function() {
-    return $http.get('/api/show_current_user');
+    return $http.get('/api/v1/show_current_user');
 	};
 
 	factory.init = function() {

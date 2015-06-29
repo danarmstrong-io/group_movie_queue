@@ -2,7 +2,7 @@ app.factory("PendingList", ['$http', function ($http) {
 	var factory = {};
 
 	factory.getList = function() {
-    return $http.get('/api/queued_list_pending/');
+    return $http.get('/api/v1/queued_list_pending/');
 	};
 
 	factory.init = function() {

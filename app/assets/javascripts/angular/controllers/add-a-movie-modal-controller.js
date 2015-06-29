@@ -1,11 +1,9 @@
 app.controller('AddAMovieModalController', ['$scope', '$http', '$templateCache', '$modalInstance', 'movie', 'ReadyList', function ($scope, $http, $templateCache, $modalInstance, movie, ReadyList) {
 
   $scope.ok = function (movie) {
-    // $scope.loading_gif = true;
     movie.rating = $scope.movie_rating
-    $http.post('/api/queued_lists/'+ ReadyList.listData.id + '/queued_movies', movie).
+    $http.post('/api/v1/queued_lists/'+ ReadyList.listData.id + '/queued_movies', movie).
       success(function(data) {
-        // $scope.loading_gif = false;
         ReadyList.updateList();
         $modalInstance.dismiss('cancel');
       }).

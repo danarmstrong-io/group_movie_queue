@@ -2,7 +2,7 @@ app.factory("QueuedLists", ['$http', function ($http) {
 	var factory = {};
 
 	factory.getLists = function() {
-    return $http.get('/api/queued_lists');
+    return $http.get('/api/v1/queued_lists');
 	};
 
 	factory.init = function() {

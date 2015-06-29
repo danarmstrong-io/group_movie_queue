@@ -3,7 +3,7 @@ app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilt
 
 	factory.getList = function(listId) {
 		factory.currentListId = listId;
-    return $http.get('/api/queued_list_ready/' + factory.currentListId);
+    return $http.get('/api/v1/queued_list_ready/' + factory.currentListId);
 	};
 
 	factory.init = function() {
