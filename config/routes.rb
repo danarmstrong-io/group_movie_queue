@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       get 'show_current_user' => 'users#show_current_user'
       put 'update_current_user' => 'users#update_current_user'
       get 'show_by_email' => 'users#show_by_email'
+      post 'accept_invite/:id' => 'list_invites#accept'
+      post 'reject_invite/:id' => 'list_invites#reject'
 
       resources :user_movie_ratings, only: [:update]
     end

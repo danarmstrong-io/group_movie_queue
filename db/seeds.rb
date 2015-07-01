@@ -51,6 +51,10 @@ user4 = User.create!(first_name: "Caitlin", last_name: "C", email: "caitlin@gmai
 queued_list = QueuedList.create(title: "Megan & Dan's List")
 queued_list2 = QueuedList.create(title: "Big ol Fat List")
 queued_list.users << user1
+# queued_list.invited_users << user2
+# li = ListInvite.first
+# li.inviter = user1
+# li.save
 queued_list.users << user2
 
 queued_list2.users << user1

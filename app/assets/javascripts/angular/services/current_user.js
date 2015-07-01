@@ -14,6 +14,10 @@ app.factory("UserFactory", ['$http', function ($http) {
 		factory.userData.currentUser = response.data.user;
 	};
 
+	factory.updateUser = function() {
+		factory.getCurrentUser().then(factory.currentUserRetrieved);
+	}
+
 	factory.init();
 
 	return factory;

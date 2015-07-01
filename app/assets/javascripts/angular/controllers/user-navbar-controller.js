@@ -1,55 +1,35 @@
-app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'QueuedLists', '$state', function($scope, ReadyList, PendingList, QueuedLists, $state) {
+app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'QueuedLists', '$state', 'UserFactory', '$http', function($scope, ReadyList, PendingList, QueuedLists, $state, UserFactory, $http) {
 
-	$scope.init = function() {
-    $scope.pendingListData = PendingList.listData;
-    $scope.readyListData = {};
-    $scope.readyListData.users = [];
-    $scope.readyListData = ReadyList.listData;
-    $scope.queuedLists = QueuedLists.listsData;
-	}
+    $scope.init = function() {
+        $scope.pendingListData = PendingList.listData;
+        $scope.readyListData = {};
+        $scope.readyListData.users = [];
+        $scope.readyListData = ReadyList.listData;
+        $scope.queuedLists = QueuedLists.listsData;
+        $scope.userData = UserFactory.userData;
+    }
 
-	$scope.changeUserList = function(listId) {
-		ReadyList.changeListId(listId);
-		console.log(listId)
-  	$state.go('dashboard');
-	}
+    $scope.changeUserList = function(listId) {
+        ReadyList.changeListId(listId);
+        $state.go('dashboard');
+    }
 
-	$scope.userListName = function() {
-		if ($scope.readyListData.users) {
-			string = ""
-			if ($scope.readyListData.users.length == 2) {
-				return twoUsersString();
-			}
-			else {
-				return multipleUsersString();
-			}
-		}
-	}
+    $scope.acceptInvite = function(inviteId) {
+    $http.post('/api/v1/accept_invite/' + inviteId).
+    success(function(data) {
+    	UserFactory.updateUser();
+    	QueuedLists.updateLists();
+    	PendingList.updateList();
+    })
+    }
 
-	// $scope.usersInList = function(list_id) {
-	// 	console.log(list_id)
-	// 	return $scope.queuedLists.lists[list_id].users
-	// 	return "hello"
-	// }
+    $scope.rejectInvite = function(inviteId) {
+    $http.post('/api/v1/reject_invite/'+ inviteId).
+    success(function(data) {
+    	UserFactory.updateUser();
+    })
+    }
 
-	function multipleUsersString() {
-		string = "";
-		$.each($scope.readyListData.users, function( index, value ) {
-		  if(index + 1 == $scope.readyListData.users.length) {
-		  	string += '& ' + value.first_name
-		  }
-		  else {
-			  string += value.first_name + ", ";
-		  }
-
-		});
-		return string
-	}
-
-	function twoUsersString() {
-		return $scope.readyListData.users[1].first_name + " & " + $scope.readyListData.users[0].first_name;
-	}
-
-	$scope.init();
+    $scope.init();
 
 }]);

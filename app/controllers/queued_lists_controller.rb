@@ -11,6 +11,7 @@ class QueuedListsController < ApplicationController
 
 	def ready
 		@queued_list = QueuedList.find(params[:id])
+    @current_user = current_user
 	end
 
 	def pending
@@ -18,11 +19,11 @@ class QueuedListsController < ApplicationController
 	end
 
   def create
-    queued_list = QueuedList.create(title: params["title"])
+    queued_list = QueuedList.new(title: params["title"])
     remove_duplicates_and_current_user
     find_or_email_and_add_users_to(queued_list)
 
-    if queued_list
+    if queued_list.save
       render json: queued_list, status: :ok 
     else
       render status: :bad_request
@@ -37,7 +38,7 @@ class QueuedListsController < ApplicationController
     params[:invitees].each do |invitee|
       if user = User.find_by_email(invitee["email"])
         if user != current_user
-          queued_list.users << user
+          ListInvite.create(inviter: current_user, invitee: user, queued_list: queued_list)
         end
       else
         # email them invite

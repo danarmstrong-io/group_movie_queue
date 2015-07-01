@@ -20,7 +20,7 @@ body {
 .navbar-inverse {
 	a:hover {
 		color:white !important;
-		background-color: black !important;
+		background-color: #101010 !important;
 		font-weight: bold !important;
 	}
 
@@ -242,4 +242,26 @@ hr {
 .overlap {
 	position: absolute !important;
   z-index: 900 !important; width: inherit  !important ;
+}
+
+.invite-buttons {
+	margin-top:5px;
+}
+
+.list-invites {
+	a:hover {
+		color:$light-text-color !important;
+		font-weight: normal !important;
+	}
+
+	li {
+		border-bottom: 1px solid $light-text-color;
+		padding-bottom: 3px;
+
+	}
+
+	&:last-child {
+      border-bottom: none;
+		padding-bottom: 0;
+  }
 }

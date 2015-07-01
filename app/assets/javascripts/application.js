@@ -15,6 +15,7 @@
 //= require jquery.easing.min.js
 //= require bootstrap-sprockets
 //= require underscore
+//= require lodash
 
 
 //= require angular

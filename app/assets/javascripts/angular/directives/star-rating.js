@@ -11,7 +11,7 @@ angular.module("app").directive("starRating", function() {
     },
     link : function(scope, elem, attrs) {
       scope.icon = attrs.icon;
-      if (scope.max == undefined) { scope.max = 5; }
+      if (scope.max == undefined) { scope.max = 10; }
       function updateStars() {
         scope.stars = [];
         for (var i = 0; i < scope.max; i++) {
@@ -23,9 +23,9 @@ angular.module("app").directive("starRating", function() {
       scope.toggle = function(index) {
         if (scope.readonly == undefined || scope.readonly == false){
           scope.ratingValue = index + 1;
-          scope.onRatingSelected({
-            rating: index + 1
-          });
+          // scope.onRatingSelected({
+          //   rating: index + 1
+          // });
         }
       };
       scope.$watch("ratingValue", function(oldVal, newVal) {

@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524235940) do
+ActiveRecord::Schema.define(version: 20150629231603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "list_invites", force: :cascade do |t|
+    t.boolean  "completed",      default: false
+    t.integer  "inviter_id"
+    t.integer  "invitee_id"
+    t.integer  "queued_list_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
