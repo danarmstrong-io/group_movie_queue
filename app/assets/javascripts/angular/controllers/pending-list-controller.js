@@ -3,7 +3,7 @@ app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'Read
 	$scope.init = function() {
 		$scope.pendingListData = PendingList.listData;
 		$scope.currentPendingMovie = {movieIndex: 0}
-    $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}
+    // $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}
 		$scope.title = "Pending List"
     resizeMainPanels();
 	};
@@ -22,15 +22,16 @@ app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'Read
 
 	$scope.changePendingMovieIndex = function(movieIndex) {
     $scope.currentPendingMovie.movieIndex = movieIndex;
-    $scope.movie_rating = { rating: 1, seen: false, favorite: false, rewatch: false}
+    // $scope.movie_rating = { rating: 1, seen: false, favorite: false, rewatch: false}
   };
 
   $scope.sendUserMovieRating = function() {
   	var movie = $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex];
-  	$http.put('/api/v1/user_movie_ratings/'+ movie.user_movie_rating_id, $scope.movie_rating).
+    // var movie_rating = $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex]
+  	$http.put('/api/v1/user_movie_ratings/'+ movie.user_movie_rating_id, movie).
     success(function(data) {
       updateLists();
-      $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}
+      // $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}
       $scope.currentPendingMovie.movieIndex = 0;
     }).
       error(function(data) {
@@ -39,11 +40,14 @@ app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'Read
   };
 
   $scope.clickedHasSeen = function() {
-    $scope.movie_rating = { rating: 1, seen: true, favorite: false, rewatch: false}
+    $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex].seen = true;
+    // $scope.movie_rating = { rating: 1, seen: true, favorite: false, rewatch: false}
   };
 
   $scope.clickedHasNotSeen = function() {
-    $scope.movie_rating = { rating: 1, seen: false, favorite: false, rewatch: false}
+    $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex].seen = false;
+
+    // $scope.movie_rating = { rating: 1, seen: false, favorite: false, rewatch: false}
   };
 
   function updateLists() {

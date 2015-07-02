@@ -4,6 +4,7 @@ class CreateQueuedMovies < ActiveRecord::Migration
     	t.integer :movie_id
     	t.integer :queued_list_id
     	t.boolean :completed, default: false
+    	t.boolean :watched, default: false
     	t.float :oogway_rating
 
       t.timestamps null: false

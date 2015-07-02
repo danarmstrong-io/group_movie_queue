@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150629231603) do
     t.integer  "movie_id"
     t.integer  "queued_list_id"
     t.boolean  "completed",      default: false
+    t.boolean  "watched",        default: false
     t.float    "oogway_rating"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150629231603) do
 
   create_table "user_movie_ratings", force: :cascade do |t|
     t.integer  "rating"
-    t.boolean  "seen",       default: false
+    t.boolean  "seen"
     t.boolean  "rewatch",    default: false
     t.boolean  "favorite",   default: false
     t.integer  "movie_id"

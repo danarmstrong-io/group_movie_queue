@@ -7,7 +7,7 @@ child :users, :object_root => false do
 end
 
 child :ready_movies, :object_root => false do
-	attributes :oogway_rating
+	attributes :id => :queued_movie_id, :oogway_rating => :oogway_rating
 
 	glue :movie do
 		attributes *Movie.column_names

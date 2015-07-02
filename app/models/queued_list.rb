@@ -9,10 +9,14 @@ class QueuedList < ActiveRecord::Base
 	has_many :invited_users, through: :list_invites, source: :invitee
 
 	def ready_movies
-		self.queued_movies.where(completed: true)
+		self.queued_movies.where(completed: true).where(watched: false)
 	end
 
 	def pending_movies
 		self.queued_movies.where(completed: false)
+	end
+
+	def watched_movies
+		self.queued_movies.where(watched: true)
 	end
 end

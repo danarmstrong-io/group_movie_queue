@@ -2,7 +2,7 @@ class CreateUserMovieRatings < ActiveRecord::Migration
   def change
     create_table :user_movie_ratings do |t|
     	t.integer :rating
-    	t.boolean :seen, default: false
+    	t.boolean :seen, default: nil
     	t.boolean :rewatch, default: false
     	t.boolean :favorite, default: false
     	t.integer :movie_id

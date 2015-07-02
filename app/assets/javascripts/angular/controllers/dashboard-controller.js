@@ -82,6 +82,19 @@ app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList',
       });
   }
 
+  $scope.setCurrentMovieAsWatched = function() {
+    var queued_movie_id = $scope.readyListData.movies[$scope.currentMovie.movieIndex].queued_movie_id
+    $http.put('/api/v1/queued_movies/' + queued_movie_id).
+      success(function(data) {
+        console.log(data);
+        updateLists();
+      }).
+      error(function(data) {
+        console.log(data);
+      });
+
+  }
+
   function updateLists() {
     ReadyList.updateList();
     PendingList.updateList();

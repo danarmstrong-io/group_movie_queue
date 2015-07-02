@@ -8,6 +8,13 @@ class QueuedMovie < ActiveRecord::Base
 	belongs_to :queued_list
 	belongs_to :movie
 
+	def set_watched_and_all_users_reevalutate
+		self.update_attribute(:watched, true)
+		self.user_movie_ratings.each do |user_movie_rating|
+			user_movie_rating.update_attributes(completed: false, seen: true)
+		end
+	end
+
 	def complete!
 		self.completed = true
 		self.oogway_rating = calculate_oogway_rating

@@ -34,6 +34,12 @@ class QueuedMoviesController < ApplicationController
   	render json: queued_movie, status: :ok
 	end
 
+	def update
+		queued_movie = QueuedMovie.find(params[:id])
+		queued_movie.set_watched_and_all_users_reevalutate
+		render json: queued_movie, status: :ok
+	end
+
 	def movie_params
     params.permit(:imdbid, :imdbvotes, :imdbrating, :metascore, :poster, :awards, :country, :language, :plot, :actors, :writer, :director, :genre, :runtine, :released, :rated, :year, :title, rating: [:id, :rating, :seen, :rewatch, :favorite])
   end
