@@ -7,13 +7,23 @@ app.config(['$httpProvider', function($httpProvider) {
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/dashboard");
+  $urlRouterProvider.otherwise("/dashboard/ready");
 
   $stateProvider
     .state('dashboard', {
       url: "/dashboard",
       templateUrl: "/templates/dashboard/dashboard.html",
       controller: "DashboardController"
+    })
+    .state('dashboard.readyList', {
+      url: "/ready",
+      templateUrl: "/templates/dashboard/dashboard.ready-list.html",
+      controller: "ReadyListController"
+    })
+    .state('dashboard.listSettings', {
+      url: "/list-settings",
+      templateUrl: "/templates/dashboard/dashboard.list-settings.html",
+      controller: "ListSettingsController"
     })
     .state('userPending', {
       url: "/pending",
