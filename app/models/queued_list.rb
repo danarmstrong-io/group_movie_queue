@@ -17,6 +17,10 @@ class QueuedList < ActiveRecord::Base
 	end
 
 	def watched_movies
-		self.queued_movies.where(watched: true)
+		self.queued_movies.where(watched: true).order(time_watched: :desc)
+	end
+
+	def incomplete_invites
+		self.list_invites.where(completed: false)
 	end
 end

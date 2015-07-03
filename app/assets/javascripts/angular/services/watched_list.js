@@ -1,8 +1,8 @@
-app.factory("PendingList", ['$http', function ($http) {
+app.factory("WatchedList", ['$http', 'ReadyList', function ($http, ReadyList) {
 	var factory = {};
 
 	factory.getList = function() {
-    return $http.get('/api/v1/queued_list_pending/');
+    return $http.get('/api/v1/queued_list_watched/' + ReadyList.currentListId);
 	};
 
 	factory.init = function() {

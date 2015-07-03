@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add a User</h3>
+</div>
+<div class="modal-body">
+	<div class="form-group has-feedback"
+			 ng-class="{'has-success': inviteeExistsAndChecked(invitee), 'has-warning': inviteeDoesntExistAndChecked(invitee), 'has-error': invalidEmail(invitee)}"
+			 tooltip="{{invitee.tooltipInfo}}"
+          tooltip-placement="bottom"
+          tooltip-trigger="mouseenter"
+          tooltip-enable="invitee.checked">
+	  <label>User Email</label>
+	  <input type="text" class="form-control" ng-model="invitee.email" ng-change="checkIfActiveUser(invitee)" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" />
+	  <span class="glyphicon form-control-feedback"
+	  			ng-class="{'glyphicon-ok': inviteeExistsAndChecked(invitee), 'glyphicon-warning-sign': inviteeDoesntExistAndChecked(invitee), 'glyphicon-remove': invalidEmail(invitee)}" 
+	  			aria-hidden="true"></span>
+	</div>
+  <br>
+
+</div>
+<div class="modal-footer" ng-show="validEmail(invitee)">
+    <button class="btn btn-standard" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-oogway-light" ng-click="ok(invitee)">Add User</button>
+</div>

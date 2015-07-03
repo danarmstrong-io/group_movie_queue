@@ -1,0 +1,43 @@
+<div style="text-align:center">
+	<h2>Active Users</h2>
+</div>
+<table class="table">
+	<thead>
+		<th><h4>Name</h4></th>
+		<th><h4>Email</h4></th>
+		<th><h4>Remove</h4></th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in readyListData.users" >
+			<td><p>{{user.first_name}} {{user.last_name}} <span style="display:inline" ng-show="isCurrentUser(user)">(You)</span></p></td>
+			<td><p>{{user.email}}</p></td>
+			<td ><button class="btn btn-danger" ng-confirm-click="Are you sure you want to remove {{user.first_name}} {{user.last_name}} from this list?" ng-click="removeUserFromList(user.queued_user_id)" ng-hide="isCurrentUser(user)">X</button></td>
+		</tr>
+	</tbody>
+</table>
+
+<div ng-show="readyListData.invited_users.length > 0">
+	<div style="text-align:center">
+		<h2>Invited Users</h2>
+	</div>
+	<table class="table">
+		<thead>
+			<th><h4>Name</h4></th>
+			<th><h4>Email</h4></th>
+			<th><h4>Uninvite</h4></th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in readyListData.invited_users">
+				<td><p>{{user.first_name}} {{user.last_name}}</p></td>
+				<td><p>{{user.email}}</p></td>
+				<td><button class="btn btn-warning" ng-confirm-click="Are you sure you want to remove {{user.first_name}} {{user.last_name}} from this list?" ng-click="uninviteUserFromList(user.list_invite_id)">X</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="user-setting-buttons">
+  <button type="button" class="btn btn-info navbar-btn" ng-click="openAddAUserModal('lg')">Add a User</button>
+
+	<button class="btn btn-warning" ng-click="removeSelfFromList()" ng-confirm-click="Are you sure you want to remove yourself from this list?">Remove Yourself From List</button>
+</div>

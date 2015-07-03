@@ -2,8 +2,15 @@ object @queued_list
 
 attributes :id, :title
 
-child :users, :object_root => false do
-	attributes :id, :first_name
+child :queued_users, :object_root => false do
+	attribute :id => :queued_user_id
+	glue :user do
+		attributes :id, :first_name, :last_name, :email
+	end
+end
+
+glue :users do
+	attributes :id, :first_name, :last_name, :email
 end
 
 child :ready_movies, :object_root => false do
@@ -22,5 +29,12 @@ child :ready_movies, :object_root => false do
 		glue :user do
 		  attributes id: :user_id, first_name: :first_name, last_name: :last_name
 		end
+	end
+end
+
+child :incomplete_invites, :object_root => false do
+	attribute :id => :list_invite_id
+	glue :invitee do
+		attributes :id => :user_id, :first_name => :first_name,  :last_name => :last_name, :email => :email
 	end
 end

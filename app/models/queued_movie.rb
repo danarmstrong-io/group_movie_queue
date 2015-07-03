@@ -9,7 +9,7 @@ class QueuedMovie < ActiveRecord::Base
 	belongs_to :movie
 
 	def set_watched_and_all_users_reevalutate
-		self.update_attribute(:watched, true)
+		self.update_attributes(watched: true, time_watched: Time.now)
 		self.user_movie_ratings.each do |user_movie_rating|
 			user_movie_rating.update_attributes(completed: false, seen: true)
 		end

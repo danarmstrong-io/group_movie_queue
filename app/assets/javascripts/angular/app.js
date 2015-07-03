@@ -25,6 +25,23 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "/templates/dashboard/dashboard.list-settings.html",
       controller: "ListSettingsController"
     })
+    .state('dashboard.listSettings.general', {
+      url: "/general",
+      templateUrl: "/templates/dashboard/list-settings/list-settings.general.html"
+    })
+    .state('dashboard.listSettings.users', {
+      url: "/users",
+      templateUrl: "/templates/dashboard/list-settings/list-settings.users.html"
+    })
+    .state('dashboard.listSettings.watched', {
+      url: "/watched",
+      templateUrl: "/templates/dashboard/list-settings/list-settings.watched.html",
+      controller: "WatchedListController"
+    })
+    .state('dashboard.listSettings.destroy', {
+      url: "/destroy",
+      templateUrl: "/templates/dashboard/list-settings/list-settings.destroy.html"
+    })
     .state('userPending', {
       url: "/pending",
       templateUrl: "/templates/pending-list/pending-list.html",

@@ -22,14 +22,13 @@ movies = ["the terminator", "terminator 2: judgment day", "terminator 3: rise of
 	equilibrium", "super troopers", "bio-dome", "the rock", "short circuit", "boondock saints", "wreck-it ralph"]
 
 movies.each do |movie|
-	# puts get_movie_data(movie)
 	Movie.create(get_movie_data(movie))
 end	
 
 user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "dan@gmail.com", password: "password")
 user2 = User.create!(first_name: "Megan", last_name: "Vu", email: "megan@gmail.com", password: "password")
-user3 = User.create!(first_name: "Kevin", last_name: "O", email: "kevin@gmail.com", password: "password")
-user4 = User.create!(first_name: "Caitlin", last_name: "C", email: "caitlin@gmail.com", password: "password")
+user3 = User.create!(first_name: "Kevin", last_name: "OBrien", email: "kevin@gmail.com", password: "password")
+user4 = User.create!(first_name: "Caitlin", last_name: "Costa", email: "caitlin@gmail.com", password: "password")
 
 # movie1 = Movie.create!({"title":"Into the Wild","year":"2007","rated":"R","released":"19 Oct 2007","runtime":"148 min","genre":"Adventure, Biography, Drama","director":"Sean Penn","writer":"Sean Penn (screenplay), Jon Krakauer (book)","actors":"Emile Hirsch, Marcia Gay Harden, William Hurt, Jena Malone","plot":"After graduating from Emory University, top student and athlete Christopher McCandless abandons his possessions, gives his entire $24,000 savings account to charity and hitchhikes to Alaska to live in the wilderness. Along the way, Christopher encounters a series of characters that shape his life.","language":"English, Danish","country":"USA","awards":"Nominated for 2 Oscars. Another 26 wins & 84 nominations.","poster":"http://ia.media-imdb.com/images/M/MV5BMTAwNDEyODU1MjheQTJeQWpwZ15BbWU2MDc3NDQwNw@@._V1_SX300.jpg","metascore":"73","imdbrating":"8.2","imdbid":"tt0758758"})
 
@@ -51,11 +50,12 @@ user4 = User.create!(first_name: "Caitlin", last_name: "C", email: "caitlin@gmai
 queued_list = QueuedList.create(title: "Megan & Dan's List")
 queued_list2 = QueuedList.create(title: "Big ol Fat List")
 queued_list.users << user1
-# queued_list.invited_users << user2
-# li = ListInvite.first
-# li.inviter = user1
-# li.save
-queued_list.users << user2
+queued_list.invited_users << user2
+queued_list.invited_users << user4
+li = ListInvite.first
+li.inviter = user1
+li.save
+queued_list.users << user3
 
 queued_list2.users << user1
 queued_list2.users << user3

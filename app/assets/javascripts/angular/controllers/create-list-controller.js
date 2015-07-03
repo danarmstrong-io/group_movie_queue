@@ -71,7 +71,7 @@ app.controller("CreateListController", ['$scope', '$http', 'UserFactory', 'Queue
 
 	function setUserTooltipInfo(user) {
 		if (user.exists) {
-  		user.tooltipInfo = "User will invited to join this list.";
+  		user.tooltipInfo = "User will be invited to join this list.";
   	}
   	else {
   		user.tooltipInfo = "User does not exist and will be invited to Oogway's list by email.";

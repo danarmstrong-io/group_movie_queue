@@ -16,4 +16,13 @@ class ListInvitesController < ApplicationController
     render json: list_invite, status: :ok 
 	end
 
+	def destroy
+		list_invite = ListInvite.find(params[:id])
+		if list_invite.destroy
+			render json: list_invite, status: :ok
+		else
+      render status: :bad_request
+		end
+	end
+
 end

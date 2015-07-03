@@ -11,7 +11,7 @@ app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'Q
 
     $scope.changeUserList = function(listId) {
         ReadyList.changeListId(listId);
-        $state.go('dashboard');
+        $state.go('dashboard.readyList');
     }
 
     $scope.acceptInvite = function(inviteId) {

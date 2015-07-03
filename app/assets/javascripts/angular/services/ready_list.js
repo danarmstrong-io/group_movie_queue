@@ -14,8 +14,9 @@ app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilt
 	factory.currentListRetrieved = function(response) {
 		factory.listData.movies = orderByFilter(response.data.queued_list.queued_movies, 'oogway_rating', true);
 		factory.listData.id = response.data.queued_list.id;
-		factory.listData.users = response.data.queued_list.users;
+		factory.listData.users = response.data.queued_list.queued_users;
 		factory.listData.title = response.data.queued_list.title;
+		factory.listData.invited_users = response.data.queued_list.list_invites;
 	};
 
 	factory.changeListId = function(listId) {
