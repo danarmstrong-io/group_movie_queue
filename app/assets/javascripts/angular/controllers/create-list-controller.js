@@ -30,7 +30,8 @@ app.controller("CreateListController", ['$scope', '$http', 'UserFactory', 'Queue
 			success(function(data) {
 	    	ReadyList.changeListId(data.id)
 				QueuedLists.updateLists();
-	    	$state.go('dashboard');
+	    	$state.go('dashboard.readyList');
+
 	    }).
       error(function(data) {
       	console.log("error")

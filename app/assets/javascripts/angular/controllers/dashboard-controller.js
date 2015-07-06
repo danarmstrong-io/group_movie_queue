@@ -7,6 +7,7 @@ app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList',
     $scope.pendingListData = PendingList.listData;
     $scope.userData = UserFactory.userData;
     $scope.editRating = false;
+    // $scope.openStartModal();
   }
 
   $scope.changeMovieIndex = function(movieIndex) {
@@ -25,6 +26,17 @@ app.controller("DashboardController", ['$scope', '$modal', '$http', 'ReadyList',
           return $scope.movie;
         }
       }
+    });
+  };
+
+  $scope.openStartModal = function () {
+    var modalInstance = $modal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: '/templates/start-modal/start-modal.html',
+      controller: 'StartModalController',
+      size: 'lg',
+      backdrop: 'static',
+      windowClass: 'start-modal'
     });
   };
 

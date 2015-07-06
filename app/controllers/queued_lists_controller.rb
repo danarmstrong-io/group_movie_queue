@@ -24,7 +24,7 @@ class QueuedListsController < ApplicationController
 
   def create
     queued_list = QueuedList.new(title: params["title"])
-    remove_duplicates_and_current_user
+    remove_duplicates_and_current_user if params[:invitees]
     add_self_and_invite_users(queued_list)
 
     if queued_list.save
@@ -50,8 +50,10 @@ class QueuedListsController < ApplicationController
 
   def add_self_and_invite_users(queued_list)
     queued_list.users << current_user
-    params[:invitees].each do |invitee|
-      find_or_email_and_add_user_to(queued_list, invitee)
+    if params[:invitees]
+      params[:invitees].each do |invitee|
+        find_or_email_and_add_user_to(queued_list, invitee)
+      end
     end
   end
 
