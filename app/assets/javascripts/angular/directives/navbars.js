@@ -1,7 +1,8 @@
 angular.module('app').directive('movieListNavbar', function() {
 	return {
 		restrict: 'E',
-		templateUrl: "/templates/dashboard/movie-list-navbar.html"
+		templateUrl: "/templates/dashboard/movie-list-navbar.html",
+		controller: "MovieListNavbarController"
 	};
 })
 
@@ -10,16 +11,5 @@ angular.module('app').directive('userNavbar', function() {
 		restrict: 'E',
 		controller: 'UserNavbarController',
 		templateUrl: "/templates/dashboard/user-navbar.html"
-	};
-})
-
-angular.module('app').directive('titleNavbar', function() {
-	return {
-		restrict: 'E',
-		// controller: 'TitleNavbarController',
-		scope: {
-			title: '=title'
-		},
-		templateUrl: "/templates/directives/title-navbar.html"
 	};
 })

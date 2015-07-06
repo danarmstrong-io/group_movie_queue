@@ -31,6 +31,9 @@ app.controller("CreateListController", ['$scope', '$http', 'UserFactory', 'Queue
 	    	ReadyList.changeListId(data.id)
 				QueuedLists.updateLists();
 	    	$state.go('dashboard.readyList');
+	    	if ($scope.modalInstance) {
+	    		$scope.modalInstance.dismiss('cancel');
+	    	}
 
 	    }).
       error(function(data) {

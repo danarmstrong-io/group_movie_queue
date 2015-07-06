@@ -15,6 +15,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "/templates/dashboard/dashboard.html",
       controller: "DashboardController"
     })
+    .state('dashboard.start', {
+      url: "/start",
+      templateUrl: "/templates/start-modal/start.html",
+      controller: "StartController"
+    })
     .state('dashboard.readyList', {
       url: "/ready",
       templateUrl: "/templates/dashboard/dashboard.ready-list.html",
@@ -42,17 +47,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/destroy",
       templateUrl: "/templates/dashboard/list-settings/list-settings.destroy.html"
     })
-    .state('userPending', {
+    .state('dashboard.userPending', {
       url: "/pending",
       templateUrl: "/templates/pending-list/pending-list.html",
       controller: "PendingListController"
     })
-    .state('userSettings', {
+    .state('dashboard.userSettings', {
       url: "/user-settings",
       templateUrl: "/templates/user-settings.html",
       controller: "UserSettingsController"
     })
-    .state('createList', {
+    .state('dashboard.createList', {
       url: "/create-list",
       templateUrl: "/templates/create-list/create-list.html",
       controller: "CreateListController"
