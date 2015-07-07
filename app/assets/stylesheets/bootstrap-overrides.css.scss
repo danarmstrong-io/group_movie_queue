@@ -290,9 +290,9 @@ hr {
   // margin: 10% !important;
 
 .modal-dialog {
-  width: 94%;
-  height: 92%;
-  padding: 5% 3% 3% 3%;
+  width: 80%;
+  // height: 92%;
+  padding: 5% 10% 3% 10%;
 }
 
 .modal-content {
@@ -300,4 +300,33 @@ hr {
   // border-radius: 0;
 }
 	 // opacity: 0.8 !important;
+}
+
+.thumbnails {
+    text-align: center;
+    margin-bottom: 0;
+}
+.thumbnails li {
+    width: 175px;
+    height: 175px;
+    margin: 10px;
+    float: none !important; /* to overwrite the default property on the bootstrap stylesheet */
+    display: inline-block;
+    *display: inline; /* ie7 support */
+    zoom: 1;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.thumbnail {
+	background-color: #101010;
+
+}
+
+.thumbnail:hover {
+	cursor:pointer;
+}
+
+.lists-title {
+	color: $light-text-color;
 }

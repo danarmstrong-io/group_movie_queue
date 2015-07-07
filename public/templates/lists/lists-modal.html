@@ -1,0 +1,23 @@
+<div class="modal-header">
+	<h2>Select A List</h2>
+</div>
+<div class="modal-body">
+	<ul class="thumbnails">
+    <li ng-repeat="list in queuedLists.lists">
+	    <a ng-click="selectList(list.id)" class="thumbnail">
+	      <img ng-src="assets/turtle.jpg"/>
+	      <div>
+	      	<h4 class="lists-title">{{list.title}}</h4>
+	    	</div>
+	    </a>
+    </li>
+    <li>
+	    <a href="#" class="thumbnail" >
+	      <i class="fa fa-plus-circle fa-5x" style="margin-top: 40px; margin-bottom: 20px; color:green"></i>
+	      <div>
+	      	<h4 class="lists-title">Create a List</h4>
+	    	</div>
+	    </a>
+    </li>
+	</ul>
+</div>

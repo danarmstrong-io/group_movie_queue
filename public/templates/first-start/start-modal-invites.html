@@ -1,0 +1,23 @@
+
+<div class="bootcards-list" style="margin-left: 10%; margin-right:10%;">
+  <div class="panel panel-default">
+    <div class="list-group">
+      <a ng-repeat="invite in userData.currentUser.list_invites" class="list-group-item" href="#">
+        <div class="row">
+          <div class="col-sm-6">
+  					<img ng-src="assets/turtle.jpg" class="pull-left"/>
+            <!-- <i class="fa fa-3x fa-building-o pull-left"></i> -->
+            <h4 class="list-group-item-heading">{{invite.queued_list.title}}</h4>
+            <p class="list-group-item-text">by {{invite.inviter.first_name}} {{invite.inviter.last_name}}</p>
+          </div>
+          <div class="col-sm-6">
+  		<div class="invite-buttons">
+    	<button class="btn btn-xs btn-success" ng-click="acceptInvite(invite.id)" ng-confirm-click="Sure?">Accept</button>
+    	<button class="btn btn-xs btn-danger" ng-click="rejectInvite(invite.id)" ng-confirm-click="Sure?">Reject</button>
+    	</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

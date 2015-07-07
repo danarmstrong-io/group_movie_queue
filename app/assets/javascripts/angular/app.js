@@ -15,10 +15,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "/templates/dashboard/dashboard.html",
       controller: "DashboardController"
     })
-    .state('dashboard.start', {
+    .state('dashboard.lists', {
+      url: "/lists",
+      templateUrl: "/templates/lists/lists.html",
+      controller: "ListsController"
+    })
+    .state('dashboard.firstStart', {
       url: "/start",
-      templateUrl: "/templates/start-modal/start.html",
-      controller: "StartController"
+      templateUrl: "/templates/first-start/start.html",
+      controller: "FirstStartController"
     })
     .state('dashboard.readyList', {
       url: "/ready",

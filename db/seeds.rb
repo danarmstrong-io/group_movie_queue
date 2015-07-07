@@ -51,6 +51,7 @@ queued_list = QueuedList.create(title: "Megan & Dan's List")
 queued_list2 = QueuedList.create(title: "Big ol Fat List")
 queued_list.users << user1
 queued_list.invited_users << user2
+queued_list2.invited_users << user2
 queued_list.invited_users << user4
 li = ListInvite.first
 li.inviter = user1
