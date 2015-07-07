@@ -1,5 +1,5 @@
 app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilter) {
-	var factory = {currentListId: 1};
+	var factory = {};
 
 	factory.getList = function(listId) {
 		factory.currentListId = listId;
@@ -8,7 +8,6 @@ app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilt
 
 	factory.init = function() {
 		factory.listData = {};
-		factory.getList(factory.currentListId).then(factory.currentListRetrieved);
 	};
 
 	factory.currentListRetrieved = function(response) {

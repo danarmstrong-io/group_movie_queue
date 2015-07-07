@@ -5,14 +5,12 @@ app.controller('ListsModalController', function ($scope, $modalInstance, QueuedL
 		$scope.modalInstance = $modalInstance;
    	$scope.userData = UserFactory.userData;
    	$scope.modalInstance = $modalInstance;
-
 	};
 
 	$scope.selectList = function(listId) {
 		ReadyList.changeListId(listId);
     $modalInstance.dismiss('cancel');
     $state.go('dashboard.readyList');
-
 	};
 
 	$scope.switchToCreateList = function() {
@@ -23,8 +21,6 @@ app.controller('ListsModalController', function ($scope, $modalInstance, QueuedL
 		$scope.createList = false;
 	};
 
-
 	$scope.init();
-    // $modalInstance.close();
-    // $modalInstance.dismiss('cancel');
+	
 });

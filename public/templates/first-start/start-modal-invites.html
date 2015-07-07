@@ -1,23 +1,42 @@
 
-<div class="bootcards-list" style="margin-left: 10%; margin-right:10%;">
-  <div class="panel panel-default">
-    <div class="list-group">
-      <a ng-repeat="invite in userData.currentUser.list_invites" class="list-group-item" href="#">
-        <div class="row">
-          <div class="col-sm-6">
-  					<img ng-src="assets/turtle.jpg" class="pull-left"/>
-            <!-- <i class="fa fa-3x fa-building-o pull-left"></i> -->
-            <h4 class="list-group-item-heading">{{invite.queued_list.title}}</h4>
-            <p class="list-group-item-text">by {{invite.inviter.first_name}} {{invite.inviter.last_name}}</p>
-          </div>
-          <div class="col-sm-6">
-  		<div class="invite-buttons">
-    	<button class="btn btn-xs btn-success" ng-click="acceptInvite(invite.id)" ng-confirm-click="Sure?">Accept</button>
-    	<button class="btn btn-xs btn-danger" ng-click="rejectInvite(invite.id)" ng-confirm-click="Sure?">Reject</button>
-    	</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+
+      <div class="panel panel-default invite-panel" ng-repeat="invite in userData.currentUser.list_invites">
+        <div class="panel-heading clearfix">
+          <h2 class="panel-title pull-left">{{invite.queued_list.title}} by {{invite.inviter. first_name}} {{invite.inviter.last_name}}</h2>
+          <div class="btn-group pull-right">
+            <button class="btn btn-danger" ng-click="rejectInvite(invite.id)" ng-confirm-click="Are you sure you want to reject this list?">
+              <i class="fa fa-check"></i>
+              Reject
+            </button>
+            <button class="btn btn-success" ng-click="acceptInvite(invite.id)" ng-confirm-click="Are you sure you want to accept this list?">
+              <i class="fa fa-times"></i>
+              Accept
+            </button>
           </div>
         </div>
-      </a>
-    </div>
+        <div class="modal-body">
+
+          <form class="form-horizontal">
+            <div class="form-group">
+              <div class="col-xs-2">
+                  <img ng-src="assets/turtle.jpg" class="img-responsive"/>
+              </div>
+              <div class="col-xs-10">
+                <h4 style="color:black;">
+                  Members: {{membersString(invite)}}
+                  <!-- <span style="display:inline" ng-repeat="user in invite.queued_list.users">{{user.first_name}} {{user.last_name}}, </span> -->
+                </h4>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="panel-footer">
+          <small></small>
+        </div>
+      </div>
+
   </div>
+
 </div>

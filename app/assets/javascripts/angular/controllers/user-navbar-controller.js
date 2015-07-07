@@ -30,6 +30,14 @@ app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'Q
     })
     }
 
+    $scope.doesntHaveReadyList = function() {
+        return $.isEmptyObject($scope.readyListData);
+    }
+
+    $scope.hasAReadyList = function() {
+        return !($.isEmptyObject($scope.readyListData));
+    }
+
     $scope.init();
 
 }]);
