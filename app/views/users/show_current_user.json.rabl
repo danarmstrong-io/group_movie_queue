@@ -1,6 +1,6 @@
 object @user
 
-attributes :id, :first_name, :last_name, :email
+attributes :id, :first_name, :last_name, :email, :default_list_id
 
 child :incomplete_invites, :object_root => false do
 	

@@ -11,23 +11,25 @@ app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'Q
 
     $scope.changeUserList = function(listId) {
         ReadyList.changeListId(listId);
-        $state.go('dashboard.readyList');
     }
 
     $scope.acceptInvite = function(inviteId) {
     $http.post('/api/v1/accept_invite/' + inviteId).
-    success(function(data) {
-    	UserFactory.updateUser();
-    	QueuedLists.updateLists();
-    	PendingList.updateList();
-    })
+        success(function(data) {
+        	UserFactory.updateUser();
+        	QueuedLists.updateLists();
+        	PendingList.updateList();
+            ReadyList.changeListId(data.id);
+            $modalInstance.dismiss('cancel');
+            $state.go('dashboard.readyList');
+        })
     }
 
     $scope.rejectInvite = function(inviteId) {
     $http.post('/api/v1/reject_invite/'+ inviteId).
-    success(function(data) {
-    	UserFactory.updateUser();
-    })
+        success(function(data) {
+        	UserFactory.updateUser();
+        })
     }
 
     $scope.doesntHaveReadyList = function() {

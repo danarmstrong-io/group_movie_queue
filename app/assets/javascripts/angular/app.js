@@ -7,11 +7,11 @@ app.config(['$httpProvider', function($httpProvider) {
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/dashboard/lists");
+  $urlRouterProvider.otherwise("/dashboard/lists/ready");
 
   $stateProvider
     .state('dashboard', {
-      url: "/dashboard",
+      url: "/dashboard/:id",
       templateUrl: "/templates/dashboard/dashboard.html",
       controller: "DashboardController"
     })
@@ -35,13 +35,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "/templates/dashboard/dashboard.list-settings.html",
       controller: "ListSettingsController"
     })
-    .state('dashboard.listSettings.general', {
-      url: "/general",
-      templateUrl: "/templates/dashboard/list-settings/list-settings.general.html"
+    .state('dashboard.listSettings.changeTitle', {
+      url: "/change-title",
+      templateUrl: "/templates/dashboard/list-settings/list-settings.change-title.html"
     })
     .state('dashboard.listSettings.users', {
       url: "/users",
       templateUrl: "/templates/dashboard/list-settings/list-settings.users.html"
+    })
+    .state('dashboard.listSettings.default', {
+      url: "/default",
+      templateUrl: "/templates/dashboard/list-settings/list-settings.default-list.html",
+      controller: "DefaultListController"
     })
     .state('dashboard.listSettings.watched', {
       url: "/watched",

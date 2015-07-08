@@ -1,0 +1,3 @@
+app.service('defaultList', ['$location', function($location) {
+  return <%= @queued_list.to_json.html_safe %>;
+}]);

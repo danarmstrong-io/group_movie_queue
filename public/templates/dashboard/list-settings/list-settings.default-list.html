@@ -1,0 +1,5 @@
+<select ng-options="list.id as list.title for list in queuedLists.lists" ng-model="selectedListId">
+</select>
+<button class="btn btn-success" ng-click="setDefaultList()">Set Default List</button>
+<button class="btn btn-danger" ng-click="removeDefaultList()">Clear Default List</button>
+<h2>{{selectedListId}}</h2>

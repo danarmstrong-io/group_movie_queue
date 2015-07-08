@@ -33,10 +33,8 @@ app.controller('StartModalController', function ($scope, $modalInstance, QueuedL
 	    	UserFactory.updateUser();
 	    	QueuedLists.updateLists();
 	    	PendingList.updateList();
-	    	console.log(data);
     		$modalInstance.dismiss('cancel');
     		$state.go('dashboard.readyList');
-
 	    })
     }
 
@@ -51,8 +49,6 @@ app.controller('StartModalController', function ($scope, $modalInstance, QueuedL
   	return ($scope.userData.currentUser.list_invites.length == 0);
   }
 
-
 	$scope.init();
-    // $modalInstance.close();
-    // $modalInstance.dismiss('cancel');
+
 });

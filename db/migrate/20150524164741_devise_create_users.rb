@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name,              null: false, default: ""
       t.string :last_name,              null: false, default: ""
 
-
+      t.integer :default_list_id
 
       t.timestamps
     end

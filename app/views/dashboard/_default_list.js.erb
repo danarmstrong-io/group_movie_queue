@@ -1,0 +1,3 @@
+app.service('defaultList', function(){
+  return <%= @queued_list.to_json.html_safe %>;
+});

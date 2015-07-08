@@ -1,4 +1,4 @@
-app.controller('ListsModalController', function ($scope, $modalInstance, QueuedLists, UserFactory, ReadyList, $state) {
+app.controller('ListsModalController', function ($scope, $modalInstance, QueuedLists, UserFactory, ReadyList, $state, $stateParams) {
 
 	$scope.init = function() {
     $scope.queuedLists = QueuedLists.listsData;
@@ -10,7 +10,6 @@ app.controller('ListsModalController', function ($scope, $modalInstance, QueuedL
 	$scope.selectList = function(listId) {
 		ReadyList.changeListId(listId);
     $modalInstance.dismiss('cancel');
-    $state.go('dashboard.readyList');
 	};
 
 	$scope.switchToCreateList = function() {

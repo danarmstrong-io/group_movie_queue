@@ -1,4 +1,4 @@
-app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilter) {
+app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', function ($http, orderByFilter, $location, defaultList) {
 	var factory = {};
 
 	factory.getList = function(listId) {
@@ -19,6 +19,9 @@ app.factory("ReadyList", ['$http', 'orderByFilter', function ($http, orderByFilt
 	};
 
 	factory.changeListId = function(listId) {
+		var path = "/dashboard/" + listId + '/ready';
+		$location.path(path);
+		defaultList.id = listId;
 		factory.currentListId = listId;
 		factory.getList(factory.currentListId).then(factory.currentListRetrieved);
 	}

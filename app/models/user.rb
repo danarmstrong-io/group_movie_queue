@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :default_list, class_name: "QueuedList"
+
   has_many :user_movie_ratings
 
   has_many :queued_users

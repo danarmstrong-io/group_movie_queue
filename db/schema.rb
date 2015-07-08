@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20150629231603) do
     t.inet     "last_sign_in_ip"
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
+    t.integer  "default_list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
