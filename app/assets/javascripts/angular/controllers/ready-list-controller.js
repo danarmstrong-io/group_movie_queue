@@ -11,6 +11,17 @@ app.controller("ReadyListController", ['$scope', '$modal', '$http', 'ReadyList',
     resizeAppContainer();
   }
 
+  $scope.genresString = function(movie) {
+    if (movie && movie.genres) {
+      var string = ""
+      for(var index = 0; index < movie.genres.length - 1; index++) {
+        string += movie.genres[index].name + ', '
+      }
+      string += movie.genres[movie.genres.length - 1].name
+      return string
+    }
+  }
+
   $scope.changeMovieIndex = function(movieIndex) {
     $scope.currentMovie.movieIndex = movieIndex;
     $scope.cancelEditRating();

@@ -16,6 +16,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+
         <li>
           <a ui-sref="dashboard.listSettings.users" class="listSettingsIcon" style="padding:11px 13px 0 0"><i class="fa fa-cogs fa-2x"></i></a>
         </li>
@@ -23,19 +24,30 @@
 
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" style="width:400px;" class="form-control" placeholder="Search">
+          <input type="text" style="width:400px;" class="form-control" placeholder="Search" ng-model="searchInput">
         </div>
       </form>
 
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a style="padding:11px 2px 0 0" ng-click="toggleCompletedCheckBox()" class="navbar-setting"><i class="fa fa-check-square-o fa-2x" ng-class="{activeSetting: completedCheckBox.completed}"></i></a>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Genres <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a class="active" href="#">All</a></li>
+            <li>
+              <a ng-click="setGenresToAll()">
+                <i class="fa fa-check" ng-show="allGenresSelected()"></i>
+                 All
+              </a>
+            </li>
             <li class="divider"></li>
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Comedy</a></li>
-            <li><a href="#">Horror</a></li>
+            <li ng-repeat="genre in readyListData.genres | orderBy:'name'">
+              <a ng-click="addGenreToFilter(genre.name)">
+                <i class="fa fa-check" ng-show="genreSelected(genre.name)"></i> {{genre.name}}
+              </a>
+            </li>
+
           </ul>
         </li>
 

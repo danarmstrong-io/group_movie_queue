@@ -2,6 +2,10 @@ object @queued_list
 
 attributes :id, :title
 
+child :not_watched_movie_genres, :object_root => false do
+	attributes :id, :name
+end
+
 child :queued_users, :object_root => false do
 	attribute :id => :queued_user_id
 	glue :user do
@@ -13,11 +17,14 @@ glue :users do
 	attributes :id, :first_name, :last_name, :email
 end
 
-child :ready_movies, :object_root => false do
-	attributes :id => :queued_movie_id, :oogway_rating => :oogway_rating
+child :not_watched_queued_movies, :object_root => false do
+	attributes :id => :queued_movie_id, :oogway_rating => :oogway_rating, :completed => :completed
 
 	glue :movie do
 		attributes *Movie.column_names
+		child :genres do
+			attributes :id, :name
+		end
 	end
 
 	node :current_user_movie_rating do |movie|

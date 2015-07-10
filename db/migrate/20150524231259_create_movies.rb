@@ -5,7 +5,6 @@ class CreateMovies < ActiveRecord::Migration
     	t.integer :year
     	t.datetime :released
     	t.string :runtime
-    	t.string :genre
     	t.string :rated
     	t.string :director
         t.string :writer

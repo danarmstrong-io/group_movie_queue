@@ -3,8 +3,14 @@ class QueuedMoviesController < ApplicationController
 	def create
 		mp = movie_params
 		rating = mp.delete(:rating)
+		genres = mp.delete(:genre).split(', ')
 		list = QueuedList.find(params[:queued_list_id])
 		movie = Movie.find_or_create_by(title: params[:title])
+
+		genres.each do |genre|
+			movie.genres << Genre.find_or_create_by(name: genre)
+		end
+
 		movie.update_attributes(mp)
 		list.movies << movie
 		queued_movie = QueuedMovie.find_by_queued_list_id_and_movie_id(list.id, movie.id)

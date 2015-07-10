@@ -21,7 +21,7 @@
       	<div class="col-md-8 movie-info">
       		
     			<h2>{{readyListData.movies[currentMovie.movieIndex].title}} ({{readyListData.movies[currentMovie.movieIndex].year}})</h2>
-    			<p>{{readyListData.movies[currentMovie.movieIndex].rated}} | {{readyListData.movies[currentMovie.movieIndex].runtime}} | {{readyListData.movies[currentMovie.movieIndex].genre}} | {{readyListData.movies[currentMovie.movieIndex].released | date}}</p>
+    			<p>{{readyListData.movies[currentMovie.movieIndex].rated}} | {{readyListData.movies[currentMovie.movieIndex].runtime}} | {{genresString(readyListData.movies[currentMovie.movieIndex])}} | {{readyListData.movies[currentMovie.movieIndex].released | date}}</p>
 
     			<hr>
 
@@ -31,9 +31,12 @@
             <div class="row">
               <div class="col-md-3">
                 <p class="list-group-item-heading">Your rating: {{readyListData.movies[currentMovie.movieIndex].current_user_movie_rating.rating}}</p>
+
               </div>
 
               <div class="col-md-9">
+                <span style="display:inline; color:black" ng-hide="readyListData.movies[currentMovie.movieIndex].current_user_movie_rating.rating">(incomplete)</span>
+
                 <button ng-show="readyListData.movies[currentMovie.movieIndex].current_user_movie_rating.seen" type="button" class="btn btn-success btn-xs" disabled>
                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Seen
                 </button>
@@ -57,6 +60,8 @@
               </div>
 
               <div class="col-md-9">
+                <span style="display:inline; color:black" ng-hide="review.rating">(incomplete)</span>
+
                 <button ng-show="review.seen" type="button" class="btn btn-success btn-xs" disabled>
                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Seen
                 </button>
@@ -142,7 +147,8 @@
     <div class="panel panel-default">       
       <div class="list-group">
 
-        <a ng-repeat="movie in readyListData.movies" ng-click="changeMovieIndex($index)" class="list-group-item">
+        <a ng-repeat="movie in readyListData.movies | filter:searchInput | filter: completedCheckBox | selectedGenres:genres" ng-click="changeMovieIndex($index)" class="list-group-item" ng-class="{incompleteMovie: !movie.completed}">
+        <!-- <a ng-repeat="movie in readyListData.movies | selectedGenres:genres" ng-click="changeMovieIndex($index)" class="list-group-item" ng-class="{incompleteMovie: !movie.completed}"> -->
           <div class="pull-left oogway-rating-text">
             {{movie.oogway_rating | number:1}}
           </div>

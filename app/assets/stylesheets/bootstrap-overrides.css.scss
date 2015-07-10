@@ -334,3 +334,33 @@ hr {
 .invite-panel {
 	margin-bottom: 20px;
 }
+
+.incompleteMovie {
+	.oogway-rating-text {
+		color: #B2D9B2;
+	}
+
+	.list-group-item-heading {
+		color:grey !important;
+	}
+
+	.card-image {
+		opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+	}
+	
+	p {
+		color:grey;
+	}
+}
+
+.activeSetting {
+	color:green;
+}
+
+.navbar-setting:hover {
+	cursor:pointer;
+}
+
+
+
