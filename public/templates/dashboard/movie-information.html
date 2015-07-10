@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <div class="block">
+    <h2>Information</h2>
+    <div class="listview">
+      <div class="media">
+        <div class="pull-left hidden-xs hidden-sm">
+          <img ng-src="{{selectedMovie.poster}}" class="img-responsive" style="height:300px">
+        </div>
+        <div class="media-body">
+          <header class="p-header">
+            <h2 class="p-title">{{selectedMovie.title}} ({{selectedMovie.year}})</h2>
+          </header>
+          <span>{{selectedMovie.rated}} | {{selectedMovie.runtime}} | {{genresString(selectedMovie)}} | {{selectedMovie.released | date}}</span>
+          <hr>
+          {{selectedMovie.plot}}
+          <hr>
+          Director: {{selectedMovie.director}}
+          <br>
+          Writers: {{selectedMovie.writer}}
+          <br>
+          Stars: {{selectedMovie.actors}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

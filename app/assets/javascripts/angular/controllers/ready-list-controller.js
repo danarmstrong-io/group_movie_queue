@@ -1,4 +1,4 @@
-app.controller("ReadyListController", ['$scope', '$modal', '$http', 'ReadyList', 'PendingList', 'orderByFilter', 'UserFactory', function($scope, $modal, $http, ReadyList, PendingList, orderByFilter, UserFactory){
+app.controller("ReadyListController", ['$scope', '$modal', '$http', 'ReadyList', 'PendingList', 'orderByFilter', 'UserFactory', 'SelectedMovie', function($scope, $modal, $http, ReadyList, PendingList, orderByFilter, UserFactory, SelectedMovie){
 
   $scope.init = function() {
     $scope.currentMovie = {}
@@ -7,8 +7,7 @@ app.controller("ReadyListController", ['$scope', '$modal', '$http', 'ReadyList',
     $scope.pendingListData = PendingList.listData;
     $scope.userData = UserFactory.userData;
     $scope.editRating = false;
-    resizeMainPanels();
-    resizeAppContainer();
+    $scope.movie = SelectedMovie.movieData;
   }
 
   $scope.genresString = function(movie) {
@@ -20,11 +19,6 @@ app.controller("ReadyListController", ['$scope', '$modal', '$http', 'ReadyList',
       string += movie.genres[movie.genres.length - 1].name
       return string
     }
-  }
-
-  $scope.changeMovieIndex = function(movieIndex) {
-    $scope.currentMovie.movieIndex = movieIndex;
-    $scope.cancelEditRating();
   }
 
   $scope.openStartModal = function () {
@@ -77,30 +71,6 @@ app.controller("ReadyListController", ['$scope', '$modal', '$http', 'ReadyList',
   function updateLists() {
     ReadyList.updateList();
     PendingList.updateList();
-  }
-
-  $( window ).resize(function() {
-    resizeMainPanels();
-    resizeAppContainer();
-  });
-
-  function resizeMainPanels() {
-    var height = $(window).height() - 100;
-    var mainPanels = $('.main-panel');
-    $.each(mainPanels, function( index, value ) {
-      $(value).css({ "max-height": height + 'px' });
-      $(value).css({ "height": height + 'px' });
-    });
-    $('body').css({ "height": height + 'px' });
-  }
-
-  function resizeAppContainer() {
-    var height = $(window).height() - 50;
-    var mainPanels = $('.app-container');
-    $.each(mainPanels, function( index, value ) {
-      $(value).css({ "max-height": height + 'px' });
-      $(value).css({ "height": height + 'px' });
-    });
   }
 
 	$scope.init();

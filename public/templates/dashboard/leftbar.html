@@ -1,0 +1,68 @@
+<aside id="leftbar" class="pull-left">
+
+  <div class="sidebar-container">
+
+
+    <div class="shadowed side-form" style="text-align:center">
+      <form id="side-form">
+
+        <a class="btn btn-info" ng-click="openAddAMovieModal('lg')"><i class="fa fa-plus"></i> Add Movie</a>
+
+        <a class="btn" ng-click="toggleCompletedCheckBox()" ng-class="{'btn-success': completedCheckBox.completed, 'btn-default': !completedCheckBox.completed}"><i class="fa fa-check"></i> Completed</a>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-default">Genres</button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+              <li style="cursor:pointer">
+              <a ng-click="setGenresToAll()">
+                <i class="fa fa-check" ng-show="allGenresSelected()"></i>
+                 All
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li ng-repeat="genre in readyListData.genres | orderBy:'name'" style="cursor:pointer">
+              <a ng-click="toggleGenreToFilter(genre.name)">
+                <i class="fa fa-check" ng-show="genreSelected(genre.name)"></i> {{genre.name}}
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+      </form>
+    </div>
+    <form class="form-inline top-search shadowed">
+      <input type="text" ng-model="searchInput" class="form-control" placeholder="Search for anything...">
+        <button type="submit"><i class="icon-search"></i></button>
+    </form>
+
+    <div class="side-progress shadowed last-shadowed">
+      <div class="tab-content main-panel">
+        <div class="tab-pane active">
+
+          <div ng-repeat="movie in movies | filter:searchInput | filter: completedCheckBox | selectedGenres:genres" class="media media-movie-card" ng-class="{incompleteMovie: !movie.completed}" ng-click="changeMovie(movie)">
+            <div class="pull-left hidden-xs hidden-sm" href="#">
+            <img class="media-object" ng-src="{{movie.poster}}">
+            </div>
+            <div class="media-body">
+              <h5 class="media-heading">{{movie.title}} ({{movie.year}})</h5>
+              <small class="hidden-xs hidden-sm">{{movie.actors}}</small>
+            </div>
+            <div class="progress oogway-rating-bar">
+              <div data-toggle="tooltip" title="{{movie.oogway_rating}}" class="green ttips progress-bar" style="width: {{movie.oogway_rating * 10}}%;">
+                   <span class="sr-only">{{movie.oogway_rating}}% Complete</span>
+              </div>
+           </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <span id="rightbar-toggle" class="hidden-lg sidebar-toggle">
+  <i class="icon-angle-left"></i>
+  </span>
+</aside>
+

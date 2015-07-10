@@ -1,0 +1,80 @@
+.start-modal {
+  // top: 25% !important;
+  // opacity: 1 !important;
+  // width:80% !important;
+  // height:80% !important;
+  // margin: 10% !important;
+
+	.modal-dialog {
+	  width: 80%;
+	  // height: 92%;
+	  padding: 5% 10% 3% 10%;
+	}
+
+	.modal-content {
+	  height: 100%;
+	  // border-radius: 0;
+	}
+	 // opacity: 0.8 !important;
+}
+
+.thumbnails {
+    text-align: center;
+    margin-bottom: 0;
+}
+.thumbnails li {
+    width: 175px;
+    height: 175px;
+    margin: 10px;
+    float: none !important; /* to overwrite the default property on the bootstrap stylesheet */
+    display: inline-block;
+    *display: inline; /* ie7 support */
+    zoom: 1;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.thumbnail {
+	background-color: #101010;
+
+}
+
+.thumbnail:hover {
+	cursor:pointer;
+}
+
+.lists-title {
+	color: $light-text-color;
+}
+
+.invite-panel {
+	margin-bottom: 20px;
+}
+
+.incompleteMovie {
+	.oogway-rating-text {
+		color: #B2D9B2;
+	}
+
+	.list-group-item-heading {
+		color:grey !important;
+	}
+
+	.card-image {
+		opacity: 0.4;
+    filter: alpha(opacity=40); /* msie */
+	}
+	
+	p {
+		color:grey;
+	}
+}
+
+.activeSetting {
+	color:green;
+}
+
+.navbar-setting:hover {
+	cursor:pointer;
+}
+

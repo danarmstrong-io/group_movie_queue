@@ -3,11 +3,11 @@
 -----------------------------------------------------------*/
 @font-face {
     font-family: 'Actor';
-    src: url('../fonts/actor/actor-regular.eot');
-    src: url('../fonts/actor/actor-regular.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/actor/actor-regular.woff') format('woff'),
-         url('../fonts/actor/actor-regular.ttf') format('truetype'),
-         url('../fonts/actor/actor-regular.svg#actorregular') format('svg');
+    src: font-url('actorregular.eot');
+    src: font-url('actorregular.eot?#iefix') format('embedded-opentype'),
+         font-url('actorregular.woff') format('woff'),
+         font-url('actorregular.ttf') format('truetype'),
+         font-url('actorregular.svg#actorregular') format('svg');
     font-weight: normal;
     font-style: normal;
     unicode-range: U+0-2f, U+40-10FFFF;
@@ -15,11 +15,11 @@
 
 @font-face {
     font-family: 'Actor';
-    src: url('../fonts/open-sans/opensans-regular.eot');
-    src: url('../fonts/open-sans/opensans-regular.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/open-sans/opensans-regular.woff') format('woff'),
-         url('../fonts/open-sans/opensans-regular.ttf') format('truetype'),
-         url('../fonts/open-sans/opensans-regular.svg#pt_sansregular') format('svg');
+    src: font-url('opensansregular.eot');
+    src: font-url('opensansregular.eot?#iefix') format('embedded-opentype'),
+         font-url('opensansregular.woff') format('woff'),
+         font-url('opensansregular.ttf') format('truetype'),
+         font-url('opensansregular.svg#pt_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
     unicode-range: U+30-39;       
@@ -39,7 +39,7 @@ html {
 
 body {
     color: white;
-    font-size: 13px;
+    font-size: 16px;
     font-family: Actor;
 }
 
@@ -74,7 +74,7 @@ h1, h2, h3 {
 }
 
 body, #rightbar, #leftbar {
-    background: transparent url(../img/body-bg/cloth.png);
+    background: transparent url(../assets/body-bg/cloth.png);
 }
 
 p {
@@ -101,6 +101,11 @@ p {
 .media-movie-card:hover {
     color:grey;
     cursor:pointer
+}
+
+.main-panel {
+    overflow-y: scroll;
+    margin-bottom: 0 !important;
 }
 
 /* --------------------------------------------------------
@@ -366,7 +371,7 @@ tr.red td, tr.green td, tr.blue td, tr.yellow td, tr.dark td {
     margin-left: -1px;
     padding: 7px 10px;
     height: 32px;
-    height: 33px \0/;
+    height: 33px;
     font-size: 12px;
     margin-top: 0px;
     display: inline-block;
@@ -486,8 +491,8 @@ aside .btn {
 }
 
 #content {
-    background: url(../img/content-bg/content-bg.jpg);
-    margin: 0 400px 0 0;
+    background: url(../assets/content-bg/content-bg.jpg);
+    margin: 0 200px 0 400px;
     min-height: 500px;
     padding: 20px 20px 35px;
     position: relative;
@@ -503,7 +508,7 @@ aside .btn {
 }
 
 #rightbar-toggle, #leftbar-toggle {
-    background: transparent url(../img/body-bg/cloth.png);
+    background: transparent url(../assets/body-bg/cloth.png);
     color: #eee;
     width: 15px;
     height: 30px;
@@ -513,7 +518,7 @@ aside .btn {
 }
 
 #rightbar-toggle:hover, #leftbar-toggle:hover {
-    color: green;
+    color: $oogway-hover-color;
 }
 
 #rightbar-toggle {
@@ -562,7 +567,7 @@ aside a {
 }
 
 aside a.active, aside a:hover, aside a.active i, aside a:hover i, aside a:active, aside a:focus, .side-menu ul li a.active:hover{
-    color: green;
+    color: $oogway-hover-color;
 }
 
 aside small {
@@ -584,6 +589,10 @@ aside ul {
 aside .shadowed {
     margin: 0 15px 15px;
     padding: 12px;
+}
+
+aside .last-shadowed {
+    margin-bottom: 0;
 }
 
 /* --------------------------------------------------------
@@ -612,7 +621,7 @@ aside .shadowed {
 }
 
 .logo:hover {
-    color: green;
+    color: $oogway-hover-color;
 }
 
 /* --------------------------------------------------------
@@ -633,12 +642,12 @@ aside .shadowed {
 }
 
 #top-menu > li > a:hover .caret {
-    border-top-color: green;
+    border-top-color: $oogway-hover-color;
 }
 
 #top-menu > li.active > a, #top-menu > li.active > :hover, #top-menu > li.active > a:focus, #top-menu > li > a:hover, #top-menu > li > a:focus {
     background: transparent;
-    color: green;
+    color: $oogway-hover-color;
 }
 
 /* --------------------------------------------------------
@@ -925,7 +934,7 @@ aside .top-search.shadowed {
 }
 
 .p-header > h2 {
-    font-size: 20px;
+    font-size: 26px;
     line-height: 100%;
     font-weight: normal;
     margin: 5px 0 8px 0;
@@ -1088,6 +1097,10 @@ aside .top-search.shadowed {
     display: block;
 }
 
+.side-menu > li {
+    font-size: 14px;
+}
+
 /* ---------------------------------------------------------
     Wall 
 -----------------------------------------------------------*/
@@ -1114,7 +1127,7 @@ ul.post-menu li a {
 }
 
 ul.post-menu li a.active {
-    background: url(../img/up-arrow.png) no-repeat center bottom;
+    background: url(../assets/up-arrow.png) no-repeat center bottom;
     position: relative;
     z-index: 10;
 }
@@ -1672,7 +1685,7 @@ aside .top-search .form-control {
 .big-text {
     display: block;
     font-size: 20px;
-    color: green;
+    color: $oogway-hover-color;
 }
 
 .sub-text {
@@ -1692,7 +1705,7 @@ aside .top-search .form-control {
 .clock #time {
     font-size: 35px;
     line-height: 110%;
-    color: green;
+    color: $oogway-hover-color;
     margin: 0 0 2px -3px;
     text-align: center;
     letter-spacing: -3px;
@@ -1712,7 +1725,7 @@ aside .top-search .form-control {
 }
 
 .notification > ul.tab li.active a {
-    color: green;
+    color: $oogway-hover-color;
 }
 
 .notification .tab-content .media {
@@ -1765,7 +1778,7 @@ aside .top-search .form-control {
 }
 
 .news-feed .itemTitle a {
-    color: green;
+    color: $oogway-hover-color;
     line-height: 18px;
 }
 
@@ -1876,7 +1889,7 @@ aside .top-search .form-control {
 
 .information .info-body i {
     font-size: 62px;
-    color: green;
+    color: $oogway-hover-color;
     float: left;
     margin: 0 11px 0 0;
 }
@@ -1939,7 +1952,7 @@ aside .side-calendar {
 }
 
 .side-calendar .fc-today, .side-calendar th {
-    color: green;
+    color: $oogway-hover-color;
 }
 
 .side-calendar .fc-today {
@@ -1958,7 +1971,7 @@ aside .side-calendar {
 }
 
 .side-calendar .fc-text-arrow:hover {
-    color: green;
+    color: $oogway-hover-color;
     cursor: pointer;
 }
 
@@ -2005,7 +2018,7 @@ aside .side-profile {
     margin: 25px 0 0 0;
     border-bottom: 1px solid #292929;
     padding-bottom: 3px;
-    color: green;
+    color: $oogway-hover-color;
 }
 
 .side-profile .btn-gr-gray {
@@ -2338,8 +2351,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
     background: -webkit-linear-gradient(top,  #ffffff 1%,#dadada 100%);
     background: -o-linear-gradient(top,  #ffffff 1%,#dadada 100%);
     background: -ms-linear-gradient(top,  #ffffff 1%,#dadada 100%); 
-    background: linear-gradient(to bottom,  #ffffff 1%,#dadada 100%); /
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dadada',GradientType=0 ); 
+    background: linear-gradient(to bottom,  #ffffff 1%,#dadada 100%); 
 }
 
 /* --------------------------------------------------------
@@ -2705,7 +2717,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 
 @media (min-width:1201px) {
     #rightbar .sidebar-container {
-        width: 400px!important;
+        width: 200px!important;
     }
 
     #rightbar .sidebar-container>.shadowed {
@@ -2735,7 +2747,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 
 @media (min-width:992px) {
     #leftbar .sidebar-container {
-        width: 230px!important;
+        width: 400px!important;
     }
 
     .modal-narrow {
@@ -2749,7 +2761,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 
 @media (max-width:992px) {
     #content {
-        /*margin-left: 200px;*/
+        margin-left: 300px;
     }
 
     #leftbar .sidebar-container {
@@ -2789,7 +2801,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 
 @media (max-width:992px) and (min-width:769px) {
     #leftbar .sidebar-container {
-        width: 200px!important;
+        width: 300px!important;
     }
 
     .message-menu {
@@ -2885,7 +2897,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 
     #top-menu .dropdown-menu li a:hover {
         background: 0 0;
-        color: green;
+        color: $oogway-hover-color;
     }
 
     ul.post-menu li a.active {

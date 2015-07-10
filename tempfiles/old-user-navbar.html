@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="z-index: 100000">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="dashboard.readyList">Oogway's List</a>
+			<a ng-show="hasAReadyList()" class="navbar-brand" style="margin-left:200px" ui-sref="dashboard.readyList">{{readyListData.title}}</a>
+
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+
+	      <li class="dropdown" ng-show="userData.currentUser.list_invites.length > 0 && hasAReadyList()">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Invites ({{userData.currentUser.list_invites.length}})<span class="caret"></span></a>
+	        <ul class="dropdown-menu navbar-inverse list-invites" role="menu">
+	          <li ng-repeat="invite in userData.currentUser.list_invites">
+	          	<a> 
+	          		<div>{{invite.queued_list.title}}</div>
+	          		<div>by {{invite.inviter.first_name}} {{invite.inviter.last_name}}</div>
+	          		<div class="invite-buttons">
+		          	<button class="btn btn-xs btn-success" ng-click="acceptInvite(invite.id)" ng-confirm-click="Are you sure you want to accept this list?">Accept</button>
+		          	<button class="btn btn-xs btn-danger" ng-click="rejectInvite(invite.id)" ng-confirm-click="Are you sure you want to reject this list?">Reject</button>
+		          	</div>
+	          	</a>
+
+	          </li>
+	        </ul>
+	      </li>
+
+        <li ng-show="pendingListData.movies.length > 0 && hasAReadyList()">
+          <a ui-sref="dashboard.userPending">Pending Movies ({{pendingListData.movies.length}})</a>
+        </li>
+
+				<li ng-show="hasAReadyList()"><a ui-sref="dashboard.createList">Create a New List</a></li>
+
+	      <li class="dropdown" ng-show="hasAReadyList()">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lists<span class="caret"></span></a>
+	        <ul class="dropdown-menu navbar-inverse" role="menu">
+	          <li ng-repeat="list in queuedLists.lists">
+	          	<a style="cursor:pointer;" ng-click="changeUserList(list.id)">-  
+	          		{{list.title}}
+	          	</a>
+	          </li>
+	        </ul>
+	      </li>
+
+				<li ng-show="hasAReadyList()"><a ui-sref="dashboard.userSettings">Account Settings</a></li>
+        <li><a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a></li>
+	    </ul>
+
+		</div>
+	</div>
+
+</nav>

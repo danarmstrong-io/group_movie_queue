@@ -17,7 +17,6 @@
 //= require underscore
 //= require lodash
 
-
 //= require angular
 //= require angular-ui-router
 //= require ui-bootstrap

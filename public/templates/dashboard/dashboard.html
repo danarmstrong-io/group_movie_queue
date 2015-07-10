@@ -1,2 +1,11 @@
 <movie-list-navbar></movie-list-navbar>
-<div ui-view></div>
+
+
+<section id="main" role="main">
+  <leftbar movies="readyListData.movies" selected-movie="selectedMovie"></leftbar>
+  <rightbar></rightbar>
+
+  <section id="content" class="container">
+  	<div ui-view></div> 
+  </section>
+</section>
