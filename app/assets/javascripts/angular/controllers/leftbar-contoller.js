@@ -1,4 +1,4 @@
-app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$modal', function($scope, ReadyList, SelectedMovie, $modal){
+app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$modal', '$state', function($scope, ReadyList, SelectedMovie, $modal, $state){
 
 	$scope.init = function() {
 		$scope.readyListData = ReadyList.movies
@@ -12,7 +12,7 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
 	$scope.changeMovie = function(movie) {
 		$scope.selectedMovie = movie;
 		SelectedMovie.setMovie(movie);
-		console.log($scope.selectedMovie);
+    $state.go('dashboard.readyList');
 	}
 
   $scope.allGenresSelected = function() {
