@@ -46,15 +46,19 @@
             <div class="pull-left hidden-xs hidden-sm" href="#">
             <img class="media-object" ng-src="{{movie.poster}}">
             </div>
-            <div class="media-body">
+
+            <div class="media-body media-info">
               <h5 class="media-heading">{{movie.title}} ({{movie.year}})</h5>
-              <small class="hidden-xs hidden-sm">{{movie.actors}}</small>
+              <div class="media-actors hidden-xs hidden-sm">{{movie.actors}}</div>
+
+              <div class="progress oogway-rating-bar">
+                <div data-toggle="tooltip" title="{{movie.oogway_rating}}" class="green ttips progress-bar" style="width: {{movie.oogway_rating * 10}}%;">we
+                     <span class="sr-only">{{movie.oogway_rating}}% Complete</span>
+                </div>
+             </div>
+
             </div>
-            <div class="progress oogway-rating-bar">
-              <div data-toggle="tooltip" title="{{movie.oogway_rating}}" class="green ttips progress-bar" style="width: {{movie.oogway_rating * 10}}%;">
-                   <span class="sr-only">{{movie.oogway_rating}}% Complete</span>
-              </div>
-           </div>
+
           </div>
 
         </div>
