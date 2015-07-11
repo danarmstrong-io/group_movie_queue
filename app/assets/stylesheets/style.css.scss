@@ -108,9 +108,14 @@ p {
 }
 
 .media-info {
-        position: relative;
+    position: relative;
     width: 100%;
     height: 78px;
+    color: $light-text-color;
+}
+
+.media-info:hover {
+    color:white;
 }
 
 .media-actors {
