@@ -161,9 +161,24 @@ header {
     color:white;
 }
 
-.list-title {
-    margin-left: auto !important;
-    margin-right: 20%;
+.incompleteMovie {
+    .media-heading {
+        color: grey !important;
+    }
+
+    .media-actors {
+        color: grey !important;
+        
+    }
+
+    .list-group-item-heading {
+        color:grey !important;
+    }
+
+    .media-object {
+        opacity: 0.4;
+        filter: alpha(opacity=40); /* msie */
+    }
 }
 
 /* --------------------------------------------------------

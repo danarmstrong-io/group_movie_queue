@@ -335,9 +335,14 @@ hr {
 	margin-bottom: 20px;
 }
 
-.incompleteMovie {
-	.oogway-rating-text {
-		color: #B2D9B2;
+.incompleteMovie > .media-heading {
+	.media-heading {
+		color: red !important;
+	}
+
+	.media-actors {
+		color:red !important;
+		
 	}
 
 	.list-group-item-heading {
@@ -350,7 +355,6 @@ hr {
 	}
 	
 	p {
-		color:grey;
 	}
 }
 
