@@ -42,7 +42,7 @@
       <div class="tab-content main-panel">
         <div class="tab-pane active">
 
-          <div ng-repeat="movie in movies | filter:searchInput | filter: completedCheckBox | selectedGenres:genres" class="media media-movie-card" ng-class="{incompleteMovie: !movie.completed}" ng-click="changeMovie(movie)">
+          <div ng-repeat="movie in ( filteredMovies = (movies | filter:searchInput | filter: completedCheckBox | selectedGenres:genres))" class="media media-movie-card" ng-class="{incompleteMovie: !movie.completed}" ng-click="changeMovie(movie)">
             <div class="pull-left hidden-xs hidden-sm" href="#">
             <img class="media-object" ng-src="{{movie.poster}}">
             </div>

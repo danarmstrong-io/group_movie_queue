@@ -13,17 +13,6 @@ app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$s
     resizeAppContainer();
 	}
 
-  $scope.genresString = function(movie) {
-    if (movie && movie.genres) {
-      var string = ""
-      for(var index = 0; index < movie.genres.length - 1; index++) {
-        string += movie.genres[index].name + ', '
-      }
-      string += movie.genres[movie.genres.length - 1].name
-      return string
-    }
-  }
-
   $scope.openListsModal = function () {
     var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,

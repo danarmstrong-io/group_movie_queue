@@ -1,18 +1,22 @@
 app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$modal', '$state', function($scope, ReadyList, SelectedMovie, $modal, $state){
 
 	$scope.init = function() {
-		$scope.readyListData = ReadyList.movies
-		$scope.selectedMovie = SelectedMovie.movieData;
+		// $scope.readyListData = ReadyList.movies
     $scope.completedCheckBox = {completed: true};
     $scope.readyListData = ReadyList.listData;
     $scope.genres = [];
 		resizeMainPanels();
 	}
 
+  $scope.$watch(function(scope) { return SelectedMovie.movieData },
+    function(newValue, oldValue) {
+      $scope.selectedMovie = SelectedMovie.movieData;
+    }
+  );
+
 	$scope.changeMovie = function(movie) {
 		$scope.selectedMovie = movie;
 		SelectedMovie.setMovie(movie);
-    console.log(movie);
     $state.go('dashboard.readyList');
 	}
 
@@ -43,7 +47,10 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
       $scope.completedCheckBox = undefined;
     }
     else {
-      $scope.completedCheckBox = {completed: true};
+      $scope.completedCheckBox = {completed: true}; 
+    }
+    if ($scope.selectedMovie == false && $scope.readyListData.movies.length > 0) {
+      $scope.selectedMovie = $scope.readyListData.movies[0];
     }
   };
 

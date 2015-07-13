@@ -17,7 +17,7 @@ app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 
 		factory.listData.title = response.data.queued_list.title;
 		factory.listData.invited_users = response.data.queued_list.list_invites;
 		factory.listData.genres = response.data.queued_list.genres;
-		SelectedMovie.movieData = factory.listData.movies[0];
+		SelectedMovie.movieData = firstCompletedMovie();
 	};
 
 	factory.changeListId = function(listId) {
@@ -30,6 +30,15 @@ app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 
 
 	factory.updateList = function() {
 		factory.getList(factory.currentListId).then(factory.currentListRetrieved);
+	}
+
+	function firstCompletedMovie() {
+		for (var index = 0; index < factory.listData.movies.length; index++) {
+			if (factory.listData.movies[index].completed == true) {
+				return factory.listData.movies[index];
+			}
+		}
+		return false;
 	}
 
 	factory.init();
