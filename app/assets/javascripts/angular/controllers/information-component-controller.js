@@ -1,6 +1,7 @@
-app.controller("InformationComponentController", ['$scope', function($scope){
+app.controller("InformationComponentController", ['$scope', 'ReadyList', '$http', function($scope, ReadyList, $http){
 
   $scope.init = function() {
+    $scope.readyListData = ReadyList.listData;
   }
 
   $scope.genresString = function(movie) {
@@ -12,6 +13,17 @@ app.controller("InformationComponentController", ['$scope', function($scope){
       string += movie.genres[movie.genres.length - 1].name
       return string
     }
+  }
+
+  $scope.setCurrentMovieAsWatched = function() {
+    var queued_movie_id = $scope.selectedMovie.queued_movie_id
+    $http.put('/api/v1/queued_movies/' + queued_movie_id).
+      success(function(data) {
+        ReadyList.updateList();
+      }).
+      error(function(data) {
+        console.log(data);
+      });
   }
 
 	$scope.init();
