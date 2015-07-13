@@ -140,6 +140,14 @@ p {
     }
 }
 
+.no-movies-component a {
+    color:#337ab7;
+}
+
+.no-movies-component a:hover {
+    text-decoration: underline;
+}
+
 /* --------------------------------------------------------
     Bootstrap UI Overrides 
 -----------------------------------------------------------*/

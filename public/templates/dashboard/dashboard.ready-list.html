@@ -1,3 +1,6 @@
-<movie-information movie="movie" selected-movie="selectedMovie"></movie-information>
-<ratings movie="movie" selected-movie="selectedMovie"></ratings>
-<users-comments movie="movie" selected-movie="selectedMovie"></users-comments>
+<div ng-show="selectedMovie">
+	<movie-information movie="movie" selected-movie="selectedMovie"></movie-information>
+	<ratings movie="movie" selected-movie="selectedMovie"></ratings>
+	<users-comments movie="movie" selected-movie="selectedMovie"></users-comments>
+</div>
+<no-movies ng-hide="selectedMovie"></no-movies>

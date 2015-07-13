@@ -1,7 +1,6 @@
 app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$modal', '$state', function($scope, ReadyList, SelectedMovie, $modal, $state){
 
 	$scope.init = function() {
-		// $scope.readyListData = ReadyList.movies
     $scope.completedCheckBox = {completed: true};
     $scope.readyListData = ReadyList.listData;
     $scope.genres = [];

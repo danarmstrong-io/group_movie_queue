@@ -1,4 +1,4 @@
-app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$state', '$stateParams', '$modal', 'ReadyList', function($scope, $location, defaultList, $state, $stateParams, $modal, ReadyList){
+app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$state', '$stateParams', '$modal', 'ReadyList', 'PendingList', function($scope, $location, defaultList, $state, $stateParams, $modal, ReadyList, PendingList){
 
 	$scope.init = function() {
 		if (parseInt($stateParams.id)) {
@@ -10,8 +10,24 @@ app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$s
 		else {
 			$scope.openListsModal();
 		}
+    // $scope.pendingListData = PendingList.listData;
+
     resizeAppContainer();
 	}
+
+  $scope.openAddAMovieModal = function (size) {
+    var modalInstance = $modal.open({
+      animation: false,
+      templateUrl: '/templates/dashboard/add-a-movie-modal.html',
+      controller: 'AddAMovieModalController',
+      size: size,
+      resolve: {
+        movie: function () {
+        return $scope.movie;
+        }
+      }
+    });
+  };
 
   $scope.openListsModal = function () {
     var modalInstance = $modal.open({

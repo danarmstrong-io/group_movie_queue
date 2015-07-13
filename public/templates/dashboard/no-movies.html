@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <div class="block">
+    <h2>No Movies!</h2>
+    <div class="listview no-movies-component">
+      <div class="media" style="text-align:center">
+      	  <h4>You have no movies in your queue.</h4>
+				  <div>
+				    <a ng-click="openAddAMovieModal('lg')" style="cursor:pointer">Add a movie</a> 
+				    <span style="display: inline" ng-show="pendingListData.movies.length > 0">or head over to your 
+				    <a ui-sref="dashboard.userPending">pending list</a>
+				    and rate some movies.</span>
+				  </div>
+      </div>
+    </div>
+  </div>
+</div>

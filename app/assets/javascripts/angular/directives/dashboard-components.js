@@ -29,3 +29,10 @@ angular.module('app').directive('usersComments', function() {
 		templateUrl: "/templates/dashboard/users-comments.html"
 	};
 })
+
+angular.module('app').directive('noMovies', function() {
+	return {
+		restrict: 'E',
+		templateUrl: "/templates/dashboard/no-movies.html"
+	};
+})
