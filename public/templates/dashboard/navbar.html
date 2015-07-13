@@ -5,7 +5,8 @@
   </a>
   <div class="dropdown profile-menu shadowed">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    <img src="assets/profile-pics/profile-pic.png" alt="" class="profile-pic">
+    <i class="fa fa-cogs fa-2x" class="navbar-cogs"></i>
+
     </a>
     <ul class="dropdown-menu pull-right text-right">
       <li ng-show="hasAReadyList()"><a ui-sref="dashboard.userSettings">Update Profile</a></li>
@@ -46,7 +47,8 @@
           </div>
           <div class="listview overflow">
             <a class="media" href="" ng-repeat="invite in userData.currentUser.list_invites">
-              <img class="media-object pull-left" src="assets/profile-pics/1.jpg" alt="">
+              <!-- <img class="media-object p ull-left" src="assets/profile-pics/1.jpg" alt=""> -->
+              <i class="fa fa-cogs"></i>
               <div class="media-body">
                 {{invite.queued_list.title}} <span class="date">by {{invite.inviter.first_name}} {{invite.inviter.last_name}}</span><br>
                 <!-- <span class="shortline">Lorem ipsum dolor sit amet, per cu sole...</span> -->

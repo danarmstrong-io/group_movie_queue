@@ -58,11 +58,11 @@ a, a:hover, a:focus, a:active {
 }
 
 a {
-    color: #1E66A5;
+    color: $light-text-color;
 }
 
 a:hover {
-    color: #164d7e;
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -78,7 +78,7 @@ body, #rightbar, #leftbar {
 }
 
 p {
-    color:white !important;
+    color:white;
 }
 
 /* --------------------------------------------------------
@@ -121,6 +121,23 @@ p {
 .media-actors {
     font-size: 11px;
     line-height: 11px;
+}
+
+.navbar-cogs {
+    color: $light-text-color;
+}
+
+.add-movie-loading-gif {
+    display:block;
+    margin:auto;
+}
+
+.modal-content {
+    color:black;
+
+    p {
+        color:black;
+    }
 }
 
 /* --------------------------------------------------------
@@ -1008,6 +1025,7 @@ aside .top-search.shadowed {
     line-height: 21px;
     display: block;
     margin: 0 0 5px 0;
+    color:black;
 }
 
 .controls > .btn + .btn {
@@ -2468,6 +2486,10 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 
 .listview-block .block > h2 { 
     margin-bottom: 0;
+}
+
+.list-view .media .media-body > p {
+    color:black;
 }
 
 /* --------------------------------------------------------

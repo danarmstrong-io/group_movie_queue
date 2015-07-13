@@ -5,7 +5,6 @@
   <label>Movie Title</label>
 
   <typeahead-custom title="l" subtitle="s" displaykey="l" retkey="id" modelret="imdbId"  movie="movie"></typeahead-custom>
-  <br>
 
 	<div class="row no-gutters" ng-show="movie">
 		<div class="col-sm-5">
@@ -49,7 +48,7 @@
 	    </div>
 	    <div class="row" ng-show="movie_rating.seen === false">
 	      <div class="col-sm-7">
-	        <star-rating ng-model="movie_rating.rating" max="10" icon="star"></star-rating>
+	        <rating value="movie_rating.rating" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" style="color:green; font-size: 20px;"></rating>
 	      </div>
 	      <div class="col-sm-5">
 
@@ -63,7 +62,8 @@
 			</div>
 			<div class="row" ng-show="movie_rating.seen">
 				<div class="col-sm-7">
-		   		<star-rating ng-model="movie_rating.rating" max="10" icon="star"></star-rating>
+	        <rating value="movie_rating.rating" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" style="color:green; font-size: 20px;"></rating>
+
 		 		</div>
 				<div class="col-sm-5">
 

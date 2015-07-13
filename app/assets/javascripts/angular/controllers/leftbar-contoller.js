@@ -12,6 +12,7 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
 	$scope.changeMovie = function(movie) {
 		$scope.selectedMovie = movie;
 		SelectedMovie.setMovie(movie);
+    console.log(movie);
     $state.go('dashboard.readyList');
 	}
 

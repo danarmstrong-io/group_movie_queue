@@ -14,7 +14,8 @@ angular.module('app').directive('ratings', function() {
 		scope: {
 			selectedMovie: "=selectedMovie"
 		},
-		templateUrl: "/templates/dashboard/ratings.html"
+		templateUrl: "/templates/dashboard/ratings.html",
+		controller: "RatingsComponentController"
 	};
 })
 
