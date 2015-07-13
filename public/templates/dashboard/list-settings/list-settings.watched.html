@@ -1,19 +1,27 @@
-<table class="table">
-	<thead>
-		<th><h4>Title</h4></th>
-		<th><h4>Rating</h4></th>
-		<th><h4>Time Watched</h4></th>
-		<th><h4>Unwatch</h4><th>
-	</thead>
-	<tbody>	
-		<tr ng-repeat="movie in watchedListData.movies">
-			<td><p>{{movie.title}}</p></td>
-			<td><p>{{movie.queued_movie_rating}}</p></td>
-			<td><p>{{movie.time_watched | date : 'MMM d, y h:mm:ss a'}}</p></td>
-			<td>
-				<button class="btn btn-primary" ng-click="markAsUnwatched(movie.queued_movie_id)" ng-confirm-click="Are you sure you want to mark this movie as unwatched and add it back to the list?">U</button>
-			</td>
+<div class="col-md-12">
+  <div class="block">
+	<h2>Watched List</h2>
+    <div class="table-responsive">
 
-		</tr>
-	</tbody>
-</table>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<th>Title</th>
+					<th>Rating</th>
+					<th>Time Watched</th>
+					<th>Unwatch<th>
+				</thead>
+				<tbody>	
+					<tr ng-repeat="movie in watchedListData.movies">
+						<td>{{movie.title}}</td>
+						<td>{{movie.queued_movie_rating}}</td>
+						<td>{{movie.time_watched | date : 'MMM d, y h:mm:ss a'}}</td>
+						<td>
+							<button class="btn btn-primary" ng-click="markAsUnwatched(movie.queued_movie_id)" ng-confirm-click="Are you sure you want to mark this movie as unwatched and add it back to the list?">X</button>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+    </div>
+  </div>
+</div>	

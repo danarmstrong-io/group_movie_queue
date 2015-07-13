@@ -10,8 +10,6 @@ app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$s
 		else {
 			$scope.openListsModal();
 		}
-    // $scope.pendingListData = PendingList.listData;
-
     resizeAppContainer();
 	}
 

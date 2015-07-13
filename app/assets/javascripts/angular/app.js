@@ -43,11 +43,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/users",
       templateUrl: "/templates/dashboard/list-settings/list-settings.users.html"
     })
-    .state('dashboard.listSettings.default', {
-      url: "/default",
-      templateUrl: "/templates/dashboard/list-settings/list-settings.default-list.html",
-      controller: "DefaultListController"
-    })
     .state('dashboard.listSettings.watched', {
       url: "/watched",
       templateUrl: "/templates/dashboard/list-settings/list-settings.watched.html",

@@ -1,7 +1,7 @@
-<div class="container">
-	<div class="row">
-  	<div class="col-md-8 col-md-offset-2">
+<div class="col-md-6">
+	<div class="block">
 			<h2>Profile Settings</h2>
+  	<div class="listview">
 			<form name="current_user_form" novalidate>
 				<div>
 					First Name:
@@ -31,4 +31,21 @@
 			<button ng-click="updateCurrentUser()" ng-show="editSettings" ng-class="{disabled: current_user_form.$invalid}" class="btn btn-info">Save User</button>
 		</div>
 	</div>
+</div>
+
+<div class="col-md-6">
+  <div class="block">
+    <h2>Set Default List</h2>
+    <div class="listview">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<br>
+					<select ng-options="list.id as list.title for list in queuedLists.lists" ng-model="selectedListId"></select>
+					<button class="btn btn-success" ng-click="setDefaultList()">Set Default List</button>
+					<button class="btn btn-danger" ng-click="removeDefaultList()">Clear Default List</button>
+					<br>
+				</div>
+			</div>
+    </div>
+  </div>
 </div>
