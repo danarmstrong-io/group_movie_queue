@@ -1,4 +1,4 @@
-<div class="col-md-5 listview-block ">
+<div class="col-md-6 listview-block ">
   <div class="block">
     <h2>Ratings</h2>
     <div class="config">                        
@@ -20,18 +20,23 @@
             <span ng-hide="selectedMovie.current_user_movie_rating.rating" style="display:inline">incomplete</span>
           </p>
           <div class="btn-group controls">
-            <a data-toggle="tooltip" data-original-title="Seen" class="ttips btn btn-success btn-xs" ng-show="selectedMovie.current_user_movie_rating.seen"><i class="fa fa-eye"> Seen</i></a>
-            <a data-toggle="tooltip" data-original-title="Favorite" class="ttips btn btn-danger btn-xs" ng-show="selectedMovie.current_user_movie_rating.favorite"><i class="fa fa-heart"> Favorite</i></a>
-            <a data-toggle="tooltip" data-original-title="Rewatch" class="ttips btn btn-warning btn-xs" ng-show="selectedMovie.current_user_movie_rating.rewatch"><i class="fa fa-refresh"> Rewatch</i></a>
+            <a data-toggle="tooltip" data-original-title="Seen" class="ttips btn btn-xs" ng-class="{'btn-success': selectedMovie.current_user_movie_rating.seen}"><i class="fa fa-eye"> Seen</i></a>
+            <a data-toggle="tooltip" data-original-title="Favorite" class="ttips btn  btn-xs" ng-class="{'btn-danger': selectedMovie.current_user_movie_rating.favorite}"><i class="fa fa-heart"> Favorite</i></a>
+            <a data-toggle="tooltip" data-original-title="Rewatch" class="ttips btn btn-xs" ng-class="{'btn-warning': selectedMovie.current_user_movie_rating.rewatch}"><i class="fa fa-refresh"> Rewatch</i></a>
           </div>
         </div>
 
         <div class="media-body" ng-show="editRating">
           <div class="row">
-            <div class="col-sm-6">
-              <star-rating ng-model="editRatingFormData.rating" max="10" icon="star"></star-rating>
+            <div class="col-sm-12">
+              <!-- <star-rating ng-model="editRatingFormData.rating" max="10" icon="star"></star-rating> -->
+              <rating value="editRatingFormData.rating" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" style="color:green; font-size: 20px;"></rating>
+
             </div>
-            <div class="col-sm-6">
+          </div>
+          <div class="row">
+
+            <div class="col-sm-12">
 
               <button type="button" 
               class="btn btn-xs" 
@@ -55,11 +60,12 @@
               </button>
             </div>
           </div>
+          <br>
           <div class="row">
             <div class="col-md-12">
-              <div style="align:right;" style="p">
-                <a ng-click="cancelEditRating()" style="cursor:pointer">Cancel</a>
-                <button class="btn btn-default btn-xs" ng-click="submitEditedRating()">Submit</button>
+              <div style="text-align:right;" style="p">
+                <button class="btn btn-default" ng-click="cancelEditRating()">Cancel</button>
+                <button class="btn btn-oogway" ng-click="submitEditedRating()">Submit</button>
               </div>
 
             </div>
@@ -75,9 +81,9 @@
             <span ng-hide="selectedMovie.current_user_movie_rating.rating" style="display:inline">incomplete</span>
           </p>
           <div class="btn-group controls">
-            <a data-toggle="tooltip" data-original-title="Seen" class="ttips btn btn-success btn-xs" ng-show="rating.seen"><i class="fa fa-eye"> Seen</i></a>
-            <a data-toggle="tooltip" data-original-title="Favorite" class="ttips btn btn-danger btn-xs" ng-show="rating.favorite"><i class="fa fa-heart"> Favorite</i></a>
-            <a data-toggle="tooltip" data-original-title="Rewatch" class="ttips btn btn-warning btn-xs" ng-show="rating.rewatch"><i class="fa fa-refresh"> Rewatch</i></a>
+            <a data-toggle="tooltip" data-original-title="Seen" class="ttips btn btn-xs" ng-class="{'btn-success': rating.seen}"><i class="fa fa-eye"> Seen</i></a>
+            <a data-toggle="tooltip" data-original-title="Favorite" class="ttips btn btn-xs" ng-class="{'btn-danger': rating.favorite}"><i class="fa fa-heart"> Favorite</i></a>
+            <a data-toggle="tooltip" data-original-title="Rewatch" class="ttips btn btn-xs" ng-class="{'btn-warning': rating.rewatch}"><i class="fa fa-refresh"> Rewatch</i></a>
           </div>
         </div>
       </div>
