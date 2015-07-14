@@ -7,14 +7,14 @@
 	    <li ng-repeat="list in queuedLists.lists">
 		    <a ng-click="selectList(list.id)" class="thumbnail">
 		      <img ng-src="assets/turtle.jpg"/>
-		      <div>
-		      	<h4 class="lists-title">{{list.title}}</h4>
+		      <div style="overflow-x:hidden">
+		      	<h4 class="lists-title" >{{list.title}}</h4>
 		    	</div>
 		    </a>
 	    </li>
-	    <li>
+	    <li class="create-list-button">
 		    <a ng-click="switchToCreateList()" class="thumbnail" >
-		      <i class="fa fa-plus-circle fa-5x" style="margin-top: 40px; margin-bottom: 20px; color:green"></i>
+		      <i class="fa fa-plus-circle fa-5x" style="margin-top: 40px; margin-bottom: 20px; color:#5B74A8"></i>
 		      <div>
 		      	<h4 class="lists-title">Create a List</h4>
 		    	</div>
@@ -27,7 +27,7 @@
 <div class="modal-create-list" ng-show="createList">
 	<div class="modal-header">
 		<h2>Create A List</h2>
-		<button class="btn btn-warning" style="float:right; position:relative; bottom: 45px" ng-click="switchToLists()">X</button>
+		<button class="btn btn-default" style="float:right; position:relative; bottom: 45px" ng-click="switchToLists()">X</button>
 	</div>
 	<div class="modal-body">
 		
@@ -64,7 +64,7 @@
 
 		</table>
 
-		<button class="btn btn-success" ng-disabled="invalidTitleOrInvalidEmails()" style="float:right;" ng-click="createList()">Create List</button>
+		<button class="btn btn-oogway" ng-disabled="invalidTitleOrInvalidEmails()" style="float:right;" ng-click="createList()">Create List</button>
 		<br>
 		<br>
 

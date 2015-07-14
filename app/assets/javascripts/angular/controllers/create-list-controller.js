@@ -1,7 +1,6 @@
 app.controller("CreateListController", ['$scope', '$http', 'UserFactory', 'QueuedLists', '$state', 'ReadyList', function($scope, $http, UserFactory, QueuedLists, $state, ReadyList){
 
 	$scope.init = function() {
-		$scope.title = "Create A List";
 		$scope.createListData = {invitees: [], title: ""};
 	};
 
