@@ -1,4 +1,4 @@
-<div class="col-md-6 listview-block">
+<div class="col-md-5 listview-block">
   <div class="block">
     <h2>Ratings</h2>
     <div class="config">                        
@@ -12,9 +12,9 @@
 
 
       <div class="media">
-        <a class="pull-left" href="#">
+<!--         <a class="pull-left" href="#">
         <img src="assets/profile-pics/1.jpg" alt="" class="poster-pic">
-        </a>
+        </a> -->
 
         <div class="media-body" ng-hide="editRating">
           <p class="post-title">
@@ -71,9 +71,6 @@
       </div>
 
       <div class="media" ng-repeat="rating in selectedMovie.user_movie_ratings" ng-hide="currentUsersRating(rating)">
-        <a class="pull-left" href="#">
-        <img src="assets/profile-pics/1.jpg" alt="" class="poster-pic">
-        </a>
         <div class="media-body">
           <p class="post-title">
             {{rating.first_name}}'s Rating: {{rating.rating}}
