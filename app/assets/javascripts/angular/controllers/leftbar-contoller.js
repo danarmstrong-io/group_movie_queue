@@ -73,6 +73,7 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
 
   function resizeMainPanels() {
     var height = $(window).height() - 248;
+    console.log(height);
     var mainPanels = $('.main-panel');
     $.each(mainPanels, function( index, value ) {
       $(value).css({ "max-height": height + 'px' });
