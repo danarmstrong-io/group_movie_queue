@@ -1,11 +1,59 @@
-<div class="modal-header">
-	<h2 ng-hide="noInvites()">You have Invites!</h2>
-	<h2 ng-show="noInvites()">Create Your First List!</h2>
-
+<div class="modal-invites" ng-hide="noInvites() || createList">
+	<div class="modal-header">
+		<h2>You have Invites!</h2>
+		<a class="btn btn-default" data-method="delete" href="/users/sign_out" rel="nofollow" style="float:right; position:relative; bottom: 45px">Log Out</a>
+		<button class="btn btn-default" style="float:right; position:relative; bottom: 45px" ng-click="switchToCreateList()">Create A New List</button>
+	</div>
+	<div class="modal-body">
+		<start-modal-invites></start-modal-invites>
+	</div>
 </div>
-<div class="modal-body">
-	<start-modal-invites ng-hide="noInvites()"></start-modal-invites >
 
-	<start-modal-create-list modal-instance="modalInstance" ng-show="noInvites()">
-	</start-modal-create-list>
+
+<div class="modal-create-list" ng-show="noInvites() || createList">
+	<div class="modal-header">
+		<h2>Create Your First List!</h2>
+		<button class="btn btn-default" style="float:right; position:relative; bottom: 45px" ng-click="switchToInvites()">Back To Invites</button>
+	</div>
+	<div class="modal-body">
+		
+		<h4>Title</h4>
+		<input class="form-control" ng-model="createListData.title">
+		<br>
+
+		<button class="btn btn-default" style="float:right;" ng-click="addInvitee()">Add User</button>
+		<br>
+		<br>
+		<br>
+		<table class="table table-bordered table-hover" ng-show="hasInvitees()">
+
+			<thead>
+				<th>Email</th>
+				<th>Remove</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="invitee in createListData.invitees" 
+				ng-class="{success: inviteeExistsAndChecked(invitee), info: inviteeDoesntExistAndChecked(invitee), danger: invalidEmail(invitee)}" 
+		    tooltip="{{invitee.tooltipInfo}}"
+		    tooltip-placement="bottom"
+		    tooltip-trigger="mouseenter"
+		    tooltip-enable="invitee.checked">
+					<td>
+						<input class="form-control" ng-model="invitee.email" ng-change="checkIfActiveUser(invitee)" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" />
+					</td>
+					<td>
+						<button class="btn btn-danger" ng-click="removeInvitee($index)">X</button>
+					</td>
+
+				</tr>
+			</tbody>
+
+		</table>
+
+		<button class="btn btn-oogway" ng-disabled="invalidTitleOrInvalidEmails()" style="float:right;" ng-click="postList()">Create List</button>
+		<br>
+		<br>
+
+
+	</div>
 </div>
