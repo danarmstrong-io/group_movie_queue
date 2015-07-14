@@ -17,19 +17,26 @@ app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 
 		factory.listData.title = response.data.queued_list.title;
 		factory.listData.invited_users = response.data.queued_list.list_invites;
 		factory.listData.genres = response.data.queued_list.genres;
-		SelectedMovie.movieData = firstCompletedMovie();
 	};
+
+	factory.updateSelectedMovie = function(response) {
+		SelectedMovie.movieData = firstCompletedMovie();
+	}
 
 	factory.changeListId = function(listId) {
 		var path = "/dashboard/" + listId + '/ready';
 		$location.path(path);
 		defaultList.id = listId;
 		factory.currentListId = listId;
-		factory.getList(factory.currentListId).then(factory.currentListRetrieved);
+		factory.getList(factory.currentListId).then(factory.currentListRetrieved).then(factory.updateSelectedMovie);
 	}
 
 	factory.updateList = function() {
-		factory.getList(factory.currentListId).then(factory.currentListRetrieved);
+		factory.getList(factory.currentListId).then(factory.currentListRetrieved).then(factory.updateSelectedMovie);
+	}
+
+	factory.updateListWithoutSelectedChange = function() {
+		factory.getList(factory.currentListId).then(factory.currentListRetrieved)
 	}
 
 	function firstCompletedMovie() {

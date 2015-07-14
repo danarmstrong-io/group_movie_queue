@@ -30,7 +30,7 @@ app.controller("RatingsComponentController", ['$scope', '$http', 'ReadyList', 'P
   }
 
   function updateLists() {
-    ReadyList.updateList();
+    ReadyList.updateListWithoutSelectedChange();
     PendingList.updateList();
   }
 
