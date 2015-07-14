@@ -1,13 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "variables";
-// @import "bootstrap-overrides";
-// @import "bootcards-desktop";
+@import "bootstrap-overrides";
 @import "angucomplete";
 @import "font-awesome";
 // @import "grayscale";
 @import "style";
 @import "lists-modal";
-
 @import "scroll-bars";
 @include scrollbars(.5em, slategray);
