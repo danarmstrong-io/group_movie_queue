@@ -7,7 +7,7 @@ app.config(['$httpProvider', function($httpProvider) {
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/dashboard/lists/ready");
+  $urlRouterProvider.otherwise("/dashboard/lists");
 
   $stateProvider
     .state('dashboard', {
