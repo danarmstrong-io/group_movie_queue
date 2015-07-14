@@ -10,7 +10,7 @@ app.controller("ListsController", ['$scope', '$http', '$modal', function($scope,
       templateUrl: '/templates/lists/lists-modal.html',
       controller: 'ListsModalController',
       size: 'lg',
-      // backdrop: 'static',
+      backdrop: 'static',
       windowClass: 'start-modal'
     });
   };
