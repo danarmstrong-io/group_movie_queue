@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require lodash
+//= require grayscale
 
 //= require angular
 //= require angular-ui-router
