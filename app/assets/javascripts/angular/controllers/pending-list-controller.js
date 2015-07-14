@@ -3,35 +3,17 @@ app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'Read
 	$scope.init = function() {
 		$scope.pendingListData = PendingList.listData;
 		$scope.currentPendingMovie = {movieIndex: 0}
-    // $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}
-		$scope.title = "Pending List"
-    resizeMainPanels();
 	};
-
-  $( window ).resize(function() {
-    resizeMainPanels();
-  });
-
-  function resizeMainPanels() {
-    var height = $(window).height() - 100;
-    var mainPanels = $('.main-panel');
-    $.each(mainPanels, function( index, value ) {
-      $(value).css({ "max-height": height + 'px' });
-    });
-  }
 
 	$scope.changePendingMovieIndex = function(movieIndex) {
     $scope.currentPendingMovie.movieIndex = movieIndex;
-    // $scope.movie_rating = { rating: 1, seen: false, favorite: false, rewatch: false}
   };
 
   $scope.sendUserMovieRating = function() {
   	var movie = $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex];
-    // var movie_rating = $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex]
   	$http.put('/api/v1/user_movie_ratings/'+ movie.user_movie_rating_id, movie).
     success(function(data) {
       updateLists();
-      // $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}
       $scope.currentPendingMovie.movieIndex = 0;
     }).
       error(function(data) {
@@ -41,14 +23,22 @@ app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'Read
 
   $scope.clickedHasSeen = function() {
     $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex].seen = true;
-    // $scope.movie_rating = { rating: 1, seen: true, favorite: false, rewatch: false}
   };
 
   $scope.clickedHasNotSeen = function() {
     $scope.pendingListData.movies[$scope.currentPendingMovie.movieIndex].seen = false;
-
-    // $scope.movie_rating = { rating: 1, seen: false, favorite: false, rewatch: false}
   };
+
+  $scope.genresString = function(movie) {
+    if (movie && movie.genres) {
+      var string = ""
+      for(var index = 0; index < movie.genres.length - 1; index++) {
+        string += movie.genres[index].name + ', '
+      }
+      string += movie.genres[movie.genres.length - 1].name
+      return string
+    }
+  }
 
   function updateLists() {
     ReadyList.updateList();

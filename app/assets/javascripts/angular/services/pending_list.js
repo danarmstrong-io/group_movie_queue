@@ -12,6 +12,7 @@ app.factory("PendingList", ['$http', function ($http) {
 
 	factory.currentListRetrieved = function(response) {
 		factory.listData.movies = response.data.movies;
+		console.log(factory.listData.movies)
 	};
 
 	factory.updateList = function() {

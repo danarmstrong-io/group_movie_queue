@@ -1,0 +1,90 @@
+<div class="col-md-12">
+  <div class="block">
+    <h2>Pending Movie</h2>
+    <div class="listview">
+      <div class="media">
+        <div class="pull-left hidden-xs hidden-sm">
+          <img ng-src="{{pendingListData.movies[currentPendingMovie.movieIndex].poster}}" class="img-responsive" style="width:233px">
+        </div>
+        <div class="media-body">
+          <header class="p-header">
+            <h2 class="p-title">{{pendingListData.movies[currentPendingMovie.movieIndex].title}} ({{pendingListData.movies[currentPendingMovie.movieIndex].year}})</h2>
+          </header>
+          <span>{{pendingListData.movies[currentPendingMovie.movieIndex].rated}} | {{pendingListData.movies[currentPendingMovie.movieIndex].runtime}} | {{genresString(pendingListData.movies[currentPendingMovie.movieIndex])}} | {{pendingListData.movies[currentPendingMovie.movieIndex].released | date}}</span>
+          <hr>
+          {{pendingListData.movies[currentPendingMovie.movieIndex].plot}}
+          <hr>
+          Director: {{pendingListData.movies[currentPendingMovie.movieIndex].director}}
+          <br>
+          Writers: {{pendingListData.movies[currentPendingMovie.movieIndex].writer}}
+          <br>
+          Stars: {{pendingListData.movies[currentPendingMovie.movieIndex].actors}}
+        <hr>
+
+
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <h4>Have you seen this movie?
+            <button type="button" class="btn btn-s" ng-class="{'btn-oogway': pendingListData.movies[currentPendingMovie.movieIndex].seen, 'btn-standard': !pendingListData.movies[currentPendingMovie.movieIndex].seen}" ng-click="clickedHasSeen()">Yes
+            </button>
+            <button type="button" class="btn btn-s" ng-class="{'btn-oogway': pendingListData.movies[currentPendingMovie.movieIndex].seen === false, 'btn-standard': pendingListData.movies[currentPendingMovie.movieIndex].seen}" ng-click="clickedHasNotSeen()">No
+            </button>
+            </h4>
+          </div>
+        </div>
+
+        <div class="row" ng-if="pendingListData.movies[currentPendingMovie.movieIndex].seen === false">
+          <div class="col-sm-12">
+            <h4>How much would you like to view this movie?</h4>
+          </div>
+        </div>
+        <div class="row" ng-if="pendingListData.movies[currentPendingMovie.movieIndex].seen === false">
+          <div class="col-sm-7">
+            <rating value="pendingListData.movies[currentPendingMovie.movieIndex].rating" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" style="color:green; font-size: 20px;"></rating>
+          </div>
+          <div class="col-sm-5">
+
+          </div>
+        </div>
+
+        <div class="row" ng-if="pendingListData.movies[currentPendingMovie.movieIndex].seen">
+          <div class="col-sm-12">
+            <h4>Your Rating:</h4>
+          </div>
+        </div>
+        <div class="row" ng-if="pendingListData.movies[currentPendingMovie.movieIndex].seen">
+          <div class="col-md-12">
+
+            <rating value="pendingListData.movies[currentPendingMovie.movieIndex].rating" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" style="color:green; font-size: 20px;"></rating>
+
+          </div>
+        </div>
+        <div class="row" ng-if="pendingListData.movies[currentPendingMovie.movieIndex].seen">
+
+          <div class="col-md-12">
+
+            <button type="button" class="btn btn-xs" ng-class="{'btn-danger': pendingListData.movies[currentPendingMovie.movieIndex].favorite, 'btn-standard': !pendingListData.movies[currentPendingMovie.movieIndex].favorite}" ng-click="pendingListData.movies[currentPendingMovie.movieIndex].favorite = !pendingListData.movies[currentPendingMovie.movieIndex].favorite">
+              <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
+            </button>
+
+            <button type="button" class="btn btn-xs" ng-class="{'btn-warning': pendingListData.movies[currentPendingMovie.movieIndex].rewatch, 'btn-standard': !pendingListData.movies[currentPendingMovie.movieIndex].rewatch}" ng-click="pendingListData.movies[currentPendingMovie.movieIndex].rewatch = !pendingListData.movies[currentPendingMovie.movieIndex].rewatch">
+              <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Rewatch
+            </button>
+          </div>
+        </div>
+        <br>
+        <button ng-click="sendUserMovieRating()" ng-show="pendingListData.movies[currentPendingMovie.movieIndex].seen != null" class="btn btn-oogway">Submit</button>
+        <br>
+        <br>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

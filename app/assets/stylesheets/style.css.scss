@@ -193,6 +193,42 @@ p {
     bottom:13px; 
 }
 
+.start-backdrop {
+    margin-top: 69px;
+}
+
+.start-modal {
+    margin-top: 69px;
+}
+
+.pending-block {
+    height: 200px;
+    overflow-x:scroll;
+    margin-top:1em;
+
+}
+
+.pending-movies-body {
+    width:10000px;
+}
+
+.pending-thumbnail {
+    height:180px; 
+    width: 125px;
+}
+
+.pending-thumbnail:hover {
+    border: 1px solid $dark-text-color;
+}
+
+.pending-anchor {
+    cursor: pointer;
+    margin:3px;
+}
+
+.pending-anchor:hover {
+}
+
 /* --------------------------------------------------------
     Bootstrap UI Overrides 
 -----------------------------------------------------------*/
@@ -685,6 +721,7 @@ aside .last-shadowed {
 -----------------------------------------------------------*/
 #header {
     padding: 15px;
+    z-index: 99999 !important;
 }
 
 #header .dropdown-menu {
@@ -1413,9 +1450,9 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
     outline: none !important;
 }
 
-.modal-backdrop {
-    background: #fff;
-}
+// .modal-backdrop {
+//     background: #fff;
+// }
 
 .flat {
     min-width: 250px;
@@ -1448,11 +1485,6 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
 
 .modal-footer {
     margin-top: 0;    
-}
-
-.modal-backdrop.in {
-    opacity: 0.8;
-    filter: alpha(opacity=80);
 }
 
 /* --------------------------------------------------------

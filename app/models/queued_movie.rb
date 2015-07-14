@@ -30,6 +30,7 @@ class QueuedMovie < ActiveRecord::Base
 		if incomplete_user_movie_ratings.length == 0
 			self.complete!
 		end
+		self.save
 	end
 
 	def incomplete_user_movie_ratings

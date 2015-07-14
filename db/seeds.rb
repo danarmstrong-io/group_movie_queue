@@ -71,7 +71,7 @@ end
 
 QueuedMovie.all.each do |qm|
 	queued_list.users.each do |user|
-		umr = UserMovieRating.create!(movie: qm.movie, user: user, rating: rand(1..10), seen: rand(0..1).zero?, rewatch: rand(0..1).zero?, favorite: rand(0..1).zero?, comment: "These are comments on this movie", completed: true)
+		umr = UserMovieRating.create!(movie: qm.movie, user: user, rating: rand(1..10), seen: rand(0..1).zero?, rewatch: rand(0..1).zero?, favorite: rand(0..1).zero?, comment: "These are comments on this movie", completed: false)
 		qm.user_movie_ratings << umr
 	end
 	qm.complete!
