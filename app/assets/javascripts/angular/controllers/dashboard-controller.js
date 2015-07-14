@@ -10,7 +10,7 @@ app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$s
 		else {
 			$scope.openListsModal();
 		}
-    resizeAppContainer();
+    resizeMainContainer();
 	}
 
   $scope.openAddAMovieModal = function (size) {
@@ -39,12 +39,12 @@ app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$s
   };
 
   $( window ).resize(function() {
-    resizeAppContainer();
+    resizeMainContainer();
   });
 
-  function resizeAppContainer() {
-    var height = $(window).height() - 110;
-    var mainPanels = $('#main');
+  function resizeMainContainer() {
+    var height = $(window).height() - 80;
+    var mainPanels = $('.main-container');
     $.each(mainPanels, function( index, value ) {
       $(value).css({ "max-height": height + 'px' });
       $(value).css({ "height": height + 'px' });
