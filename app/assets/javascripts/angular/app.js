@@ -5,7 +5,7 @@ app.config(['$httpProvider', function($httpProvider) {
   }
 ]);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/dashboard/lists");
 
@@ -67,4 +67,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "/templates/create-list/create-list.html",
       controller: "CreateListController"
     })
-});
+}]);
