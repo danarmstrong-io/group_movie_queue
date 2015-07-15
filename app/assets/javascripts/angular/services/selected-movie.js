@@ -11,7 +11,9 @@ app.factory("SelectedMovie", ['$http', function ($http) {
 
 	factory.setMovie = function(movie) {
 		factory.movieData = movie;
-		factory.getComments().then(factory.selectedMovieCommentsRetrieved);
+		if (factory.movieData.id) {
+			factory.getComments().then(factory.selectedMovieCommentsRetrieved);
+		}
 	}
 
 	factory.updateMovie = function() {

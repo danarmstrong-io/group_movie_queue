@@ -1,4 +1,4 @@
-app.controller("ListSettingsController", ['$scope', '$http', '$modal', 'QueuedLists', 'PendingList', 'ReadyList', 'WatchedList', function($scope, $http, $modal, QueuedLists, PendingList, ReadyList, WatchedList) {
+app.controller("ListSettingsController", ['$scope', '$http', '$modal', 'QueuedLists', 'PendingList', 'ReadyList', 'WatchedList', '$state', function($scope, $http, $modal, QueuedLists, PendingList, ReadyList, WatchedList, $state) {
 
   $scope.init = function() {
   }
@@ -29,12 +29,11 @@ app.controller("ListSettingsController", ['$scope', '$http', '$modal', 'QueuedLi
   }
 
  	$scope.removeSelfFromList = function() {
- 		$scope.userData.currentUser.id
- 		$http.delete("/api/v1/queued_users/" + $scope.userData.currentUser.id)
+ 		$http.delete("/api/v1/queued_users/" + currentQueuedUserId())
   		.success(function(data) {
+        $state.go('dashboard.lists');
         ReadyList.updateList();
         QueuedLists.updateLists();
-        // redirect to other lists
       })
       .error(function(data) {
         console.log(data);
@@ -62,30 +61,27 @@ app.controller("ListSettingsController", ['$scope', '$http', '$modal', 'QueuedLi
       });
   };
 
+  $scope.destroyList = function() {
+    $http.delete('/api/v1/queued_lists/' + ReadyList.listData.id)
+      .success(function(data) {
+        ReadyList.updateList();
+        QueuedLists.updateLists();
+        $state.go('dashboard.lists');
+      })
+      .error(function(data) {
+        console.log(data);
+      });
+  }
 
-  // $( window ).resize(function() {
-  //   resizeMainPanels();
-  //   resizeAppContainer();
-  // });
+  function currentQueuedUserId() {
+    for(var index = 0; index < $scope.readyListData.users.length; index++) {
+      if ($scope.readyListData.users[index].id == $scope.userData.currentUser.id) {
+        return $scope.readyListData.users[index].queued_user_id;
+      }
+    }
+    return false;
 
-  // function resizeMainPanels() {
-  //   var height = $(window).height() - 100;
-  //   var mainPanels = $('.main-panel');
-  //   $.each(mainPanels, function( index, value ) {
-  //     $(value).css({ "max-height": height + 'px' });
-  //     $(value).css({ "height": height + 'px' });
-  //   });
-  //   $('body').css({ "height": height + 'px' });
-  // }
-
-  // function resizeAppContainer() {
-  //   var height = $(window).height() - 50;
-  //   var mainPanels = $('.app-container');
-  //   $.each(mainPanels, function( index, value ) {
-  //     $(value).css({ "max-height": height + 'px' });
-  //     $(value).css({ "height": height + 'px' });
-  //   });
-  // }
+  };
 
 	$scope.init();
 

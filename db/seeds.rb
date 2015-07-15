@@ -29,18 +29,18 @@ end
 
 # movies = ["the terminator", "terminator 2: judgment day", "terminator 3: rise of the machines", "star wars: episode i - the phantom menace", "star wars: episode ii - attack of the clones", "star wars: episode iii - revenge of the sith", "raiders of the lost ark", "indiana jones and the last crusade", "indiana jones and the temple of doom", "the star wars holiday special", "secret life of walter mitty", "dogma", "the adjustment bureau", "braveheart", "princess bride", "brothers bloom", "gladiator", "casino royale", "the mummy", "the count of monte cristo", "28 days later", "memento", "waterworld", "scent of a woman", "the odd life of timothy green", "into the wild", "lord of the rings: the fellowship of the ring", "lord of the rings: the two towers", "lord of the rings: the return of the king", "50/50", "midnight in paris", "the world's end", "nightmare before christmas", "there will be blood", "shawshank redemption", "innerspace", "equilibrium", "super troopers", "bio-dome", "the rock", "short circuit", "boondock saints", "wreck-it ralph"]
 
-	# movies = ["the terminator", "terminator 2: judgment day", "terminator 3: rise of the machines", "star wars: episode i - the phantom menace"]
+	movies = ["the terminator", "terminator 2: judgment day", "terminator 3: rise of the machines", "star wars: episode i - the phantom menace"]
 	
 
-# movies.each do |movie|
-# 	movie_data = get_movie_data(movie)
-# 	genres = movie_data[:genres]
-# 	movie_data.delete_if {|k,v| k == :genres}
-# 	movie = Movie.create(movie_data)
-# 	genres.each do |genre|
-# 		movie.genres << Genre.find_or_create_by(name: genre)
-# 	end
-# end	
+movies.each do |movie|
+	movie_data = get_movie_data(movie)
+	genres = movie_data[:genres]
+	movie_data.delete_if {|k,v| k == :genres}
+	movie = Movie.create(movie_data)
+	genres.each do |genre|
+		movie.genres << Genre.find_or_create_by(name: genre)
+	end
+end	
 
 user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "dan@gmail.com", password: "password")
 user2 = User.create!(first_name: "Megan", last_name: "Vu", email: "megan@gmail.com", password: "password")

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   scope :api, defaults: {format: :json} do
     scope :v1 do
 
-      resources :queued_lists, only: [:index, :show, :create, :update] do
+      resources :queued_lists, only: [:index, :show, :create, :update, :destroy] do
         resources :queued_movies, only: [:create]
         post 'add_user' => 'queued_lists#add_user'
       end

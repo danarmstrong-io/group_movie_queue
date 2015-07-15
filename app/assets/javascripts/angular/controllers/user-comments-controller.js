@@ -2,7 +2,6 @@ app.controller("UserCommentsController", ['$scope', 'SelectedMovie', '$http', 'U
 
   $scope.init = function() {
     $scope.userData = UserFactory.userData;
-    $scope.selectedMovie.comments = SelectedMovie.movieData.comments;
     $scope.writeComment = false;
     $scope.comment = "";
   };

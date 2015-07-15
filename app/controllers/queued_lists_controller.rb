@@ -12,6 +12,7 @@ class QueuedListsController < ApplicationController
 	def ready
 		@queued_list = QueuedList.find(params[:id])
     @current_user = current_user
+    render status: :unauthorized unless current_user.queued_lists.include?(@queued_list)
 	end
 
   def watched
@@ -44,6 +45,15 @@ class QueuedListsController < ApplicationController
     queued_list = QueuedList.find(params[:queued_list_id])
     list_invite = find_or_email_and_add_user_to(queued_list, params["invitee"])
     render json: list_invite, status: :ok 
+  end
+
+  def destroy
+    queued_list = QueuedList.find(params[:id])
+    if queued_list.users.include?(current_user) && queued_list.destroy
+      render json: queued_list, status: :ok
+    else
+      render status: :unauthorized
+    end
   end
 
   private

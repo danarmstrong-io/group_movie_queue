@@ -1,9 +1,9 @@
-app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 'SelectedMovie', function ($http, orderByFilter, $location, defaultList, SelectedMovie) {
+app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 'SelectedMovie', '$state', function ($http, orderByFilter, $location, defaultList, SelectedMovie, $state) {
 	var factory = {};
 
 	factory.getList = function(listId) {
 		factory.currentListId = listId;
-    return $http.get('/api/v1/queued_list_ready/' + factory.currentListId);
+    return $http.get('/api/v1/queued_list_ready/' + factory.currentListId).error(factory.currentListFail);
 	};
 
 	factory.init = function() {
@@ -18,6 +18,11 @@ app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 
 		factory.listData.invited_users = response.data.queued_list.list_invites;
 		factory.listData.genres = response.data.queued_list.genres;
 	};
+
+	factory.currentListFail = function(response) {
+    $state.go('dashboard.lists');
+		factory.listData.title = "";
+	}
 
 	factory.updateSelectedMovie = function(response) {
 		SelectedMovie.setMovie(firstCompletedMovie());
