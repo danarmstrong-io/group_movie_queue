@@ -18,6 +18,10 @@ Rails.application.routes.draw do
       resources :list_invites, only: [:destroy]
       resources :default_lists, only: [:update, :destroy]
 
+      resources :movies, only: [] do
+        resources :movie_comments, only: [:index, :create, :destroy]
+      end
+
       get 'queued_list_ready/:id' => 'queued_lists#ready'
       get 'queued_list_watched/:id' => 'queued_lists#watched'
       get 'queued_list_pending' => 'queued_lists#pending'

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :list_invites, foreign_key: :invitee_id
   has_many :invited_to_queued_lists, through: :list_invites, source: :queued_list
+
+  has_many :comments
   
   def pending_ratings
     self.user_movie_ratings.where(completed: false)

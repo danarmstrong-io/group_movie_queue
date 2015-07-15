@@ -26,7 +26,8 @@ angular.module('app').directive('usersComments', function() {
 		scope: {
 			selectedMovie: "=selectedMovie"
 		},
-		templateUrl: "/templates/dashboard/users-comments.html"
+		templateUrl: "/templates/dashboard/users-comments.html",
+		controller: "UserCommentsController"
 	};
 })
 

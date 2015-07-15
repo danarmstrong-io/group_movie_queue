@@ -76,3 +76,9 @@ QueuedMovie.all.each do |qm|
 	end
 	qm.complete!
 end
+
+Movie.all.each do |movie|
+	MovieComment.create(movie: movie, user: user1, text: "In a future where the polar ice-caps have melted and Earth is almost entirely submerged")
+	MovieComment.create(movie: movie, user: user1, text: "a mutated mariner fights starvation and outlaw smokers")
+	MovieComment.create(movie: movie, user: user1, text: "and reluctantly helps a woman and a young girl try to find dry land.")
+end

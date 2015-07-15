@@ -182,7 +182,7 @@ p {
 }
 
 .small-component {
-    max-height: 600px;
+    max-height: 415px;
     overflow-y: scroll;
 }
 
@@ -222,7 +222,8 @@ p {
     margin:3px;
 }
 
-.pending-anchor:hover {
+.icon-angle:hover {
+    color:$dark-text-color;
 }
 
 /* --------------------------------------------------------
@@ -263,7 +264,7 @@ label {
 }
 
 textarea.form-control {
-    min-height: 100px;
+    min-height: 40px;
     font-size: 12px;
 }
 
@@ -610,7 +611,7 @@ aside .btn {
 #content {
     background: url(../assets/content-bg/content-bg.jpg);
     margin: 0 200px 0 400px;
-    padding: 20px 20px 35px;
+    padding: 20px 20px 10px;
     position: relative;
     color: #333;
     box-shadow: inset 0px 0px 6px rgba(0,0,0,0.8);

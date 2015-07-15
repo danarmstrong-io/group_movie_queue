@@ -20,7 +20,7 @@ app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 
 	};
 
 	factory.updateSelectedMovie = function(response) {
-		SelectedMovie.movieData = firstCompletedMovie();
+		SelectedMovie.setMovie(firstCompletedMovie());
 	}
 
 	factory.changeListId = function(listId) {
