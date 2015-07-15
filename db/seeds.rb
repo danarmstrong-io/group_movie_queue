@@ -44,8 +44,8 @@ end
 
 user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "dan@gmail.com", password: "password")
 user2 = User.create!(first_name: "Megan", last_name: "Vu", email: "megan@gmail.com", password: "password")
-# user3 = User.create!(first_name: "Kevin", last_name: "OBrien", email: "kevin@gmail.com", password: "password")
-# user4 = User.create!(first_name: "Caitlin", last_name: "Costa", email: "caitlin@gmail.com", password: "password")
+user3 = User.create!(first_name: "Kevin", last_name: "OBrien", email: "kevin@gmail.com", password: "password")
+user4 = User.create!(first_name: "Caitlin", last_name: "Costa", email: "caitlin@gmail.com", password: "password")
 
 queued_list = QueuedList.create(title: "Megan & Dan's List")
 queued_list2 = QueuedList.create(title: "Big ol Fat List")

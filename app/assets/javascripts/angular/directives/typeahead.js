@@ -1,4 +1,4 @@
-app.directive('typeaheadCustom', function($timeout,$http,ReadyList,UserFactory) {
+app.directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory', function($timeout, $http, ReadyList, UserFactory) {
   return {
     restrict: 'AEC',
     scope: {
@@ -90,6 +90,4 @@ app.directive('typeaheadCustom', function($timeout,$http,ReadyList,UserFactory) 
                 '</input><br>' +
     '<img class="add-movie-loading-gif" ng-src="assets/loading.gif" ng-show="loading_gif"></img>'
   };
-});
-
-
+}]);

@@ -74,7 +74,7 @@ h1, h2, h3 {
 }
 
 body, #rightbar, #leftbar {
-    background: transparent url(../assets/body-bg/cloth.png);
+    background: transparent url(asset-path('cloth.png'));
 }
 
 p {
@@ -609,7 +609,7 @@ aside .btn {
 }
 
 #content {
-    background: url(../assets/content-bg/content-bg.jpg);
+    background: url(asset-path('content-bg.png'));
     margin: 0 200px 0 400px;
     padding: 20px 20px 10px;
     position: relative;
@@ -625,7 +625,7 @@ aside .btn {
 }
 
 #rightbar-toggle, #leftbar-toggle {
-    background: transparent url(../assets/body-bg/cloth.png);
+    background: transparent url(asset-path('cloth.png'));
     color: #eee;
     width: 15px;
     height: 30px;
