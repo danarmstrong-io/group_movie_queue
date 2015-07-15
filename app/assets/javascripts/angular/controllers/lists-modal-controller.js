@@ -1,4 +1,4 @@
-app.controller('ListsModalController', function ($scope, $modalInstance, QueuedLists, UserFactory, ReadyList, $state, $stateParams, $http) {
+app.controller('ListsModalController', ['$scope', '$modalInstance', 'QueuedLists', 'UserFactory', 'ReadyList', '$state', '$stateParams', '$http', function ($scope, $modalInstance, QueuedLists, UserFactory, ReadyList, $state, $stateParams, $http) {
 
 	$scope.init = function() {
     $scope.queuedLists = QueuedLists.listsData;
@@ -104,4 +104,4 @@ app.controller('ListsModalController', function ($scope, $modalInstance, QueuedL
 
 	$scope.init();
 	
-});
+}]);
