@@ -5,7 +5,33 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
     $scope.readyListData = ReadyList.listData;
     $scope.genres = [];
 		resizeMainPanels();
-	}
+	};
+
+  $scope.toggleLeftbar = function() {
+    if ($('#leftbar').width() == 300) {
+      $scope.closeLeftbar();
+    } 
+    else {
+      $scope.openLeftbar();
+    }
+  };
+
+  $scope.openLeftbar = function() {
+    $('#leftbar').addClass('toggled').find('.sidebar-container').animate({
+    width: '300px'
+      }, 100, function(){
+    $('#leftbar').find('.shadowed').fadeIn(150); 
+      });
+  };
+
+  $scope.closeLeftbar = function() {
+    $('#leftbar').find('.shadowed').fadeOut(150, function(){
+    $('#leftbar').removeClass('toggled').find('.sidebar-container').animate({
+        width: '15px'
+    }, 100);
+    $('#leftbar').find('.shadowed').hide();
+      });
+  };
 
   $scope.$watch(function(scope) { return SelectedMovie.movieData },
     function(newValue, oldValue) {
@@ -17,7 +43,7 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
 		$scope.selectedMovie = movie;
 		SelectedMovie.setMovie(movie);
     $state.go('dashboard.readyList');
-	}
+	};
 
   $scope.allGenresSelected = function() {
     return ($scope.genres && $scope.genres.length == 0);
@@ -73,7 +99,6 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
 
   function resizeMainPanels() {
     var height = $(window).height() - 225;
-    console.log(height);
     var mainPanels = $('.main-panel');
     $.each(mainPanels, function( index, value ) {
       $(value).css({ "max-height": height + 'px' });

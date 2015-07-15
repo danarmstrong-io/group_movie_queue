@@ -13,6 +13,7 @@ angular.module('app').directive('leftbar', function() {
 angular.module('app').directive('rightbar', function() {
 	return {
 		restrict: 'E',
-		templateUrl: "/templates/dashboard/rightbar.html"
+		templateUrl: "/templates/dashboard/rightbar.html",
+		controller: "RightbarController"
 	};
 })

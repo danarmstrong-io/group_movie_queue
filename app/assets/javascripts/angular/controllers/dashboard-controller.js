@@ -53,4 +53,6 @@ app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$s
 
 	$scope.init();
 
+  
+
 }]);
