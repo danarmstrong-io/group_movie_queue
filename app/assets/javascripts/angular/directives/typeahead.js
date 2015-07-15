@@ -19,7 +19,7 @@ app.directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory
           scope.ajaxClass = 'loadImage';
           if (txt && txt.length > 2){
             $.ajax({
-                  url: 'http://sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json',
+                  url: 'https://sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json',
                   dataType: 'jsonp',
                   cache: true,
                   jsonp: false,
@@ -48,7 +48,7 @@ app.directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory
         scope.movie = null;
 
 
-        $http.jsonp('http://www.omdbapi.com/?i=' + key + "&callback=JSON_CALLBACK").
+        $http.jsonp('https://www.omdbapi.com/?i=' + key + "&callback=JSON_CALLBACK").
           success(function(data, status, headers, config) {
             scope.loading_gif = false;
             var key, keys = Object.keys(data);
