@@ -18,13 +18,15 @@ app.directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory
       scope.da  = function(txt){
           scope.ajaxClass = 'loadImage';
           if (txt && txt.length > 2){
-            $.ajax({
-                  url: '//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json',
-                  dataType: 'jsonp',
-                  cache: true,
-                  jsonp: false,
-                  jsonpCallback: 'imdb$' + txt.toLowerCase()
-              }).
+            $http.jsonp('//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json').
+
+            // $.ajax({
+            //       url: '//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json',
+            //       dataType: 'jsonp',
+            //       cache: true,
+            //       jsonp: false,
+            //       jsonpCallback: 'imdb$' + txt.toLowerCase()
+            //   }).
                   success(function(data, status) {
                     var movies = [];
                     $.each(data.d, function( index, value ) {
