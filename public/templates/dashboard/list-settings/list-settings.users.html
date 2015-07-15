@@ -13,7 +13,7 @@
 					<tr ng-repeat="user in readyListData.users" >
 						<td>{{user.first_name}} {{user.last_name}} <span style="display:inline" ng-show="isCurrentUser(user)">(You)</span></td>
 						<td>{{user.email}}</td>
-						<td ><button class="btn btn-danger" ng-confirm-click="Are you sure you want to remove {{user.first_name}} {{user.last_name}} from this list?" ng-click="removeUserFromList(user.queued_user_id)" ng-hide="isCurrentUser(user)">X</button></td>
+						<td ><button class="btn btn-oogway" ng-confirm-click="Are you sure you want to remove {{user.first_name}} {{user.last_name}} from this list?" ng-click="removeUserFromList(user.queued_user_id)" ng-hide="isCurrentUser(user)">X</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -37,7 +37,7 @@
 					<tr ng-repeat="user in readyListData.invited_users" >
 						<td>{{user.first_name}} {{user.last_name}} <span style="display:inline" ng-show="isCurrentUser(user)">(You)</span></td>
 						<td>{{user.email}}</td>
-						<td ><button class="btn btn-warning" ng-confirm-click="Are you sure you want to remove {{user.first_name}} {{user.last_name}} from this list?" ng-click="removeUserFromList(user.queued_user_id)" ng-hide="isCurrentUser(user)">X</button></td>
+						<td ><button class="btn btn-oogway" ng-confirm-click="Are you sure you want to remove {{user.first_name}} {{user.last_name}} from this list?" ng-click="removeUserFromList(user.queued_user_id)" ng-hide="isCurrentUser(user)">X</button></td>
 					</tr>
 				</tbody>
 			</table>
@@ -52,8 +52,8 @@
     <div class="table-responsive">
     	<br>
 			<div style="text-align:center">
-			  <button type="button" class="btn btn-info navbar-btn" ng-click="openAddAUserModal('lg')">Add a User</button>
-				<button class="btn btn-warning" ng-click="removeSelfFromList()" ng-confirm-click="Are you sure you want to remove yourself from this list?">Remove Yourself From List</button>
+			  <button type="button" class="btn btn-oogway navbar-btn" ng-click="openAddAUserModal('lg')">Add a User</button>
+				<button class="btn btn-default" ng-click="removeSelfFromList()" ng-confirm-click="Are you sure you want to remove yourself from this list?">Remove Yourself From List</button>
 			</div>
 			<br>
     </div>

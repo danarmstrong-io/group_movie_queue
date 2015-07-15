@@ -17,7 +17,6 @@
 //= require underscore
 //= require lodash
 //= require grayscale
-//= require functions
 
 //= require angular
 //= require angular-ui-router
