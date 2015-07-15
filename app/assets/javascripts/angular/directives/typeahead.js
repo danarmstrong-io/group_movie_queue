@@ -18,16 +18,18 @@ app.directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory
       scope.da  = function(txt){
           scope.ajaxClass = 'loadImage';
           if (txt && txt.length > 2){
-            $http.jsonp('//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json').
+            // var url = '//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json?callback=imdb$' + txt.toLowerCase();
+            // $http.json(url).
 
-            // $.ajax({
-            //       url: '//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json',
-            //       dataType: 'jsonp',
-            //       cache: true,
-            //       jsonp: false,
-            //       jsonpCallback: 'imdb$' + txt.toLowerCase()
-            //   }).
+            $.ajax({
+                  url: '//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json',
+                  // dataType: 'jsonp',
+                  // cache: true,
+                  // jsonp: false,
+                  jsonCallback: 'imdb$' + txt.toLowerCase()
+              }).
                   success(function(data, status) {
+                    console.log(data)
                     var movies = [];
                     $.each(data.d, function( index, value ) {
                       if (value.q && value.q == 'feature') {
