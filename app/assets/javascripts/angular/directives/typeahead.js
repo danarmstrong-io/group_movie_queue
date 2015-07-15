@@ -23,7 +23,7 @@ app.directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory
 
             $.ajax({
                   url: '//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json',
-                  // dataType: 'jsonp',
+                  dataType: 'json',
                   // cache: true,
                   // jsonp: false,
                   jsonCallback: 'imdb$' + txt.toLowerCase()
