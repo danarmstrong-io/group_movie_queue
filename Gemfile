@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '4.2.1'
 gem 'bootstrap-sass', '~> 3.3.4'
@@ -12,6 +13,7 @@ gem 'rabl'
 gem 'oj'
 gem 'awesome_print'
 gem "font-awesome-rails"
+gem 'rails_12factor'
 
 group :development, :test do
 
