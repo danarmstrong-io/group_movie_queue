@@ -47,7 +47,14 @@
 	<div class="modal-body">
 		
 		<h4>Title</h4>
-		<input class="form-control" ng-model="createListData.title">
+			<div class="form-group has-feedback"
+						 ng-class="{'has-error': titleTooLong()}">
+			  <input type="text" class="form-control" ng-model="createListData.title"/>
+			  <span class="glyphicon form-control-feedback"
+			  			ng-class="{'glyphicon-remove': titleTooLong()}" 
+			  			aria-hidden="true"></span>
+			</div>
+			<small ng-show="titleTooLong()">Title too long (Max: 36)</small>
 		<br>
 
 		<button class="btn btn-default" style="float:right;" ng-click="addInvitee()">Add User</button>
@@ -79,7 +86,7 @@
 
 		</table>
 
-		<button class="btn btn-oogway" ng-disabled="invalidTitleOrInvalidEmails()" style="float:right;" ng-click="postList()">Create List</button>
+		<button class="btn btn-oogway" ng-disabled="invalidTitleOrInvalidEmails() || titleTooLong()" style="float:right;" ng-click="postList()">Create List</button>
 		<br>
 		<br>
 

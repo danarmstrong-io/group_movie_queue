@@ -144,6 +144,10 @@ app.controller('StartModalController', ['$scope', '$modalInstance', 'QueuedLists
   	return ($scope.userData.currentUser.list_invites.length == 0);
   }
 
+	$scope.titleTooLong = function() {
+		return ($scope.createListData.title.length > 36);
+	}
+
 	$scope.init();
 
 }]);

@@ -90,6 +90,10 @@ app.controller('ListsModalController', ['$scope', '$modalInstance', 'QueuedLists
 		return ($scope.createListData.invitees.length > 0)
 	}
 
+	$scope.titleTooLong = function() {
+		return ($scope.createListData.title.length > 36);
+	}
+
 	function setUserTooltipInfo(user) {
 		if (user.exists) {
   		user.tooltipInfo = "User will be invited to join this list.";
