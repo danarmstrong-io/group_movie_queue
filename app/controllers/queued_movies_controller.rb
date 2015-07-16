@@ -37,6 +37,7 @@ class QueuedMoviesController < ApplicationController
 				queued_movie.user_movie_ratings << umr
 			end
 		end
+		queued_movie.check_if_complete
   	render json: queued_movie, status: :ok
 	end
 
