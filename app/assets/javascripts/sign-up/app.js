@@ -13,14 +13,14 @@
       password_confirmation: ""
     };
 
-    // model.submit = function(isValid) {
-    //   console.log("h");
-    //   if (isValid) {
-    //     model.message = "Submitted " + model.user.email;
-    //   } else {
-    //     model.message = "There are still invalid fields below";
-    //   }
-    // };
+    model.submit = function(isValid) {
+      console.log("h");
+      if (isValid) {
+        model.message = "Submitted " + model.user.email;
+      } else {
+        model.message = "There are still invalid fields below";
+      }
+    };
 
   };
 

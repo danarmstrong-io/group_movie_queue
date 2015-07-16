@@ -41,97 +41,43 @@
               <div class="row">
                   <div class="col-md-6 col-md-offset-3 sign-up-form">
 
+                    <div ng-app="validation" class="container" ng-controller="RegistrationController as registration">
+                      <h1>Sign Up!</h1>
 
+                      <%= form_for resource, as: resource_name, url: registration_path(resource_name), :html => { name: "registrationForm" } do |f| %>
 
+                         <div class="form-group">
+                              <label>Email</label>
+                              <input type="email" name="user[email]" class="form-control" ng-model="registration.user.email" required ng-blur="emailBlur = true;" />
+                              <div ng-messages="registrationForm['user[email]'].$error" ng-messages-include="/templates/messages.html" ng-show="emailBlur"></div>
+                              <div class="error-placeholder" ng-hide="emailBlur"></div>
+                          </div>
+                          <div class="form-group">
+                              <label>Password</label>
+                              <input type="password" name="user[password]" class="form-control" ng-model="registration.user.password" required ng-minlength="6" ng-maxlength="30" ng-blur="passwordBlur = true" />
+                              <div ng-messages="registrationForm['user[password]'].$error" ng-messages-include="/templates/messages.html" ng-show="passwordBlur"></div>
+                              <div class="error-placeholder" ng-hide="passwordBlur"></div>
 
+                          </div>
+                          <div class="form-group">
+                              <label>Confirm Password</label>
+                              <input type="password" name="user[password_confirmation]" class="form-control" 
+                                     ng-model="registration.user.password_confirmation" 
+                                     required compare-to="registration.user.password"
+                                     ng-blur="passwordConfBlur = true" />
+                              <div ng-messages="registrationForm['user[password_confirmation]'].$error" ng-messages-include="/templates/messages.html" ng-show="passwordConfBlur"></div>
+                              <div class="error-placeholder" ng-hide="passwordConfBlur"></div>
 
-  <div ng-app="validation" class="container" ng-controller="RegistrationController as registration">
-    <h1>Sign Up!</h1>
-    <form name="registrationForm" novalidate 
-          ng-submit="registration.submit(registrationForm.$valid)">
-       <div class="form-group">
-            <label>Email</label>
-            <input type="text" name="email" class="form-control" ng-model="registration.user.email" required ng-blur="emailBlur = true;" />
-            <div ng-messages="registrationForm.email.$error" ng-messages-include="/templates/messages.html" ng-show="emailBlur"></div>
-            <div class="error-placeholder" ng-hide="emailBlur"></div>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" ng-model="registration.user.password" required ng-minlength="6" ng-maxlength="30" ng-blur="passwordBlur = true" />
-            <div ng-messages="registrationForm.password.$error" ng-messages-include="/templates/messages.html" ng-show="passwordBlur"></div>
-            <div class="error-placeholder" ng-hide="passwordBlur"></div>
+                          </div>
+                          <div class="form-group" style="text-align:center">
+                              <button type="submit" class="btn btn-oogway btn-lg" ng-disabled="registrationForm.$invalid">Sign Up!</button>
+                          </div>
+                      <% end %>
+                    </div>
 
-        </div>
-        <div class="form-group">
-            <label>Confirm Password</label>
-            <input type="password" name="password_confirmation" class="form-control" 
-                   ng-model="registration.user.password_confirmation" 
-                   required compare-to="registration.user.password"
-                   ng-blur="passwordConfBlur = true" />
-            <div ng-messages="registrationForm.password_confirmation.$error" ng-messages-include="/templates/messages.html" ng-show="passwordConfBlur"></div>
-            <div class="error-placeholder" ng-hide="passwordConfBlur"></div>
-            
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-oogway btn-lg" ng-disabled="registrationForm.$invalid">Sign Up!</button>
-        </div>
-    </form> 
-  </div>
-
-
-
-
-
-
-
-
-
-                  </div>
                   </div>
               </div>
           </div>
       </div>
   </header>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

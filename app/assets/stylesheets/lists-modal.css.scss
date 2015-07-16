@@ -91,19 +91,3 @@
 }
 
 
-.ng-invalid.ng-dirty {
-    border-color: red;
-    outline-color: red;
-}
-
-.ng-valid {
-    border-color: $dark-text-color;
-    outline-color: $dark-text-color;
-}
-
-.messages {
-  font-size: smaller;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  color: red;
-}
