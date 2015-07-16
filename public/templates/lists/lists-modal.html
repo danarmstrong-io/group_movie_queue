@@ -1,6 +1,6 @@
-<div class="modal-lists" ng-hide="createList">
+<div class="modal-lists" ng-hide="createList || queuedLists.lists.length == 0">
 	<div class="modal-header">
-		<h2>Select A List</h2>
+		<h2>Select A List w{{queuedLists}}</h2>
 		<a class="btn btn-default" data-method="delete" href="/users/sign_out" rel="nofollow" style="float:right; position:relative; bottom: 45px">Log Out</a>
 	</div>
 	<div class="modal-body">
@@ -39,10 +39,10 @@
 	</div>
 </div>
 
-<div class="modal-create-list" ng-show="createList">
+<div class="modal-create-list" ng-show="createList || queuedLists.lists.length == 0">
 	<div class="modal-header">
 		<h2>Create A List</h2>
-		<button class="btn btn-default" style="float:right; position:relative; bottom: 45px" ng-click="switchToLists()">X</button>
+		<button class="btn btn-default" style="float:right; position:relative; bottom: 45px" ng-click="switchToLists()" ng-hide="queuedLists.lists.length == 0">X</button>
 	</div>
 	<div class="modal-body">
 		
