@@ -4,7 +4,7 @@
 		<a class="btn btn-default" data-method="delete" href="/users/sign_out" rel="nofollow" style="float:right; position:relative; bottom: 45px">Log Out</a>
 	</div>
 	<div class="modal-body">
-		<ul class="thumbnails">
+		<ul class="thumbnails hidden-xs hidden-sm">
 	    <li ng-repeat="list in queuedLists.lists">
 		    <a ng-click="selectList(list.id)" class="thumbnail">
 		      <img ng-src="assets/turtle.jpg"/>
@@ -22,6 +22,20 @@
 		    </a>
 	    </li>
 		</ul>
+
+
+		<div class="list-group visible-xs visible-sm">
+		    <a ng-repeat="list in queuedLists.lists" ng-click="selectList(list.id)" class="list-group-item" ng-click="selectList(list.id)" style="cursor:pointer">
+			    {{list.title}}
+		  	</a>
+		    <a ng-click="switchToCreateList()" class="list-group-item"style="cursor:pointer">
+		    	<span class="badge"><i class="fa fa-plus"></i></span>
+		    	- Create a List
+		  	</a>
+
+		</div>
+
+
 	</div>
 </div>
 
