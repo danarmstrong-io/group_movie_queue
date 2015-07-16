@@ -98,6 +98,11 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
     resizeMainPanels();
   });
 
+  $('#header').resize(function() {
+    // console.log($('#header').height());
+    console.log("wee");
+  });
+
   function resizeMainPanels() {
     var height = $(window).height() - 225;
     var mainPanels = $('.main-panel');

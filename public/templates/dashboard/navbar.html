@@ -4,17 +4,55 @@
   </a>
   <div class="dropdown profile-menu shadowed">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    <i class="fa fa-cogs fa-2x"></i>
-
+      <i class="fa fa-cogs fa-2x"></i>
     </a>
     <ul class="dropdown-menu pull-right text-right">
+
+      <li class="visible-xs" ng-show="hasAReadyList() && pendingListData.movies.length != 0">
+        <a ui-sref="dashboard.userPending">Pending ({{pendingListData.movies.length}})</a>
+      </li>
+
+      <li class="visible-xs" ng-show="hasAReadyList()"><a ui-sref="dashboard.createList">Create List</a></li>
+
       <li ng-show="hasAReadyList()"><a ui-sref="dashboard.userSettings">Account Settings</a></li>
       <li class="divider"></li>
       <li><a data-method="delete" href="/users/sign_out" rel="nofollow">Sign-Out</a></li>
     </ul>
   </div>
 
-  <ul class="nav nav-pills pull-right shadowed" id="top-menu">
+
+  <div class="dropdown profile-menu shadowed visible-xs">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <i class="fa fa-server fa-2x"></i>
+    </a>
+    <ul class="dropdown-menu pull-right text-right">
+      <li ng-repeat="list in queuedLists.lists">
+        <a style="cursor:pointer;" ng-click="changeUserList(list.id)">-  
+          {{list.title}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dropdown profile-menu shadowed" ng-show="userData.currentUser.list_invites.length > 0">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <i class="fa fa-group fa-2x"></i>
+    </a>
+    <ul class="dropdown-menu pull-right text-right">
+      <li class="media" href="" ng-repeat="invite in userData.currentUser.list_invites">
+        <a>
+          <div class="media-body">
+            {{invite.queued_list.title}} <span class="date">by {{invite.inviter.first_name}} {{invite.inviter.last_name}}</span><br>
+          </div>
+          <div class="invite-buttons">
+            <button class="btn btn-xs btn-oogway" ng-click="acceptInvite(invite.id)" ng-confirm-click="Are you sure you want to accept this list?">Accept</button>
+            <button class="btn btn-xs btn-default" ng-click="rejectInvite(invite.id)" ng-confirm-click="Are you sure you want to reject this list?">Reject</button>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <ul class="nav nav-pills pull-right shadowed hidden-xs" id="top-menu">
     <li ng-show="hasAReadyList() && pendingListData.movies.length != 0">
       <a ui-sref="dashboard.userPending">Pending ({{pendingListData.movies.length}})</a>
     </li>
@@ -31,25 +69,6 @@
     <li ng-show="hasAReadyList()"><a ui-sref="dashboard.createList">Create List</a></li>
   </ul>
 
-  <div class="dropdown profile-menu shadowed" ng-show="userData.currentUser.list_invites.length > 0">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    <i class="fa fa-newspaper-o fa-2x"></i>
-
-    </a>
-    <ul class="dropdown-menu pull-right text-right">
-      <li class="media" href="" ng-repeat="invite in userData.currentUser.list_invites">
-        <a>
-          <div class="media-body">
-            {{invite.queued_list.title}} <span class="date">by {{invite.inviter.first_name}} {{invite.inviter.last_name}}</span><br>
-          </div>
-          <div class="invite-buttons">
-            <button class="btn btn-xs btn-oogway" ng-click="acceptInvite(invite.id)" ng-confirm-click="Are you sure you want to accept this list?">Accept</button>
-            <button class="btn btn-xs btn-default" ng-click="rejectInvite(invite.id)" ng-confirm-click="Are you sure you want to reject this list?">Reject</button>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
   <ul class="nav nav-pills pull-right shadowed hidden-xs" id="top-menu">
     <li ng-show="hasAReadyList()"><a ui-sref="dashboard.readyList">{{readyListData.title}}</a></li>
   </ul>
