@@ -5,7 +5,7 @@
   		<div class="col-md-10 col-md-offset-1">
   			<br>
 	  	<div class="listview">
-				<form name="current_user_form" novalidate>
+				<form name="current_user_form" novalidate ng-hide="changePassword">
 					<div>
 						First Name:
 						<span ng-hide="editSettings" >{{userData.currentUser.first_name}}</span>
@@ -27,10 +27,37 @@
 						<small class="error" ng-show="editSettings && current_user_form.email.$error.required">Email can't be blank</small>
 					</div>
 				</form>
+
+<!--        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" name="username" class="form-control" ng-model="registration.user.username" required />
+            <div ng-messages="passwordForm.username.$error" ng-messages-include="messages.html"></div>
+        </div> -->
+	    <form name="passwordForm" novalidate ng-submit="updatePassword()" ng-show="changePassword">
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" ng-model="passwordData.password" required ng-minlength="6" ng-maxlength="30"/>
+            <div ng-messages="passwordForm.password.$error" ng-messages-include="templates/messages.html"></div>
+        </div>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" class="form-control" 
+                   ng-model="passwordData.confirmPassword" 
+                   required compare-to="passwordData.password" />
+            <div ng-messages="passwordForm.confirmPassword.$error" ng-messages-include="templates/messages.html"></div>
+        </div>
+        <div class="form-group">
+						<button ng-click="changePasswordToggle()" ng-show="changePassword" class="btn btn-default">Cancel</button>
+						<button type="submit" ng-show="changePassword" ng-disabled="passwordForm.$invalid" class="btn btn-oogway">Update Password</button>
+        </div>
+    </form> 
+
+
 				<br>
 
-				<button ng-click="editUser()" ng-hide="editSettings" class="btn btn-oogway">Edit User</button>
-				<button ng-click="cancelEdit()" ng-show="editSettings" class="btn btn-default">Cancel Edit</button>
+				<button ng-click="editUser()" ng-hide="editSettings || changePassword" class="btn btn-oogway">Edit User</button>
+				<button ng-click="changePasswordToggle()" ng-hide="editSettings || changePassword" class="btn btn-default">Change Password</button>
+				<button ng-click="cancelEdit()" ng-show="editSettings" class="btn btn-default">Cancel</button>
 				<button ng-click="updateCurrentUser()" ng-show="editSettings" ng-class="{disabled: current_user_form.$invalid}" class="btn btn-oogway">Save User</button>
 			</div>
 			</div>

@@ -20,6 +20,7 @@
 
 //= require angular
 //= require angular-ui-router
+//= require angular-messages
 //= require ui-bootstrap
 //= require angular/app
 //= require_tree ./angular/directives

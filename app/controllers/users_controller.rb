@@ -14,6 +14,16 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def update_current_password
+		20.times {puts password_params[:password]}
+		20.times {puts params}
+		if password_params[:password] == password_params[:password] && current_user.update_attributes(encrypted_password: password_params[:password])
+			render json: current_user, status: :ok
+		else
+			render json: :bad_request
+		end
+	end
+
 	def show_by_email
 		render json: !User.find_by_email(params[:email].downcase).nil?
 	end
@@ -22,5 +32,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :phone, :street_address, :state, :zip, :city)
+  end
+
+  def password_params
+    params.permit(:password, :confirmPassword)
   end
 end

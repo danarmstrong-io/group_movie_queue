@@ -2,6 +2,8 @@ app.controller("UserSettingsController", ['$scope', '$http', 'UserFactory', func
 
 	$scope.init = function() {
 		$scope.userData = UserFactory.userData;
+		$scope.changePassword = false;
+		$scope.passwordData = {password: "", confirmPassword: ""}
 	};
 
 	$scope.updateCurrentUser = function() {
@@ -22,6 +24,19 @@ app.controller("UserSettingsController", ['$scope', '$http', 'UserFactory', func
 	$scope.editUser = function() {
 		$scope.editSettings = true;
 		$scope.userFormData = _.clone($scope.userData.currentUser);
+	};
+
+	$scope.changePasswordToggle = function() {
+		$scope.changePassword = !$scope.changePassword;
+	};
+
+	$scope.updatePassword = function() {
+		$http.put('/api/v1/update_current_password', $scope.passwordData)
+			.success($scope.updateCurrentPasswordSuccess);
+	};
+
+	$scope.updateCurrentPasswordSuccess = function(response) {
+		console.log(response)
 	};
 
 	$scope.init();

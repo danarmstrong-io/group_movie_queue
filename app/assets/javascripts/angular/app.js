@@ -1,4 +1,4 @@
-app = angular.module('app', ['ui.router', 'ui.bootstrap']);
+app = angular.module('app', ['ui.router', 'ui.bootstrap', 'ngMessages']);
 
 app.config(['$httpProvider', function($httpProvider) {
     return $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
