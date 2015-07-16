@@ -8,17 +8,17 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
 	};
 
   $scope.toggleLeftbar = function() {
-    if ($('#leftbar').width() == 300) {
+    if ($('#leftbar').width() == 299) {
       $scope.closeLeftbar();
     } 
-    else {
+    if ($('#leftbar').width() == 15) {
       $scope.openLeftbar();
     }
   };
 
   $scope.openLeftbar = function() {
     $('#leftbar').addClass('toggled').find('.sidebar-container').animate({
-    width: '300px'
+    width: '299px'
       }, 100, function(){
     $('#leftbar').find('.shadowed').fadeIn(150); 
       });
@@ -40,6 +40,7 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
   );
 
 	$scope.changeMovie = function(movie) {
+    $scope.toggleLeftbar();
 		$scope.selectedMovie = movie;
 		SelectedMovie.setMovie(movie);
     $state.go('dashboard.readyList');
