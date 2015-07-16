@@ -11,6 +11,8 @@ class QueuedList < ActiveRecord::Base
 	has_many :invited_users, through: :list_invites, source: :invitee
 	has_many :defaulted_users, class_name: "User"
 
+	validates :title, length: { maximum: 36 }
+
 	def ready_movies
 		self.queued_movies.where(completed: true).where(watched: false)
 	end

@@ -2,7 +2,6 @@ app.controller("RatingsComponentController", ['$scope', '$http', 'ReadyList', 'P
 
   $scope.init = function() {
     $scope.userData = UserFactory.userData;
-
   }
 
   $scope.currentUsersRating = function(rating) {
@@ -30,7 +29,7 @@ app.controller("RatingsComponentController", ['$scope', '$http', 'ReadyList', 'P
   }
 
   function updateLists() {
-    ReadyList.updateListWithoutSelectedChange();
+    ReadyList.updateList();
     PendingList.updateList();
   }
 

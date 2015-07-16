@@ -42,7 +42,7 @@ movies.each do |movie|
 	end
 end	
 
-user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "dan@gmail.com", password: "password")
+user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "DAN@GMAIL.com", password: "password")
 user2 = User.create!(first_name: "Megan", last_name: "Vu", email: "megan@gmail.com", password: "password")
 user3 = User.create!(first_name: "Kevin", last_name: "OBrien", email: "kevin@gmail.com", password: "password")
 user4 = User.create!(first_name: "Caitlin", last_name: "Costa", email: "caitlin@gmail.com", password: "password")

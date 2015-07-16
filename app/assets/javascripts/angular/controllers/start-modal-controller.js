@@ -105,11 +105,19 @@ app.controller('StartModalController', ['$scope', '$modalInstance', 'QueuedLists
 		var string = "";
 		var users = invite.queued_list.users;
 		var users_length = users.length;
-		for(var index = 0; index < users_length - 2; index++) {
-			string += users[index].first_name + " " + users[index].last_name + ", ";
+		if (users_length == 0) {
+			var string = "No members"
 		}
-		string += users[users_length - 2].first_name + " " + users[users_length - 2].last_name
-		string += " and " + users[users_length - 1].first_name + " " + users[users_length - 1].last_name;
+		else if (users_length == 1) {
+			string += users[0].first_name + " " + users[0].last_name;
+		}
+		else {
+			for(var index = 0; index < users_length - 2; index++) {
+				string += users[index].first_name + " " + users[index].last_name + ", ";
+			}
+			string += users[users_length - 2].first_name + " " + users[users_length - 2].last_name
+			string += " and " + users[users_length - 1].first_name + " " + users[users_length - 1].last_name;
+		}
 		return string
 	}
 

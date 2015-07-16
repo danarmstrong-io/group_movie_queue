@@ -15,7 +15,7 @@
   </div>
 
   <ul class="nav nav-pills pull-right shadowed" id="top-menu">
-    <li ng-show="hasAReadyList()">
+    <li ng-show="hasAReadyList() && pendingListData.movies.length != 0">
       <a ui-sref="dashboard.userPending">Pending ({{pendingListData.movies.length}})</a>
     </li>
     <li class="dropdown">

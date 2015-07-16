@@ -1,4 +1,4 @@
-app.factory("PendingList", ['$http', function ($http) {
+app.factory("PendingList", ['$http', '$state', function ($http, $state) {
 	var factory = {};
 
 	factory.getList = function() {
@@ -12,6 +12,9 @@ app.factory("PendingList", ['$http', function ($http) {
 
 	factory.currentListRetrieved = function(response) {
 		factory.listData.movies = response.data.movies;
+		if (factory.listData.movies.length == 0) {
+			$state.go('dashboard.readyList')
+		}
 	};
 
 	factory.updateList = function() {

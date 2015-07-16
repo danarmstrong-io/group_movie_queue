@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 	end
 
 	def show_by_email
-		render json: !User.find_by_email(params[:email]).nil?
+		render json: !User.find_by_email(params[:email].downcase).nil?
 	end
 
 	private
