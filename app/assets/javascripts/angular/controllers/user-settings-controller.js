@@ -1,10 +1,33 @@
-app.controller("UserSettingsController", ['$scope', '$http', 'UserFactory', function($scope, $http, UserFactory){
+app.controller("UserSettingsController", ['$scope', '$http', 'UserFactory', 'QueuedLists', function($scope, $http, UserFactory, QueuedLists){
 
 	$scope.init = function() {
 		$scope.userData = UserFactory.userData;
 		$scope.changePassword = false;
 		$scope.passwordData = {password: "", confirmPassword: ""}
+    $scope.queuedLists = QueuedLists.listsData;
+   	$scope.selectedListId = UserFactory.userData.currentUser.default_list_id;
 	};
+
+	$scope.setDefaultList = function() {
+		$http.put('/api/v1/default_lists/' + $scope.selectedListId)
+	    .success(function(data) {
+	    	$scope.updateDefaultSuccess = true;
+	    })
+      .error(function(data) {
+      	console.log("error")
+      });
+	}
+
+	$scope.removeDefaultList = function() {
+		$http.delete('/api/v1/default_lists/1')
+	    .success(function(data) {
+	    	$scope.updateDefaultSuccess = true;
+	    	$scope.selectedListId = "";
+	    })
+	    .error(function(data) {
+	    	console.log("error")
+	    });
+	}
 
 	$scope.updateCurrentUser = function() {
 		if ($scope.current_user_form.$valid) {
