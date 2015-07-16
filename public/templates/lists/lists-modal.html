@@ -43,6 +43,7 @@
 	<div class="modal-header">
 		<h2>Create A List</h2>
 		<button class="btn btn-default" style="float:right; position:relative; bottom: 45px" ng-click="switchToLists()" ng-hide="queuedLists.lists.length == 0">X</button>
+		<a class="btn btn-default" data-method="delete" href="/users/sign_out" rel="nofollow" style="float:right; position:relative; bottom: 45px" ng-show="queuedLists.lists.length == 0">Log Out</a>
 	</div>
 	<div class="modal-body">
 		

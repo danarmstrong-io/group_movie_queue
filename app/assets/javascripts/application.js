@@ -22,9 +22,10 @@
 //= require angular-ui-router
 //= require angular-messages
 //= require ui-bootstrap
-//= require angular/app
-//= require_tree ./angular/directives
-//= require_tree ./angular/services
-//= require_tree ./angular/controllers
+//= require app/app
+//= require_tree ./app/directives
+//= require_tree ./app/services
+//= require_tree ./app/controllers
+//= require sign-up/app
 
 //= require_tree .

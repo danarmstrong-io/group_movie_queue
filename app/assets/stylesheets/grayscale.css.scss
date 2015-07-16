@@ -40,6 +40,30 @@
     height: 1000px !important;
 }
 
+.intro-sign-up {
+    margin-top: 150px;
+}
+
+.sign-up-form {
+    // background-color:white;
+    text-align: left !important;
+    // color:$dark-text-color;
+
+    h1 {
+        text-align: center;
+    }
+
+    .messages {
+        text-align: center;
+        color: white;
+    }
+
+}
+
+.error-placeholder {
+    height:15px;
+}
+
 body {
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
