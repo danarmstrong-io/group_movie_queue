@@ -3,7 +3,6 @@ class UserMovieRatingsController < ApplicationController
   respond_to :html, :json, :xml
 
 	def update
-		20.times {puts params}
 		user_movie_rating = UserMovieRating.find(params[:id])
 		if user_movie_rating.update_attributes(user_movie_rating_params)
 			user_movie_rating.complete!
