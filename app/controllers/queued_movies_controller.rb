@@ -28,7 +28,7 @@ class QueuedMoviesController < ApplicationController
 	private
 
 	def movie_params
-    params.require(:movie).permit(:imdbid, :imdbvotes, :imdbrating, :metascore, :poster, :awards, :country, :language, :plot, :actors, :writer, :director, :runtine, :released, :rated, :year, :title)
+    params.require(:movie).permit(:imdbid, :imdbvotes, :imdbrating, :metascore, :poster, :awards, :country, :language, :plot, :actors, :writer, :director, :runtime, :released, :rated, :year, :title)
   end
 
   def user_movie_rating_params
