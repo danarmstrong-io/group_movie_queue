@@ -1,19 +1,19 @@
-### Welcome to Oogway's List
+== Welcome to Oogway's List
 This is a place where you can keep track of all of those movies you wanted to watch. And who you wanted to watch them with. This is also a place that will tell you what to watch once you’ve told it how much you liked watching what you've watched and how much you think you’d like to watch what you haven’t.
 
-### Current Features
+== Current Features
 * Create movie lists with yourself or as many members as you'd like.
 * Algorithm to tell you how much each movies matches with the members.
 * Hooked up to IMDb api and [OMDb API](http://www.omdbapi.com/) for movie information.
 * Invite system to accept or deny invites to lists.
 * Fully responsive layout built with Bootstrap.
 
-### Main Technology Used
+== Main Technology Used
 * Ruby on Rails
 * AngularJS
 * Twitter Bootstrap
 
-### Future Features
+== Future Features
 * TV Show support
 * Email system for inviting new members
 * Background jobs with sidekiq for new member movie ratings
@@ -21,9 +21,9 @@ This is a place where you can keep track of all of those movies you wanted to wa
 * Facebook/OAuth integration
 * ?????
 
-### Author
+== Author
 Dan Armstrong (@danarmstrong-io)
 
-### Support or Contact
+== Support or Contact
 Feel free to email us to provide some feedback on our list, give me suggestions for new functions, or to just say hello!
 [Contact me directly](contact@danarmstrong.io) or feedback@oogwayslist.com(feedback@oogwayslist.com)
