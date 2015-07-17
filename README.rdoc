@@ -4,7 +4,7 @@ This is a place where you can keep track of all of those movies you wanted to wa
 == Current Features
 * Create movie lists with yourself or as many members as you'd like.
 * Algorithm to tell you how much each movies matches with the members.
-* Hooked up to IMDb api and [OMDb API](http://www.omdbapi.com/) for movie information.
+* Hooked up to IMDb api and OMDb API http://www.omdbapi.com/ for movie information.
 * Invite system to accept or deny invites to lists.
 * Fully responsive layout built with Bootstrap.
 
@@ -26,4 +26,4 @@ Dan Armstrong (@danarmstrong-io)
 
 == Support or Contact
 Feel free to email us to provide some feedback on our list, give me suggestions for new functions, or to just say hello!
-[Contact me directly](contact@danarmstrong.io) or feedback@oogwayslist.com(feedback@oogwayslist.com)
+Contact me directly at contact@danarmstrong.io) or feedback@oogwayslist.com
