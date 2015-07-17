@@ -54,12 +54,12 @@ app.controller("UserSettingsController", ['$scope', '$http', 'UserFactory', 'Que
 	};
 
 	$scope.updatePassword = function() {
-		$http.put('/api/v1/update_current_password', $scope.passwordData)
+		$http.put('/api/v1/update_current_password', { user: $scope.passwordData})
 			.success($scope.updateCurrentPasswordSuccess);
 	};
 
 	$scope.updateCurrentPasswordSuccess = function(response) {
-		console.log(response)
+		$scope.changePassword = false;
 	};
 
 	$scope.init();

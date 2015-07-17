@@ -28,29 +28,28 @@
 					</div>
 				</form>
 
-<!--        <div class="form-group">
-            <label>User Name</label>
-            <input type="text" name="username" class="form-control" ng-model="registration.user.username" required />
-            <div ng-messages="passwordForm.username.$error" ng-messages-include="messages.html"></div>
-        </div> -->
-	    <form name="passwordForm" novalidate ng-submit="updatePassword()" ng-show="changePassword">
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" ng-model="passwordData.password" required ng-minlength="6" ng-maxlength="30"/>
-            <div ng-messages="passwordForm.password.$error" ng-messages-include="templates/messages.html"></div>
-        </div>
-        <div class="form-group">
-            <label>Confirm Password</label>
-            <input type="password" name="confirmPassword" class="form-control" 
-                   ng-model="passwordData.confirmPassword" 
-                   required compare-to="passwordData.password" />
-            <div ng-messages="passwordForm.confirmPassword.$error" ng-messages-include="templates/messages.html"></div>
-        </div>
-        <div class="form-group">
-						<button ng-click="changePasswordToggle()" ng-show="changePassword" class="btn btn-default">Cancel</button>
-						<button type="submit" ng-show="changePassword" ng-disabled="passwordForm.$invalid" class="btn btn-oogway">Update Password</button>
-        </div>
-    </form> 
+		    <form name="passwordForm" novalidate ng-submit="updatePassword()" ng-show="changePassword">
+	        <div class="form-group">
+	            <label>Password</label>
+	            <input type="password" name="password" class="form-control" ng-model="passwordData.password" required ng-minlength="6" ng-maxlength="30" ng-blur="passwordBlur = true"/>
+	            <div ng-messages="passwordForm.password.$error" ng-messages-include="templates/messages.html" ng-show="passwordBlur"></div>
+              <div class="error-placeholder" ng-hide="passwordBlur"></div>
+	        </div>
+	        <div class="form-group">
+	            <label>Confirm Password</label>
+	            <input type="password" name="password_confirmation" class="form-control" 
+	                   ng-model="passwordData.password_confirmation" 
+	                   required compare-to="passwordData.password" 
+	                   ng-blur="passwordConfBlur = true"/>
+	            <div ng-messages="passwordForm.password_confirmation.$error" ng-messages-include="templates/messages.html" ng-show="passwordConfBlur"></div>
+              <div class="error-placeholder" ng-hide="passwordConfBlur"></div>
+
+	        </div>
+	        <div class="form-group">
+							<button ng-click="changePasswordToggle()" ng-show="changePassword" class="btn btn-default">Cancel</button>
+							<button type="submit" ng-show="changePassword" ng-disabled="passwordForm.$invalid" class="btn btn-oogway">Update Password</button>
+	        </div>
+	    </form> 
 
 
 				<br>
