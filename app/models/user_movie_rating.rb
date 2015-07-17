@@ -4,6 +4,8 @@ class UserMovieRating < ActiveRecord::Base
 	has_many :queued_movie_user_ratings
 	has_many :queued_movies, through: :queued_movie_user_ratings
 
+	before_save :update_queued_movies
+
 	def complete!
 		self.update_attributes(completed: true)
 		update_queued_movies

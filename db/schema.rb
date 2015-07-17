@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20150715023005) do
     t.boolean  "completed",      default: false
     t.boolean  "watched",        default: false
     t.datetime "time_watched"
-    t.float    "oogway_rating"
+    t.float    "oogway_rating",  default: 0.0
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end

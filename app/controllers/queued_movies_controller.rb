@@ -1,43 +1,14 @@
 class QueuedMoviesController < ApplicationController
+  respond_to :html, :json, :xml
+  include QueuedMovieHelper
 
 	def create
-		mp = movie_params
-		rating = mp.delete(:rating)
-		genres = mp.delete(:genre).split(', ')
-		list = QueuedList.find(params[:queued_list_id])
+		queued_list = QueuedList.find(params[:queued_list_id])
 		movie = Movie.find_or_create_by(title: params[:title])
-
-		genres.each do |genre|
-			movie.genres << Genre.find_or_create_by(name: genre)
-		end
-
-		movie.update_attributes(mp)
-		list.movies << movie
-		queued_movie = QueuedMovie.find_by_queued_list_id_and_movie_id(list.id, movie.id)
-		umr = UserMovieRating.find_by_movie_id_and_user_id(movie.id, current_user.id)
-		unless umr
-			umr = UserMovieRating.create
-			umr.movie_id = movie.id
-			umr.user_id = current_user.id
-			umr.save
-		end 
-		umr.movie_id = movie.id
-		umr.user_id = current_user.id
-		umr.rating = rating["rating"]
-		umr.seen = rating["seen"]
-		umr.rewatch = rating["rewatch"]
-		umr.favorite = rating["favorite"]
-		umr.completed = true
-		umr.save
-		queued_movie.user_movie_ratings << umr
-		queued_movie.save
-		list.users.each do |user|
-			unless UserMovieRating.find_by_movie_id_and_user_id(movie.id, user.id)
-				umr = UserMovieRating.create(movie_id: movie.id, user_id: user.id)
-				queued_movie.user_movie_ratings << umr
-			end
-		end
-		queued_movie.check_if_complete
+		movie.update_attributes(movie_params)
+		create_or_find_all_genres_and_add_to_movie(genre_params, movie)
+		queued_movie = QueuedMovie.create(queued_list: queued_list, movie: movie)
+		find_or_create_user_movie_rating_and_add_to_movie(movie, current_user, queued_movie)
   	render json: queued_movie, status: :ok
 	end
 
@@ -53,8 +24,18 @@ class QueuedMoviesController < ApplicationController
 		render json: queued_movie, status: :ok
 	end
 
+	private
+
 	def movie_params
-    params.permit(:imdbid, :imdbvotes, :imdbrating, :metascore, :poster, :awards, :country, :language, :plot, :actors, :writer, :director, :genre, :runtine, :released, :rated, :year, :title, rating: [:id, :rating, :seen, :rewatch, :favorite])
+    params.require(:movie).permit(:imdbid, :imdbvotes, :imdbrating, :metascore, :poster, :awards, :country, :language, :plot, :actors, :writer, :director, :runtine, :released, :rated, :year, :title)
+  end
+
+  def user_movie_rating_params
+    params.require(:user_movie_rating).permit(:id, :rating, :seen, :rewatch, :favorite)
+  end
+
+  def genre_params
+    params.require(:genres)
   end
   
 end

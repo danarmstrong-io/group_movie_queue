@@ -43,5 +43,6 @@ class QueuedMovie < ActiveRecord::Base
 			sum += movie_user_rating.rating
 		end
 		sum / self.user_movie_ratings.length.to_f
+		5
 	end
 end

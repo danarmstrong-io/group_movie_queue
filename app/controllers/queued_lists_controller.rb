@@ -28,7 +28,6 @@ class QueuedListsController < ApplicationController
     queued_list = QueuedList.new(title: params["title"])
     remove_duplicates_and_current_user if params[:invitees]
     add_self_and_invite_users(queued_list)
-
     if queued_list.save
       render json: queued_list, status: :ok 
     else
