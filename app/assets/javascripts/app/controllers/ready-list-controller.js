@@ -21,8 +21,6 @@ angular.module('app').controller("ReadyListController", ['$scope', '$modal', 'Re
     });
   };
 
-
-
 	$scope.init();
 
 }]);

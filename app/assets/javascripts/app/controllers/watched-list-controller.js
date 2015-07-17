@@ -20,7 +20,6 @@ angular.module('app').controller("WatchedListController", ['$scope', '$http', 'W
     var queued_movie_id = $scope.readyListData.movies[$scope.currentMovie.movieIndex].queued_movie_id
     $http.put('/api/v1/queued_movies/' + queued_movie_id).
       success(function(data) {
-        console.log(data);
         updateLists();
       }).
       error(function(data) {
