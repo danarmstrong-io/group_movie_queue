@@ -22,11 +22,11 @@ This is a place where you can keep track of all of those movies you wanted to wa
 * ?????
 
 == Author
-Dan Armstrong (@danarmstrong-io)
+Dan Armstrong
 
 == GitHub Pages
 http://danarmstrong-io.github.io/group_movie_queue
 
 == Support or Contact
 Feel free to email us to provide some feedback on our list, give me suggestions for new functions, or to just say hello!
-Contact me directly at contact@danarmstrong.io) or feedback@oogwayslist.com
+Contact me directly at contact@danarmstrong.io or feedback@oogwayslist.com
