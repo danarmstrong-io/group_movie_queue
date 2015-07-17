@@ -14,6 +14,7 @@ gem 'oj'
 gem 'awesome_print'
 gem "font-awesome-rails"
 gem 'rails_12factor'
+gem 'puma'
 
 group :development, :test do
 
