@@ -1,4 +1,4 @@
-app.controller("RightbarController", ['$scope', function($scope){
+angular.module('app').controller("RightbarController", ['$scope', function($scope){
 
   $scope.init = function() {
   };

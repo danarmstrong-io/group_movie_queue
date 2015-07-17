@@ -1,4 +1,4 @@
-app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$modal', '$state', function($scope, ReadyList, SelectedMovie, $modal, $state){
+angular.module('app').controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$modal', '$state', function($scope, ReadyList, SelectedMovie, $modal, $state){
 
 	$scope.init = function() {
     $scope.completedCheckBox = {completed: true};
@@ -96,11 +96,6 @@ app.controller("LeftbarController", ['$scope', 'ReadyList', 'SelectedMovie', '$m
 
   $( window ).resize(function() {
     resizeMainPanels();
-  });
-
-  $('#header').resize(function() {
-    // console.log($('#header').height());
-    console.log("wee");
   });
 
   function resizeMainPanels() {

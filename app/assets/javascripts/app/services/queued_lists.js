@@ -1,4 +1,4 @@
-app.factory("QueuedLists", ['$http', function ($http) {
+angular.module('app').factory("QueuedLists", ['$http', function ($http) {
 	var factory = {};
 
 	factory.getLists = function() {

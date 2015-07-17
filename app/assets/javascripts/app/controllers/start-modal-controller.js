@@ -1,4 +1,4 @@
-app.controller('StartModalController', ['$scope', '$modalInstance', 'QueuedLists', 'UserFactory', '$http', 'PendingList', '$state', 'ReadyList', function ($scope, $modalInstance, QueuedLists, UserFactory, $http, PendingList, $state, ReadyList) {
+angular.module('app').controller('StartModalController', ['$scope', '$modalInstance', 'QueuedLists', 'UserFactory', '$http', 'PendingList', '$state', 'ReadyList', function ($scope, $modalInstance, QueuedLists, UserFactory, $http, PendingList, $state, ReadyList) {
 
 
 	$scope.init = function() {

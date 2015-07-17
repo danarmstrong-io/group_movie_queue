@@ -1,4 +1,4 @@
-app.controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'QueuedLists', '$state', 'UserFactory', '$http', function($scope, ReadyList, PendingList, QueuedLists, $state, UserFactory, $http) {
+angular.module('app').controller("UserNavbarController", ['$scope', 'ReadyList', 'PendingList', 'QueuedLists', '$state', 'UserFactory', '$http', function($scope, ReadyList, PendingList, QueuedLists, $state, UserFactory, $http) {
 
     $scope.init = function() {
         $scope.pendingListData = PendingList.listData;

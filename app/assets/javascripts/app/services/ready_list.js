@@ -1,4 +1,4 @@
-app.factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 'SelectedMovie', '$state', function ($http, orderByFilter, $location, defaultList, SelectedMovie, $state) {
+angular.module('app').factory("ReadyList", ['$http', 'orderByFilter', '$location', 'defaultList', 'SelectedMovie', '$state', function ($http, orderByFilter, $location, defaultList, SelectedMovie, $state) {
 	var factory = {};
 
 	factory.getList = function(listId) {

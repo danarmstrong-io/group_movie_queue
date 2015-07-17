@@ -1,4 +1,4 @@
-app.controller("WatchedListController", ['$scope', '$http', 'WatchedList', 'ReadyList', function($scope, $http, WatchedList, ReadyList){
+angular.module('app').controller("WatchedListController", ['$scope', '$http', 'WatchedList', 'ReadyList', function($scope, $http, WatchedList, ReadyList){
 
 	$scope.init = function() {
 		WatchedList.updateList();

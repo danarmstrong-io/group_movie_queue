@@ -1,4 +1,4 @@
-app.controller("ReadyListController", ['$scope', '$modal', '$http', 'ReadyList', 'PendingList', 'orderByFilter', 'UserFactory', 'SelectedMovie', function($scope, $modal, $http, ReadyList, PendingList, orderByFilter, UserFactory, SelectedMovie){
+angular.module('app').controller("ReadyListController", ['$scope', '$modal', 'ReadyList', 'PendingList', 'UserFactory', 'SelectedMovie', function($scope, $modal, ReadyList, PendingList, UserFactory, SelectedMovie){
 
   $scope.init = function() {
     $scope.currentMovie = {}

@@ -1,4 +1,4 @@
-app.controller("InformationComponentController", ['$scope', 'ReadyList', '$http', function($scope, ReadyList, $http){
+angular.module('app').controller("InformationComponentController", ['$scope', 'ReadyList', '$http', function($scope, ReadyList, $http){
 
   $scope.init = function() {
     $scope.readyListData = ReadyList.listData;

@@ -1,4 +1,4 @@
-app.controller("CreateListController", ['$scope', '$http', 'UserFactory', 'QueuedLists', '$state', 'ReadyList', function($scope, $http, UserFactory, QueuedLists, $state, ReadyList){
+angular.module('app').controller("CreateListController", ['$scope', '$http', 'QueuedLists', '$state', 'ReadyList', function($scope, $http, QueuedLists, $state, ReadyList){
 
 	$scope.init = function() {
 		$scope.createListData = {invitees: [], title: ""};

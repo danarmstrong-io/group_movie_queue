@@ -1,4 +1,4 @@
-app.controller("UserCommentsController", ['$scope', 'SelectedMovie', '$http', 'UserFactory', function($scope, SelectedMovie, $http, UserFactory){
+angular.module('app').controller("UserCommentsController", ['$scope', 'SelectedMovie', '$http', 'UserFactory', function($scope, SelectedMovie, $http, UserFactory){
 
   $scope.init = function() {
     $scope.userData = UserFactory.userData;

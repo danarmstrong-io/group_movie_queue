@@ -1,4 +1,4 @@
-app.directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory', function($timeout, $http, ReadyList, UserFactory) {
+angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyList', 'UserFactory', function($timeout, $http, ReadyList, UserFactory) {
   return {
     restrict: 'AEC',
     scope: {

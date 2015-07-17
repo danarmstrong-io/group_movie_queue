@@ -1,4 +1,4 @@
-app.factory("PendingList", ['$http', '$state', function ($http, $state) {
+angular.module('app').factory("PendingList", ['$http', '$state', function ($http, $state) {
 	var factory = {};
 
 	factory.getList = function() {

@@ -1,4 +1,4 @@
-app.controller("ListSettingsController", ['$scope', '$http', '$modal', 'QueuedLists', 'PendingList', 'ReadyList', 'WatchedList', '$state', function($scope, $http, $modal, QueuedLists, PendingList, ReadyList, WatchedList, $state) {
+angular.module('app').controller("ListSettingsController", ['$scope', '$http', '$modal', 'QueuedLists', 'ReadyList', '$state', function($scope, $http, $modal, QueuedLists, ReadyList, $state) {
 
   $scope.init = function() {
   }

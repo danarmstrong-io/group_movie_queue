@@ -1,4 +1,4 @@
-app.controller("DashboardController", ['$scope', '$location', 'defaultList', '$state', '$stateParams', '$modal', 'ReadyList', 'PendingList', function($scope, $location, defaultList, $state, $stateParams, $modal, ReadyList, PendingList){
+angular.module('app').controller("DashboardController", ['$scope', 'defaultList', '$stateParams', '$modal', 'ReadyList', function($scope, defaultList, $stateParams, $modal, ReadyList){
 
 	$scope.init = function() {
 		if (parseInt($stateParams.id)) {

@@ -1,4 +1,4 @@
-app.filter('selectedGenres', function() {
+angular.module('app').filter('selectedGenres', function() {
     return function(movies, genres) {
         if (movies) {
             return movies.filter(function(movie) {

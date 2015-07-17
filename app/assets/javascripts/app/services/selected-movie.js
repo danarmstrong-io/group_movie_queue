@@ -1,4 +1,4 @@
-app.factory("SelectedMovie", ['$http', function ($http) {
+angular.module('app').factory("SelectedMovie", ['$http', function ($http) {
 	var factory = {};
 
 	factory.getComments = function() {

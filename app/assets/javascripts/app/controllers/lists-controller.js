@@ -1,4 +1,4 @@
-app.controller("ListsController", ['$scope', '$http', '$modal', function($scope, $http, $modal){
+angular.module('app').controller("ListsController", ['$scope', '$modal', function($scope, $modal){
 
 	$scope.init = function() {
     $scope.openListsModal()

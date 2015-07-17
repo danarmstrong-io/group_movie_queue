@@ -1,4 +1,4 @@
-app.factory("UserFactory", ['$http', function ($http) {
+angular.module('app').factory("UserFactory", ['$http', function ($http) {
 	var factory = {};
 
 	factory.getCurrentUser = function() {

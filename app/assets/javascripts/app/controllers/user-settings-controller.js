@@ -1,4 +1,4 @@
-app.controller("UserSettingsController", ['$scope', '$http', 'UserFactory', 'QueuedLists', function($scope, $http, UserFactory, QueuedLists){
+angular.module('app').controller("UserSettingsController", ['$scope', '$http', 'UserFactory', 'QueuedLists', function($scope, $http, UserFactory, QueuedLists){
 
 	$scope.init = function() {
 		$scope.userData = UserFactory.userData;

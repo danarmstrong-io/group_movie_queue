@@ -1,10 +1,9 @@
-app.controller('AddAUserModalController', ['$scope', '$http', '$templateCache', '$modalInstance', 'ReadyList', function ($scope, $http, $templateCache, $modalInstance, ReadyList) {
+angular.module('app').controller('AddAUserModalController', ['$scope', '$http', '$templateCache', '$modalInstance', 'ReadyList', function ($scope, $http, $templateCache, $modalInstance, ReadyList) {
 
 
   $scope.init = function () {
     $scope.readyListData = ReadyList.listData;
     $scope.invitee = {};
-    console.log($scope.readyListData.id);
   };
 
   $scope.ok = function (invitee) {
@@ -26,7 +25,6 @@ app.controller('AddAUserModalController', ['$scope', '$http', '$templateCache', 
     invitee.checked = true;
     $http({ url: '/api/v1/show_by_email/', method: "GET", params: {email: invitee.email} }).
       success(function(data) {
-        console.log(data);
         invitee.exists = JSON.parse(data);
         setUserTooltipInfo(invitee);
       }).

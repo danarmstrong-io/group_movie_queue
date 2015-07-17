@@ -1,4 +1,4 @@
-app.factory("WatchedList", ['$http', 'ReadyList', function ($http, ReadyList) {
+angular.module('app').factory("WatchedList", ['$http', 'ReadyList', function ($http, ReadyList) {
 	var factory = {};
 
 	factory.getList = function() {

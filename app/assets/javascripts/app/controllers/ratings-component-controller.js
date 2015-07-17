@@ -1,4 +1,4 @@
-app.controller("RatingsComponentController", ['$scope', '$http', 'ReadyList', 'PendingList', 'UserFactory', function($scope, $http, ReadyList, PendingList, UserFactory){
+angular.module('app').controller("RatingsComponentController", ['$scope', '$http', 'ReadyList', 'PendingList', 'UserFactory', function($scope, $http, ReadyList, PendingList, UserFactory){
 
   $scope.init = function() {
     $scope.userData = UserFactory.userData;

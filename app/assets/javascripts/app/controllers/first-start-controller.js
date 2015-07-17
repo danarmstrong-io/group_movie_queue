@@ -1,4 +1,4 @@
-app.controller("FirstStartController", ['$scope', '$modal', function($scope, $modal) {
+angular.module('app').controller("FirstStartController", ['$scope', '$modal', function($scope, $modal) {
 
 	$scope.init = function() {
 		$scope.openStartModal();

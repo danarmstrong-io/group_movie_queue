@@ -1,4 +1,4 @@
-app.controller("PendingListController", ['$scope', '$http', 'PendingList', 'ReadyList', function($scope, $http, PendingList, ReadyList) {
+angular.module('app').controller("PendingListController", ['$scope', '$http', 'PendingList', 'ReadyList', function($scope, $http, PendingList, ReadyList) {
 
 	$scope.init = function() {
 		$scope.pendingListData = PendingList.listData;
