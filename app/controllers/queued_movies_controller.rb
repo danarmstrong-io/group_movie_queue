@@ -8,7 +8,7 @@ class QueuedMoviesController < ApplicationController
 		movie.update_attributes(movie_params)
 		create_or_find_all_genres_and_add_to_movie(genre_params, movie)
 		queued_movie = QueuedMovie.create(queued_list: queued_list, movie: movie)
-		find_or_create_user_movie_rating_and_add_to_movie(movie, current_user, queued_movie)
+		find_or_create_user_movie_ratings_and_add_to_movie(movie, current_user, queued_movie)
 		queued_movie.check_if_complete
   	render json: queued_movie, status: :ok
 	end

@@ -6,6 +6,10 @@ class UserMovieRating < ActiveRecord::Base
 
 	before_save :update_queued_movies
 
+	def check_if_complete
+		self.complete! if self[:rating]
+	end
+
 	def complete!
 		self.update_attributes(completed: true)
 		update_queued_movies

@@ -29,7 +29,6 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
                   jsonpCallback: 'imdb$' + txt.toLowerCase()
               }).
                   success(function(data, status) {
-                    console.log(data)
                     var movies = [];
                     $.each(data.d, function( index, value ) {
                       if (value.q && value.q == 'feature') {
