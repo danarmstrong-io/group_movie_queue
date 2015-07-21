@@ -51,19 +51,11 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
         scope.loading_gif = true;
         scope.movie = null;
 
-
-        $http.jsonp('//www.omdbapi.com/?i=' + key + "&callback=JSON_CALLBACK").
+        var url = '/api/v1/movies/' + key
+        $http.get(url).
           success(function(data, status, headers, config) {
             scope.loading_gif = false;
-            var key, keys = Object.keys(data);
-            var n = keys.length;
-            var newobj={}
-            while (n--) {
-              key = keys[n];
-              newobj[key.toLowerCase()] = data[key];
-            }
-            scope.movie = newobj;
-
+            scope.movie = data.movie;
           })
       }
 

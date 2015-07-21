@@ -17,6 +17,7 @@ angular.module('app').factory("ReadyList", ['$http', 'orderByFilter', '$location
 		factory.listData.title = response.data.queued_list.title;
 		factory.listData.invited_users = response.data.queued_list.list_invites;
 		factory.listData.genres = response.data.queued_list.genres;
+		console.log(factory.listData)
 	};
 
 	factory.currentListFail = function(response) {

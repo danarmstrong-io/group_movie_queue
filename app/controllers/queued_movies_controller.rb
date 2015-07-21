@@ -4,11 +4,9 @@ class QueuedMoviesController < ApplicationController
 
 	def create
 		queued_list = QueuedList.find(params[:queued_list_id])
-		movie = Movie.find_or_create_by(title: params[:title])
-		movie.update_attributes(movie_params)
-		create_or_find_all_genres_and_add_to_movie(genre_params, movie)
+		movie = Movie.find(user_movie_rating_params[:movie_id])
 		queued_movie = QueuedMovie.create(queued_list: queued_list, movie: movie)
-		find_or_create_user_movie_rating_and_add_to_movie(movie, current_user, queued_movie)
+		create_user_movie_ratings(queued_list, movie, current_user, queued_movie, user_movie_rating_params)
 		queued_movie.check_if_complete
   	render json: queued_movie, status: :ok
 	end
@@ -27,16 +25,8 @@ class QueuedMoviesController < ApplicationController
 
 	private
 
-	def movie_params
-    params.require(:movie).permit(:imdbid, :imdbvotes, :imdbrating, :metascore, :poster, :awards, :country, :language, :plot, :actors, :writer, :director, :runtime, :released, :rated, :year, :title)
-  end
-
   def user_movie_rating_params
-    params.require(:user_movie_rating).permit(:id, :rating, :seen, :rewatch, :favorite)
-  end
-
-  def genre_params
-    params.require(:genres)
+    params.require(:user_movie_rating).permit(:id, :rating, :seen, :rewatch, :favorite, :movie_id)
   end
   
 end

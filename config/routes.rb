@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         resources :movie_comments, only: [:index, :create, :destroy]
       end
 
+      get '/movies/:imdb_id' => 'movies#show'
+
       get 'queued_list_ready/:id' => 'queued_lists#ready'
       get 'queued_list_watched/:id' => 'queued_lists#watched'
       get 'queued_list_pending' => 'queued_lists#pending'

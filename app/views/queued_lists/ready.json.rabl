@@ -3,45 +3,45 @@ object @queued_list
 attributes :id, :title
 
 child :not_watched_movie_genres, :object_root => false do
-	attributes :id, :name
+  attributes :id, :name
 end
 
 child :queued_users, :object_root => false do
-	attribute :id => :queued_user_id
-	glue :user do
-		attributes :id, :first_name, :last_name, :email
-	end
+  attribute :id => :queued_user_id
+  glue :user do
+    attributes :id, :first_name, :last_name, :email
+  end
 end
 
 glue :users do
-	attributes :id, :first_name, :last_name, :email
+  attributes :id, :first_name, :last_name, :email
 end
 
 child :not_watched_queued_movies, :object_root => false do
-	attributes :id => :queued_movie_id, :oogway_rating => :oogway_rating, :completed => :completed
+  attributes :id => :queued_movie_id, :oogway_rating => :oogway_rating, :completed => :completed
 
-	glue :movie do
-		attributes *Movie.column_names
-		child :genres do
-			attributes :id, :name
-		end
-	end
+  glue :movie do |movie|
+    attributes *Movie.column_names
+    child :genres do
+      attributes :id, :name
+    end
+  end
 
-	node :current_user_movie_rating do |movie|
-		UserMovieRating.find_by_movie_id_and_user_id(movie.id, @current_user.id)
-	end
+  node :current_user_movie_rating do |movie|
+    UserMovieRating.find_by_movie_id_and_user_id(movie.id, @current_user.id)
+  end
 
-	child :user_movie_ratings, :object_root => false do |rating|
-		attributes *UserMovieRating.column_names
-		glue :user do
-		  attributes id: :user_id, first_name: :first_name, last_name: :last_name
-		end
-	end
+  child :user_movie_ratings, :object_root => false do |rating|
+    attributes *UserMovieRating.column_names
+    glue :user do
+      attributes id: :user_id, first_name: :first_name, last_name: :last_name
+    end
+  end
 end
 
 child :incomplete_invites, :object_root => false do
-	attribute :id => :list_invite_id
-	glue :invitee do
-		attributes :id => :user_id, :first_name => :first_name,  :last_name => :last_name, :email => :email
-	end
+  attribute :id => :list_invite_id
+  glue :invitee do
+    attributes :id => :user_id, :first_name => :first_name,  :last_name => :last_name, :email => :email
+  end
 end
