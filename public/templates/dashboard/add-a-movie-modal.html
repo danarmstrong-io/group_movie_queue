@@ -4,8 +4,7 @@
 <div class="modal-body">
   <label>Movie Title</label>
 
-  <typeahead-custom title="l" subtitle="s" displaykey="l" retkey="id" modelret="imdbId"  movie="movie"></typeahead-custom>
-
+  <typeahead-custom title="l" subtitle="s" displaykey="l" retkey="id" modelret="imdbId"  movie="movie" loading-gif="loadingGif"></typeahead-custom>
 	<div class="row no-gutters" ng-show="movie">
 		<div class="col-sm-5">
   		<img ng-src="{{movie.poster}}" class="img-responsive"/>

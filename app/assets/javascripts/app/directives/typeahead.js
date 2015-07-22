@@ -9,6 +9,7 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
       subtitle: '@',
       modelret: '=',
       movie: '='
+      // loadingGif: '='
     },
 
     link: function(scope, elem, attrs) {
@@ -47,13 +48,13 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
         scope.modeldisplay = val;
         scope.current = 0;
         scope.selected = true;
-        scope.loading_gif = true;
+        scope.loadingGif = true;
         scope.movie = null;
 
 
         $http.jsonp('//www.omdbapi.com/?i=' + key + "&callback=JSON_CALLBACK").
           success(function(data, status, headers, config) {
-            scope.loading_gif = false;
+            scope.loadingGif = false;
             var key, keys = Object.keys(data);
             var n = keys.length;
             var newobj={}
@@ -91,6 +92,6 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
                     '</a> '+
                 '</div>'+
                 '</input><br>' +
-    '<img class="add-movie-loading-gif" ng-src="assets/loading.gif" ng-show="loading_gif"></img>'
+                '<loading-gif loading-gif="loadingGif"></loading-gif>'
   };
 }]);

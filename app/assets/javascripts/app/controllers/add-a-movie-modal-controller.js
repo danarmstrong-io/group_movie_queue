@@ -1,7 +1,7 @@
 angular.module('app').controller('AddAMovieModalController', ['$scope', '$http', '$templateCache', '$modalInstance', 'movie', 'ReadyList', function ($scope, $http, $templateCache, $modalInstance, movie, ReadyList) {
 
   $scope.init = function() {
-    $scope.loading_gif = false;
+    $scope.loadingGif = false;
     $scope.movie_rating = { rating: 1, favorite: false, rewatch: false}
   };
 

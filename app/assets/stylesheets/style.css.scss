@@ -130,6 +130,9 @@ p {
 .add-movie-loading-gif {
     display:block;
     margin:auto;
+    background: url(asset-path('loading.gif'));
+    height:12px;
+    width:42px;
 }
 
 .modal-content {
@@ -224,6 +227,12 @@ p {
 
 .icon-angle:hover {
     color:$dark-text-color;
+}
+
+.turtle-lists-thumbnail {
+    background: url(asset-path('turtle.jpg'));
+    height:146px;
+    width:140px;
 }
 
 /* --------------------------------------------------------

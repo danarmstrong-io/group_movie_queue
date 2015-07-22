@@ -42,8 +42,8 @@ movies.each do |movie|
 	end
 end	
 
-user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "contact@danarmstrong.io", password: "password")
-user2 = User.create!(first_name: "Megan", last_name: "Vu", email: "megantvu@gmail.com", password: "password")
+user1 = User.create!(first_name: "Dan", last_name: "Armstrong", email: "dan@gmail.com", password: "password")
+user2 = User.create!(first_name: "Megan", last_name: "Vu", email: "megan@gmail.com", password: "password")
 # user3 = User.create!(first_name: "Kevin", last_name: "OBrien", email: "kevin@gmail.com", password: "password")
 # user4 = User.create!(first_name: "Caitlin", last_name: "Costa", email: "caitlin@gmail.com", password: "password")
 
@@ -71,11 +71,11 @@ end
 
 QueuedMovie.all.each do |qm|
 	queued_list.users.each do |user|
-		# umr = UserMovieRating.create!(movie: qm.movie, user: user, rating: rand(1..10), seen: rand(0..1).zero?, rewatch: rand(0..1).zero?, favorite: rand(0..1).zero?, comment: "These are comments on this movie", completed: false)
-		umr = UserMovieRating.create!(movie: qm.movie, user: user, completed: false)
+		umr = UserMovieRating.create!(movie: qm.movie, user: user, rating: rand(1..10), seen: rand(0..1).zero?, rewatch: rand(0..1).zero?, favorite: rand(0..1).zero?, comment: "These are comments on this movie", completed: true)
+		# umr = UserMovieRating.create!(movie: qm.movie, user: user, completed: false)
 		qm.user_movie_ratings << umr
 	end
-	# qm.complete!
+	qm.complete!
 end
 
 # Movie.all.each do |movie|
