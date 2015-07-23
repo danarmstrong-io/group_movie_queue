@@ -1,12 +1,8 @@
 class QueuedMovie < ActiveRecord::Base
-	has_many :queued_users
-	has_many :users, through: :queued_users
-
-	has_many :queued_movie_user_ratings
-	has_many :user_movie_ratings, through: :queued_movie_user_ratings
 	
 	belongs_to :queued_list
 	belongs_to :movie
+	has_many :users, through: :queued_list
 
 	before_save :apply_oogway_rating
 
@@ -34,11 +30,11 @@ class QueuedMovie < ActiveRecord::Base
 	end
 
 	def incomplete_user_movie_ratings
-		self.user_movie_ratings.where(completed:false)
+		self.user_movie_ratings.where(completed: false)
 	end
 
 	def complete_user_movie_ratings
-		self.user_movie_ratings.where(completed:true)
+		self.user_movie_ratings.where(completed: true)
 	end
 
 	def calculate_oogway_rating
@@ -49,4 +45,9 @@ class QueuedMovie < ActiveRecord::Base
 		end
 		rating = sum / self.complete_user_movie_ratings.length.to_f
 	end
+
+	def user_movie_ratings
+		UserMovieRating.where(user: self.users).where(movie_id: self.movie[:id])
+	end
+
 end

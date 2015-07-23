@@ -74,13 +74,6 @@ ActiveRecord::Schema.define(version: 20150715023005) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "queued_movie_user_ratings", force: :cascade do |t|
-    t.integer  "queued_movie_id"
-    t.integer  "user_movie_rating_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "queued_movies", force: :cascade do |t|
     t.integer  "movie_id"
     t.integer  "queued_list_id"

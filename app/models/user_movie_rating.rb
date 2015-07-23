@@ -1,8 +1,7 @@
 class UserMovieRating < ActiveRecord::Base
+
 	belongs_to :user
 	belongs_to :movie
-	has_many :queued_movie_user_ratings
-	has_many :queued_movies, through: :queued_movie_user_ratings
 
 	before_save :update_queued_movies
 
@@ -20,4 +19,9 @@ class UserMovieRating < ActiveRecord::Base
 			queued_movie.check_if_complete
 		end
 	end
+
+	def queued_movies
+		self.user.queued_movies.where(movie: self.movie)
+	end
+
 end

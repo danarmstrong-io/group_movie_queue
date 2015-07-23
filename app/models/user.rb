@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :queued_users
   has_many :queued_lists, through: :queued_users
+  has_many :queued_movies, -> { uniq }, through: :queued_lists
 
   has_many :list_invites, foreign_key: :invitee_id
   has_many :invited_to_queued_lists, through: :list_invites, source: :queued_list
