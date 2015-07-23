@@ -28,5 +28,5 @@ Dan Armstrong
 http://danarmstrong-io.github.io/group_movie_queue
 
 == Support or Contact
-Feel free to email us to provide some feedback on our list, give me suggestions for new functions, or to just say hello!
+Feel free to email me to provide some feedback on the list, give me suggestions for new functions, or to just say hello!
 Contact me directly at contact@danarmstrong.io or feedback@oogwayslist.com

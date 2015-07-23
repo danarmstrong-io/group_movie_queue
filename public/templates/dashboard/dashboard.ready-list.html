@@ -1,6 +1,9 @@
-<div ng-show="selectedMovie">
-	<movie-information movie="movie" selected-movie="selectedMovie"></movie-information>
-	<ratings movie="movie" selected-movie="selectedMovie"></ratings>
-	<users-comments movie="movie" selected-movie="selectedMovie"></users-comments>
+<div ng-show="readyListData.movies">
+	<div ng-show="selectedMovie">
+		<movie-information movie="movie" selected-movie="selectedMovie"></movie-information>
+		<ratings movie="movie" selected-movie="selectedMovie"></ratings>
+		<users-comments movie="movie" selected-movie="selectedMovie"></users-comments>
+	</div>
+	<no-movies ng-hide="selectedMovie"></no-movies>
 </div>
-<no-movies ng-hide="selectedMovie"></no-movies>
+<div class="add-movie-loading-gif" style="margin-top:150px" ng-hide="readyListData.movies"></div>
