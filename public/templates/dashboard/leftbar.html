@@ -44,7 +44,8 @@
 
           <div ng-repeat="movie in ( filteredMovies = (movies | filter:searchInput | filter: completedCheckBox | selectedGenres:genres))" class="media media-movie-card" ng-class="{incompleteMovie: !movie.completed}" ng-click="changeMovie(movie)">
             <div class="pull-left hidden-xs hidden-sm" href="#">
-            <img class="media-object" ng-src="{{movie.poster}}">
+            <!-- <img class="media-object" ng-src="{{movie.poster}}"> -->
+            <thumbnail-poster-image source="movie.poster"></thumbnail-poster-image>
             </div>
 
             <div class="media-body media-info">

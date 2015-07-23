@@ -4,7 +4,7 @@ angular.module('app').directive('movieInformation', function() {
 		scope: {
 			selectedMovie: "=selectedMovie"
 		},
-		templateUrl: "/templates/dashboard/movie-information.html",
+		templateUrl: "/templates/dashboard/movie-information.html.erb",
 		controller: "InformationComponentController"
 	};
 })

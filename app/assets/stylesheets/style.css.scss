@@ -235,6 +235,29 @@ p {
     width:140px;
 }
 
+.media-info-poster {
+    height:300px;
+}
+
+/* --------------------------------------------------------
+    Image Not Found
+-----------------------------------------------------------*/
+
+.info-poster-not-found {
+    width:0px; 
+    height:0px; 
+    padding: 150px 101px; 
+    background: url(asset-path('poster_404.jpg'));
+}
+
+.thumb-poster-not-found {
+    width:0px; 
+    height:0px; 
+    padding: 30px 22px 30px 23px; 
+    background: url(asset-path('thumb_404.jpg'));
+    border:3px solid white;
+}
+
 /* --------------------------------------------------------
     Bootstrap UI Overrides 
 -----------------------------------------------------------*/

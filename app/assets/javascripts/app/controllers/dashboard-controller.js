@@ -53,6 +53,4 @@ angular.module('app').controller("DashboardController", ['$scope', 'defaultList'
 
 	$scope.init();
 
-  
-
 }]);
