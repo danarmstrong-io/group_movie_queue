@@ -8,8 +8,8 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
       modeldisplay:'=',
       subtitle: '@',
       modelret: '=',
-      movie: '='
-      // loadingGif: '='
+      movie: '=',
+      loadingGif: '='
     },
 
     link: function(scope, elem, attrs) {
@@ -91,7 +91,6 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
                          '<i>{{item[subtitle]}} </i>'+
                     '</a> '+
                 '</div>'+
-                '</input><br>' +
-                '<loading-gif loading-gif="loadingGif"></loading-gif>'
+                '</input><br>'
   };
 }]);

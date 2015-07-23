@@ -6,6 +6,7 @@ angular.module('app').controller('AddAMovieModalController', ['$scope', '$http',
   };
 
   $scope.ok = function (movie) {
+    $scope.loadingGif = true;
     var data = {movie: movie, user_movie_rating: $scope.movie_rating, genres: movie.genre}
     $http.post('/api/v1/queued_lists/'+ ReadyList.listData.id + '/queued_movies', data).
       success(function(data) {
