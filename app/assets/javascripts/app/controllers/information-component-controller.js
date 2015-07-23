@@ -1,4 +1,4 @@
-angular.module('app').controller("InformationComponentController", ['$scope', 'ReadyList', '$http', function($scope, ReadyList, $http){
+angular.module('app').controller("InformationComponentController", ['$scope', 'ReadyList', '$http', 'PendingList', function($scope, ReadyList, $http, PendingList){
 
   $scope.init = function() {
     $scope.readyListData = ReadyList.listData;
@@ -20,6 +20,7 @@ angular.module('app').controller("InformationComponentController", ['$scope', 'R
     $http.put('/api/v1/queued_movies/' + queued_movie_id).
       success(function(data) {
         ReadyList.updateList();
+        PendingList.updateList();
       }).
       error(function(data) {
         console.log(data);
