@@ -16,6 +16,7 @@ This is a place where you can keep track of all of those movies you wanted to wa
 * Twitter Bootstrap
 
 == Future Features
+* Revamp Angular routing
 * New solution for movie posters
 * Comprehensive test suite
 * TV Show support
