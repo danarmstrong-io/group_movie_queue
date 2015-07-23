@@ -14,6 +14,8 @@ This is a place where you can keep track of all of those movies you wanted to wa
 * Twitter Bootstrap
 
 == Future Features
+* New solution for movie posters
+* Comprehensive test suite
 * TV Show support
 * Email system for inviting new members
 * Background jobs with sidekiq for new member movie ratings
