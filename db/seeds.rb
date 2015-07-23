@@ -20,9 +20,9 @@ def fix_hash(data)
 end
 
 
-# movies = ["the terminator", "terminator 2: judgment day", "terminator 3: rise of the machines", "star wars: episode i - the phantom menace", "star wars: episode ii - attack of the clones", "star wars: episode iii - revenge of the sith", "raiders of the lost ark", "indiana jones and the last crusade", "indiana jones and the temple of doom", "the star wars holiday special", "secret life of walter mitty", "dogma", "the adjustment bureau", "braveheart", "princess bride", "brothers bloom", "gladiator", "casino royale", "the mummy", "the count of monte cristo", "28 days later", "memento", "waterworld", "scent of a woman", "the odd life of timothy green", "into the wild", "lord of the rings: the fellowship of the ring", "lord of the rings: the two towers", "lord of the rings: the return of the king", "50/50", "midnight in paris", "the world's end", "nightmare before christmas", "there will be blood", "shawshank redemption", "innerspace", "equilibrium", "super troopers", "bio-dome", "the rock", "short circuit", "boondock saints", "wreck-it ralph"]
+movies = ["the terminator", "terminator 2: judgment day", "terminator 3: rise of the machines", "star wars: episode i - the phantom menace", "star wars: episode ii - attack of the clones", "star wars: episode iii - revenge of the sith", "raiders of the lost ark", "indiana jones and the last crusade", "indiana jones and the temple of doom", "the star wars holiday special", "secret life of walter mitty", "dogma", "the adjustment bureau", "braveheart", "princess bride", "brothers bloom", "gladiator", "casino royale", "the mummy", "the count of monte cristo", "28 days later", "memento", "waterworld", "scent of a woman", "the odd life of timothy green", "into the wild", "lord of the rings: the fellowship of the ring", "lord of the rings: the two towers", "lord of the rings: the return of the king", "50/50", "midnight in paris", "the world's end", "nightmare before christmas", "there will be blood", "shawshank redemption", "innerspace", "equilibrium", "super troopers", "bio-dome", "the rock", "short circuit", "boondock saints", "wreck-it ralph"]
 # movies = ["the terminator", "terminator 2: judgment day", "terminator 3: rise of the machines", "star wars: episode i - the phantom menace"]
-movies = ["aladdin"]
+# movies = ["aladdin"]
 	
 
 movies.each do |movie|
@@ -54,7 +54,6 @@ QueuedMovie.all.each do |qm|
 	queued_list.users.each do |user|
 		umr = UserMovieRating.create!(movie: qm.movie, user: user, rating: rand(1..10), seen: rand(0..1).zero?, rewatch: rand(0..1).zero?, favorite: rand(0..1).zero?, comment: "These are comments on this movie", completed: true)
 		# umr = UserMovieRating.create!(movie: qm.movie, user: user, completed: false)
-		# qm.user_movie_ratings << umr
 	end
 	qm.complete!
 end
