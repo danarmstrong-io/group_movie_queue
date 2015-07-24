@@ -69,7 +69,7 @@
 
                           <div class="form-group">
                               <label>Password</label>
-                              <input type="password" name="user[password]" class="form-control" ng-model="registration.user.password" required ng-minlength="6" ng-maxlength="30" ng-blur="passwordBlur = true" />
+                              <input type="password" name="user[password]" class="form-control" ng-model="registration.user.password" required ng-minlength="8" ng-maxlength="128" ng-blur="passwordBlur = true" />
                               <div ng-messages="registrationForm['user[password]'].$error" ng-messages-include="/templates/messages.html" ng-show="passwordBlur"></div>
                               <div class="error-placeholder" ng-hide="passwordBlur"></div>
 
