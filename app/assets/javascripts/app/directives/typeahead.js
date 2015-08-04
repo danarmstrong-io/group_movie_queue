@@ -14,10 +14,11 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
 
     link: function(scope, elem, attrs) {
         scope.current = 0;
-        scope.selected = false; 
+        scope.selected = false;
 
       scope.da  = function(txt){
           scope.ajaxClass = 'loadImage';
+          scope.movie = undefined;
           if (txt && txt.length > 2){
             // var url = '//sg.media-imdb.com/suggests/' + txt.charAt(0).toLowerCase() + '/' + txt.toLowerCase() + '.json?callback=imdb$' + txt.toLowerCase();
             // $http.json(url).
@@ -38,7 +39,7 @@ angular.module('app').directive('typeaheadCustom', ['$timeout', '$http', 'ReadyL
                     });
                     scope.TypeAheadData = movies;
                     scope.ajaxClass = '';
-                  }) ;  
+                  }) ;
           }
 
       }
