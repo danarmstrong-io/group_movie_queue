@@ -1,6 +1,6 @@
-# require 'rubygems'
-# require 'json'
-# require 'open-uri'
+require 'rubygems'
+require 'json'
+require 'open-uri'
 
 def get_movie_data(title)
 	movieAPI = open('http://www.omdbapi.com/?t=' + title )
