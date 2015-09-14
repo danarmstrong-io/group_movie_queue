@@ -1,5 +1,5 @@
 class QueuedMovie < ActiveRecord::Base
-	
+
 	belongs_to :queued_list
 	belongs_to :movie
 	has_many :users, through: :queued_list
@@ -23,9 +23,7 @@ class QueuedMovie < ActiveRecord::Base
 	end
 
 	def check_if_complete
-		if incomplete_user_movie_ratings.length == 0
-			self.complete!
-		end
+		self.completed = incomplete_user_movie_ratings.length == 0
 		self.save
 	end
 
