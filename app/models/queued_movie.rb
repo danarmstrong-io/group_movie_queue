@@ -36,17 +36,8 @@ class QueuedMovie < ActiveRecord::Base
 	end
 
 	def calculate_oogway_rating
-		return 0 if self.user_movie_ratings.length == 0
-		sum = 0
-		incompletes = 0
-		self.user_movie_ratings.each do |movie_user_rating|
-			if movie_user_rating.rating
-				sum += movie_user_rating.rating
-			else
-				incompletes += 1
-			end
-		end
-		rating = sum / (self.user_movie_ratings.length - incompletes).to_f
+		return 0 if complete_user_movie_ratings.length == 0
+		complete_user_movie_ratings.inject(0) {|sum, rating| sum + rating.rating} / complete_user_movie_ratings.length
 	end
 
 	def user_movie_ratings
