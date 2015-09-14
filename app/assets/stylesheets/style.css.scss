@@ -259,7 +259,17 @@ p {
 }
 
 .pending-thumb-poster-not-found {
-    background: url(asset-path('thumb_404.jpg'));
+  width:125px;
+  height:140px;
+  color: $dark-text-color;
+  text-align: center;
+  border: 3px solid $dark-text-color;
+  // height:178px;
+  // padding-top:89px;
+  // padding-bottom:180px;
+  // padding: 50px;
+  // margin: 20px 20px;
+  // background: url(asset-path('pending_404.jpg'));
 }
 
 /* --------------------------------------------------------

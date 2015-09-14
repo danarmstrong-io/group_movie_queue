@@ -5,7 +5,7 @@
 	<div class="media pending-movies-body" ng-show="pendingListData.movies.length > 0">
 		<div class="media-body">
 			<a ng-repeat="movie in pendingListData.movies" class="pending-anchor" ng-click="changePendingMovieIndex($index)">
-				<pending-list-thumbnail-poster source="movie.poster"></pending-list-thumbnail-poster>
+				<pending-list-thumbnail-poster source="movie"></pending-list-thumbnail-poster>
 			</a>
 		</div>
 	</div>

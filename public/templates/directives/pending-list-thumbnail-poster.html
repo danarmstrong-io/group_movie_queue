@@ -1,2 +1,7 @@
-<img fallback-src ng-src="{{source}}" class="img-thumbnail pending-thumbnail"></img>
-<div class="pending-thumb-poster-not-found img-thumbnail pending-thumbnail hidden"></div>
+<img fallback-src ng-src="{{source.poster}}" class="img-thumbnail pending-thumbnail"></img>
+<div class="pending-thumb-poster-not-found img-thumbnail hidden">
+  <div>{{source.title}}</div>
+  <br>
+  <div>Movie Poster</div>
+  <div>Not Found</div>
+</div>
