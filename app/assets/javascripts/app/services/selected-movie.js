@@ -22,6 +22,7 @@ angular.module('app').factory("SelectedMovie", ['$http', function ($http) {
 
 	factory.selectedMovieCommentsRetrieved = function(response) {
 		factory.movieData.comments = response.data;
+		console.log(factory.movieData)
 	};
 
 	factory.init();

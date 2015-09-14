@@ -27,10 +27,6 @@ child :not_watched_queued_movies, :object_root => false do
 		end
 	end
 
-	node :current_user_movie_rating do |movie|
-		UserMovieRating.find_by_movie_id_and_user_id(movie.id, @current_user.id)
-	end
-
 	child :user_movie_ratings, :object_root => false do |rating|
 		attributes *UserMovieRating.column_names
 		glue :user do

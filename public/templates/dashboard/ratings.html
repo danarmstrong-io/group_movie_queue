@@ -1,8 +1,8 @@
 <div class="col-md-6 listview-block ">
   <div class="block">
     <h2>Ratings</h2>
-    <div class="config">                        
-      <a href="" data-toggle="tooltip" data-original-title="Edit" class="ttips" ng-click="clickEditRating(selectedMovie.current_user_movie_rating)">
+    <div class="config">
+      <a href="" data-toggle="tooltip" data-original-title="Edit" class="ttips" ng-click="clickEditRating()">
         <i class="fa fa-pencil fa-fw edit-pencil"></i>
       </a>
     </div>
@@ -14,17 +14,18 @@
         <img src="assets/profile-pics/1.jpg" alt="" class="poster-pic">
         </a> -->
 
-        <div class="media-body" ng-hide="editRating">
-          <p class="post-title">
-            Your Rating: {{selectedMovie.current_user_movie_rating.rating}}
-            <span ng-hide="selectedMovie.current_user_movie_rating.rating" style="display:inline">incomplete</span>
-          </p>
-          <div class="btn-group controls">
-            <a data-toggle="tooltip" data-original-title="Seen" class="ttips btn btn-xs" ng-class="{'btn-success': selectedMovie.current_user_movie_rating.seen}"><i class="fa fa-eye"> Seen</i></a>
-            <a data-toggle="tooltip" data-original-title="Favorite" class="ttips btn  btn-xs" ng-class="{'btn-danger': selectedMovie.current_user_movie_rating.favorite}"><i class="fa fa-heart"> Favorite</i></a>
-            <a data-toggle="tooltip" data-original-title="Rewatch" class="ttips btn btn-xs" ng-class="{'btn-warning': selectedMovie.current_user_movie_rating.rewatch}"><i class="fa fa-refresh"> Rewatch</i></a>
+
+          <div class="media-body" ng-repeat="rating in selectedMovie.user_movie_ratings" ng-show="isCurrentUsersRating(rating) && !editRating">
+            <p class="post-title">
+              Your Rating: {{rating.rating}}
+              <span ng-hide="rating.rating" style="display:inline">incomplete</span>
+            </p>
+            <div class="btn-group controls">
+              <a data-toggle="tooltip" data-original-title="Seen" class="ttips btn btn-xs" ng-class="{'btn-success': rating.seen}"><i class="fa fa-eye"> Seen</i></a>
+              <a data-toggle="tooltip" data-original-title="Favorite" class="ttips btn btn-xs" ng-class="{'btn-danger': rating.favorite}"><i class="fa fa-heart"> Favorite</i></a>
+              <a data-toggle="tooltip" data-original-title="Rewatch" class="ttips btn btn-xs" ng-class="{'btn-warning': rating.rewatch}"><i class="fa fa-refresh"> Rewatch</i></a>
+            </div>
           </div>
-        </div>
 
         <div class="media-body" ng-show="editRating">
           <div class="row">
@@ -38,23 +39,23 @@
 
             <div class="col-sm-12">
 
-              <button type="button" 
-              class="btn btn-xs" 
-              ng-class="{'btn-success': editRatingFormData.seen, 'btn-standard': !editRatingFormData.seen}" 
+              <button type="button"
+              class="btn btn-xs"
+              ng-class="{'btn-success': editRatingFormData.seen, 'btn-standard': !editRatingFormData.seen}"
               ng-click="editRatingFormData.seen = !editRatingFormData.seen">
                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Seen
               </button>
 
-              <button type="button" 
-              class="btn btn-xs" 
-              ng-class="{'btn-danger': editRatingFormData.favorite, 'btn-standard': !editRatingFormData.favorite}" 
+              <button type="button"
+              class="btn btn-xs"
+              ng-class="{'btn-danger': editRatingFormData.favorite, 'btn-standard': !editRatingFormData.favorite}"
               ng-click="editRatingFormData.favorite = !editRatingFormData.favorite">
                 <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorite
               </button>
 
-              <button type="button" 
-              class="btn btn-xs" 
-              ng-class="{'btn-warning': editRatingFormData.rewatch, 'btn-standard': !editRatingFormData.rewatch}" 
+              <button type="button"
+              class="btn btn-xs"
+              ng-class="{'btn-warning': editRatingFormData.rewatch, 'btn-standard': !editRatingFormData.rewatch}"
               ng-click="editRatingFormData.rewatch = !editRatingFormData.rewatch">
                 <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Rewatch
               </button>
@@ -70,15 +71,15 @@
 
             </div>
           </div>
-        </div>  
+        </div>
 
       </div>
 
-      <div class="media" ng-repeat="rating in selectedMovie.user_movie_ratings" ng-hide="currentUsersRating(rating)">
+      <div class="media" ng-repeat="rating in selectedMovie.user_movie_ratings" ng-hide="isCurrentUsersRating(rating)">
         <div class="media-body">
           <p class="post-title">
             {{rating.first_name}}'s Rating: {{rating.rating}}
-            <span ng-hide="selectedMovie.current_user_movie_rating.rating" style="display:inline">incomplete</span>
+            <span ng-hide="rating.rating" style="display:inline">incomplete</span>
           </p>
           <div class="btn-group controls">
             <a data-toggle="tooltip" data-original-title="Seen" class="ttips btn btn-xs" ng-class="{'btn-success': rating.seen}"><i class="fa fa-eye"> Seen</i></a>
