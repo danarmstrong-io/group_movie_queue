@@ -18,6 +18,16 @@ angular.module('app').directive('thumbnailPosterImage', function() {
 	};
 })
 
+angular.module('app').directive('pendingListThumbnailPoster', function() {
+	return {
+		restrict: 'E',
+		templateUrl: "/templates/directives/pending-list-thumbnail-poster.html",
+		scope: {
+			source: "="
+		}
+	};
+})
+
 angular.module('app').directive('fallbackSrc', function () {
   var fallbackSrc = {
     link: function postLink(scope, elem, attrs) {

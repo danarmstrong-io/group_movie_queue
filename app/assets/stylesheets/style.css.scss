@@ -1,5 +1,5 @@
 /* --------------------------------------------------------
-    Fonts 
+    Fonts
 -----------------------------------------------------------*/
 @font-face {
     font-family: 'Actor';
@@ -22,15 +22,15 @@
          font-url('opensansregular.svg#pt_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
-    unicode-range: U+30-39;       
+    unicode-range: U+30-39;
 }
 
 
 /* --------------------------------------------------------
-    Base 
+    Base
 -----------------------------------------------------------*/
-*:focus  {  
-    outline: none !important;  
+*:focus  {
+    outline: none !important;
 }
 
 html {
@@ -43,7 +43,7 @@ body {
     font-family: Actor;
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
     body {
         font-size: 12px;
     }
@@ -82,7 +82,7 @@ p {
 }
 
 /* --------------------------------------------------------
-    Special Overrides 
+    Special Overrides
 -----------------------------------------------------------*/
 
 .main-container {
@@ -158,8 +158,8 @@ p {
 }
 
 .btn-watched {
-    position:absolute; 
-    bottom:0; 
+    position:absolute;
+    bottom:0;
     right:0;
     color:white;
 }
@@ -171,7 +171,7 @@ p {
 
     .media-actors {
         color: grey !important;
-        
+
     }
 
     .list-group-item-heading {
@@ -197,7 +197,7 @@ p {
 
 .create-list-button {
     position:relative;
-    bottom:13px; 
+    bottom:13px;
 }
 
 .pending-block {
@@ -212,7 +212,7 @@ p {
 }
 
 .pending-thumbnail {
-    height:180px; 
+    height:180px;
     width: 125px;
 }
 
@@ -244,22 +244,26 @@ p {
 -----------------------------------------------------------*/
 
 .info-poster-not-found {
-    width:0px; 
-    height:0px; 
-    padding: 150px 101px; 
+    width:0px;
+    height:0px;
+    padding: 150px 101px;
     background: url(asset-path('poster_404.jpg'));
 }
 
 .thumb-poster-not-found {
-    width:0px; 
-    height:0px; 
-    padding: 30px 22px 30px 23px; 
+    width:0px;
+    height:0px;
+    padding: 30px 22px 30px 23px;
     background: url(asset-path('thumb_404.jpg'));
     border:3px solid white;
 }
 
+.pending-thumb-poster-not-found {
+    background: url(asset-path('thumb_404.jpg'));
+}
+
 /* --------------------------------------------------------
-    Bootstrap UI Overrides 
+    Bootstrap UI Overrides
 -----------------------------------------------------------*/
 
 small {
@@ -322,11 +326,11 @@ textarea.form-control {
 }
 
 /* --------------------------------------------------------
-    Blockquote 
+    Blockquote
 -----------------------------------------------------------*/
 blockquote {
     border-left: 5px solid #ACACAC;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
     background: #fff;
     position: relative;
     width: 100%;
@@ -365,7 +369,7 @@ blockquote > i {
 }
 
 /* --------------------------------------------------------
-    Unordered Lists 
+    Unordered Lists
 -----------------------------------------------------------*/
 
 [class*="lists"] {
@@ -460,7 +464,7 @@ tr.red td, tr.green td, tr.blue td, tr.yellow td, tr.dark td {
 }
 
 /* --------------------------------------------------------
-    Data Table 
+    Data Table
 -----------------------------------------------------------*/
 .dataTable {
     margin: 0;
@@ -505,7 +509,7 @@ tr.red td, tr.green td, tr.blue td, tr.yellow td, tr.dark td {
 }
 
 .dataTables_filter label {
-    position: relative;    
+    position: relative;
 }
 
 .dataTables_filter label:after {
@@ -634,7 +638,7 @@ aside .btn {
 }
 
 /* --------------------------------------------------------
-    Content + Sidebar 
+    Content + Sidebar
 -----------------------------------------------------------*/
 #main {
     position: relative;
@@ -692,7 +696,7 @@ aside .btn {
 
 #leftbar.toggled {
     box-shadow: 3px 0px 3px -1px rgba(0, 0, 0, 0.4);
-        
+
 }
 
 .toggled .sidebar-toggle i {
@@ -745,7 +749,7 @@ aside .last-shadowed {
 }
 
 /* --------------------------------------------------------
-    Header 
+    Header
 -----------------------------------------------------------*/
 #header {
     padding: 15px;
@@ -762,7 +766,7 @@ aside .last-shadowed {
 }
 
 /* --------------------------------------------------------
-    Logo 
+    Logo
 -----------------------------------------------------------*/
 .logo {
     float: left;
@@ -775,7 +779,7 @@ aside .last-shadowed {
 }
 
 /* --------------------------------------------------------
-    Top Menu 
+    Top Menu
 -----------------------------------------------------------*/
 #top-menu {
     margin-left: 10px;
@@ -925,23 +929,23 @@ aside .top-search.shadowed {
    font-style: italic;
 }
 
-.top-search :-moz-placeholder { 
+.top-search :-moz-placeholder {
    color: #818181;
    font-style: italic;
 }
 
-.top-search ::-moz-placeholder {  
+.top-search ::-moz-placeholder {
    color: #818181;
    font-style: italic;
 }
 
-.top-search :-ms-input-placeholder {  
+.top-search :-ms-input-placeholder {
    color: #818181;
    font-style: italic;
 }
 
 /* --------------------------------------------------------
-    Color Profiles 
+    Color Profiles
 -----------------------------------------------------------*/
 .red {
     background: #E93C3C;
@@ -1170,7 +1174,7 @@ aside .top-search.shadowed {
     margin-bottom: 0;
 }
 
-.simple-list .icon { 
+.simple-list .icon {
     font-size: 15px;
     display: inline-block;
     width: 12px;
@@ -1182,7 +1186,7 @@ aside .top-search.shadowed {
 }
 
 /* --------------------------------------------------------
-    Box view 
+    Box view
 -----------------------------------------------------------*/
 .box-view {
     padding: 0 8px 5px;
@@ -1253,7 +1257,7 @@ aside .top-search.shadowed {
 }
 
 /* ---------------------------------------------------------
-    Wall 
+    Wall
 -----------------------------------------------------------*/
 /* Post Menu */
 ul.post-menu {
@@ -1271,7 +1275,7 @@ ul.post-menu li a {
     text-transform: uppercase;
 }
 
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
     ul.post-menu li a {
         padding-bottom: 13px;
     }
@@ -1315,7 +1319,7 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
 }
 
 .post-options a:hover i {
-    color: #000;    
+    color: #000;
 }
 
 .wall-post {
@@ -1362,7 +1366,7 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
 }
 
 .post [class*="post-"].pull-right {
-    margin-right: 0;    
+    margin-right: 0;
 }
 
 .post .post-like.liked i {
@@ -1438,7 +1442,7 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
 
 .img-popup:hover i {
     opacity: 1;
-} 
+}
 
 /* --------------------------------------------------------
     Tabs
@@ -1512,7 +1516,7 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
 }
 
 .modal-footer {
-    margin-top: 0;    
+    margin-top: 0;
 }
 
 /* --------------------------------------------------------
@@ -1703,7 +1707,7 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
 }
 
 .accordion .panel-heading .panel-title .active:after {
-    content: "\f106" !important; 
+    content: "\f106" !important;
 }
 
 /* --------------------------------------------------------
@@ -1759,12 +1763,12 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
 
 .tooltip-inner {
     background: -moz-linear-gradient(top,  #999999 0%, #000000 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#999999), color-stop(100%,#000000)); 
-    background: -webkit-linear-gradient(top,  #999999 0%,#000000 100%); 
-    background: -o-linear-gradient(top,  #999999 0%,#000000 100%); 
-    background: -ms-linear-gradient(top,  #999999 0%,#000000 100%); 
-    background: linear-gradient(to bottom,  #999999 0%,#000000 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#000000',GradientType=0 ); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#999999), color-stop(100%,#000000));
+    background: -webkit-linear-gradient(top,  #999999 0%,#000000 100%);
+    background: -o-linear-gradient(top,  #999999 0%,#000000 100%);
+    background: -ms-linear-gradient(top,  #999999 0%,#000000 100%);
+    background: linear-gradient(to bottom,  #999999 0%,#000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#000000',GradientType=0 );
     font-size: 12px;
     text-shadow: none;
     border-radius: 2px;
@@ -1781,36 +1785,36 @@ ul.post-menu li a.active, ul.post-menu li a:hover, .post-options i {
  .panel-title {
     font-size: 14px;
  }
- 
+
  /* --------------------------------------------------------
     Popover
 -----------------------------------------------------------*/
  .popover {
     box-shadow: 0 0px 6px rgba(0,0,0,0.2)
  }
- 
+
  .popover, .popover-title {
     border: 0;
  }
- 
+
 .popover.top .arrow {
     border-top-color: #d5d5d5;
  }
- 
+
  .popover.right .arrow {
     border-right-color: #d5d5d5;
  }
- 
+
  .popover.left .arrow {
     border-left-color: #d5d5d5;
  }
- 
+
  .popover.bottom .arrow {
     border-bottom-color: #DDDDDD;
  }
- 
+
 /* --------------------------------------------------------
-    Sidebar Widgets 
+    Sidebar Widgets
 -----------------------------------------------------------*/
 /* Search */
 aside .top-search .form-control {
@@ -2108,7 +2112,7 @@ aside .side-calendar {
 .side-calendar .fc-button-today {
     display: none;
 }
-     
+
 .side-calendar .fc-text-arrow i {
     font-size: 18px;
     margin-right: 9px;
@@ -2176,7 +2180,7 @@ aside .side-profile {
     Scrollbar
 -----------------------------------------------------------*/
 .overflow {
-    overflow: auto; 
+    overflow: auto;
 }
 
 #content .vertical-handle {
@@ -2494,17 +2498,17 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 
 .dropdown-menu, .modal-content, .elfinder-button-menu, .elfinder-dialog, .elfinder-contextmenu, .elfinder-contextmenu-sub {
     border: 2px solid #272727;
-    background: #fcfcfc; 
+    background: #fcfcfc;
     background: -moz-linear-gradient(top,  #ffffff 1%, #dadada 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#dadada)); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#dadada));
     background: -webkit-linear-gradient(top,  #ffffff 1%,#dadada 100%);
     background: -o-linear-gradient(top,  #ffffff 1%,#dadada 100%);
-    background: -ms-linear-gradient(top,  #ffffff 1%,#dadada 100%); 
-    background: linear-gradient(to bottom,  #ffffff 1%,#dadada 100%); 
+    background: -ms-linear-gradient(top,  #ffffff 1%,#dadada 100%);
+    background: linear-gradient(to bottom,  #ffffff 1%,#dadada 100%);
 }
 
 /* --------------------------------------------------------
-    List view 
+    List view
 -----------------------------------------------------------*/
 .listview .media {
     margin-top: 0;
@@ -2580,7 +2584,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 }
 
 .list-delete-all {
-    display: none;    
+    display: none;
 }
 
 .block .listview .media {
@@ -2597,7 +2601,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
     box-shadow: none !important;
 }
 
-.listview-block .block > h2 { 
+.listview-block .block > h2 {
     margin-bottom: 0;
 }
 
@@ -2695,8 +2699,8 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
     max-width: 100%;
 }
 
-.cover .profile-pic { 
-    max-width: 130px; 
+.cover .profile-pic {
+    max-width: 130px;
     position: absolute;
     max-height: 100%;
     bottom: -20px;
@@ -2774,7 +2778,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 }
 
 /* --------------------------------------------------------
-    Main Graph 
+    Main Graph
 -----------------------------------------------------------*/
 .main-graph {
     border-left: 1px solid #e4e4e4;
@@ -2792,7 +2796,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
 }
 
 /* --------------------------------------------------------
-    Footer 
+    Footer
 -----------------------------------------------------------*/
 #footer {
     text-align: center;
@@ -2800,7 +2804,7 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
     margin-top: 10px;
 }
 
-/* -------------------------------------------------------- 
+/* --------------------------------------------------------
     Older IE Message
 -------------------------------------------------------- */
 .ie-block {
@@ -3109,14 +3113,14 @@ aside ul li:last-child, aside ul li:last-child a, .activity > li:last-child {
     .compose-message,.compose-message .dropdown-menu,.message-header .compose-btn {
         width: 100%;
     }
-    
+
     .updates {
         position: absolute;
         top: 15px;
         right: 50px;
         margin-left: auto;
     }
-    
+
     .updates .dropdown-menu {
         width: 250px;
         margin-left: -157px;
